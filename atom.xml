@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-10T04:00:33.813Z</updated>
+  <updated>2017-05-10T11:17:19.972Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/01/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/</id>
     <published>2017-01-03T12:11:32.000Z</published>
-    <updated>2017-05-10T04:00:33.813Z</updated>
+    <updated>2017-05-10T11:17:19.972Z</updated>
     
     <content type="html"><![CDATA[<h1 id="深入学习JAVA虚拟机（一）"><a href="#深入学习JAVA虚拟机（一）" class="headerlink" title="深入学习JAVA虚拟机（一）"></a>深入学习JAVA虚拟机（一）</h1><h2 id="–java内存区域与内存溢出异常"><a href="#–java内存区域与内存溢出异常" class="headerlink" title="–java内存区域与内存溢出异常"></a>–java内存区域与内存溢出异常</h2><hr>
 <p><strong>本章主要内容</strong></p>
@@ -28,8 +28,8 @@
 <li>运行时数据区域</li>
 </ul>
 <hr>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""><br>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。
-  　　</p>
+<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""></p>
+<p>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。<br><a id="more"></a></p>
 <h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h4><p>　　程序计数器(Program Counter Register) 是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型中，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，<strong>分支、循环、跳转、异常处理、线程恢复等</strong>基础功能都需要依赖这个计数器来完成。</p>
 <ul>
 <li>Java虚拟机的多线程通过轮流切换并分配处理器执行时间实现。</li>
@@ -84,7 +84,14 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;a href=&quot;#深入学习JAVA虚拟机（一）&quot; class=&quot;headerlink&quot; title=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;/a&gt;深入学习JAVA虚拟机（一）&lt;/h1&gt;&lt;h2 id=&quot;–java内存区域与内存溢出异常&quot;
+      &lt;h1 id=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;a href=&quot;#深入学习JAVA虚拟机（一）&quot; class=&quot;headerlink&quot; title=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;/a&gt;深入学习JAVA虚拟机（一）&lt;/h1&gt;&lt;h2 id=&quot;–java内存区域与内存溢出异常&quot;&gt;&lt;a href=&quot;#–java内存区域与内存溢出异常&quot; class=&quot;headerlink&quot; title=&quot;–java内存区域与内存溢出异常&quot;&gt;&lt;/a&gt;–java内存区域与内存溢出异常&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行时数据区域&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;运行时数据区域&quot;&gt;&lt;a href=&quot;#运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区域&quot;&gt;&lt;/a&gt;运行时数据区域&lt;/h3&gt;&lt;p&gt;Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。&lt;br&gt;  &lt;img src=&quot;http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。&lt;br&gt;
     
     </summary>
     
@@ -100,7 +107,7 @@
     <link href="http://yoursite.com/2016/09/10/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2016/09/10/Java基础原理笔记（一）/</id>
     <published>2016-09-10T07:06:55.000Z</published>
-    <updated>2017-05-10T11:12:43.419Z</updated>
+    <updated>2017-05-10T11:16:31.297Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Java基础原理笔记（一）"><a href="#Java基础原理笔记（一）" class="headerlink" title="Java基础原理笔记（一）"></a>Java基础原理笔记（一）</h1><h2 id="–Java数据类型介绍"><a href="#–Java数据类型介绍" class="headerlink" title="–Java数据类型介绍"></a>–Java数据类型介绍</h2><hr>
 <p><strong>本章主要内容</strong></p>
@@ -115,7 +122,7 @@
 <li>指定类型的变量只能接受类型与之匹配的值。</li>
 </ul>
 <p>在了解数据类型前先弄懂两个问题：</p>
-<h4 id="什么是变量？变量有什么用？"><a href="#什么是变量？变量有什么用？" class="headerlink" title="什么是变量？变量有什么用？"></a>什么是变量？变量有什么用？</h4><p>　　 <strong>编程的本质，就是对内存中的数据的访问和修改</strong>。程序所用的数据都会保存在内存中，程序员需要一种机制来访问或修改内存中的数据。这种机制就是 <strong>变量</strong>。每个变量都代表某一小块内存，而且变量是有名字的，程序对变量赋值， <strong>实际上就是把数据装入该变量所代表的内存区的过程</strong>；<br>程序读取变量的值， <strong>实际上就是从该变量所代表的内存区中取值的过程</strong>。 <strong>变量相当于一个有名称的容器，该容器用于装各种不同类型的数据</strong>。</p>
+<h4 id="什么是变量？变量有什么用？"><a href="#什么是变量？变量有什么用？" class="headerlink" title="什么是变量？变量有什么用？"></a>什么是变量？变量有什么用？</h4><p>　　 <strong>编程的本质，就是对内存中的数据的访问和修改</strong>。程序所用的数据都会保存在内存中，程序员需要一种机制来访问或修改内存中的数据。这种机制就是 <strong>变量</strong>。每个变量都代表某一小块内存，而且变量是有名字的，程序对变量赋值， <strong>实际上就是把数据装入该变量所代表的内存区的过程</strong>；<br>程序读取变量的值， <strong>实际上就是从该变量所代表的内存区中取值的过程</strong>。 <strong>变量相当于一个有名称的容器，该容器用于装各种不同类型的数据</strong>。<br><a id="more"></a></p>
 <p>Java语言支持的类型分为两种： <strong>基本类型</strong>和 <strong>引用类型</strong>。</p>
 <p><strong>基本类型</strong>包括Boolean类型和数值类型。数值类型有整数类型和浮点类型。</p>
 <p>整数类型包括： <strong>byte</strong>、 <strong>short</strong>、 <strong>int</strong>、 <strong>long</strong>、 <strong>char</strong></p>
@@ -167,7 +174,20 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Java基础原理笔记（一）&quot;&gt;&lt;a href=&quot;#Java基础原理笔记（一）&quot; class=&quot;headerlink&quot; title=&quot;Java基础原理笔记（一）&quot;&gt;&lt;/a&gt;Java基础原理笔记（一）&lt;/h1&gt;&lt;h2 id=&quot;–Java数据类型介绍&quot;&gt;&lt;a href=
+      &lt;h1 id=&quot;Java基础原理笔记（一）&quot;&gt;&lt;a href=&quot;#Java基础原理笔记（一）&quot; class=&quot;headerlink&quot; title=&quot;Java基础原理笔记（一）&quot;&gt;&lt;/a&gt;Java基础原理笔记（一）&lt;/h1&gt;&lt;h2 id=&quot;–Java数据类型介绍&quot;&gt;&lt;a href=&quot;#–Java数据类型介绍&quot; class=&quot;headerlink&quot; title=&quot;–Java数据类型介绍&quot;&gt;&lt;/a&gt;–Java数据类型介绍&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据类型分类&lt;/li&gt;
+&lt;li&gt;基本数据类型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;数据类型分类&quot;&gt;&lt;a href=&quot;#数据类型分类&quot; class=&quot;headerlink&quot; title=&quot;数据类型分类&quot;&gt;&lt;/a&gt;数据类型分类&lt;/h3&gt;&lt;p&gt;Java语言是强类型（strongly typed）语言，强类型包含两方面的含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有的变量必须先声明、后使用。&lt;/li&gt;
+&lt;li&gt;指定类型的变量只能接受类型与之匹配的值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在了解数据类型前先弄懂两个问题：&lt;/p&gt;
+&lt;h4 id=&quot;什么是变量？变量有什么用？&quot;&gt;&lt;a href=&quot;#什么是变量？变量有什么用？&quot; class=&quot;headerlink&quot; title=&quot;什么是变量？变量有什么用？&quot;&gt;&lt;/a&gt;什么是变量？变量有什么用？&lt;/h4&gt;&lt;p&gt;　　 &lt;strong&gt;编程的本质，就是对内存中的数据的访问和修改&lt;/strong&gt;。程序所用的数据都会保存在内存中，程序员需要一种机制来访问或修改内存中的数据。这种机制就是 &lt;strong&gt;变量&lt;/strong&gt;。每个变量都代表某一小块内存，而且变量是有名字的，程序对变量赋值， &lt;strong&gt;实际上就是把数据装入该变量所代表的内存区的过程&lt;/strong&gt;；&lt;br&gt;程序读取变量的值， &lt;strong&gt;实际上就是从该变量所代表的内存区中取值的过程&lt;/strong&gt;。 &lt;strong&gt;变量相当于一个有名称的容器，该容器用于装各种不同类型的数据&lt;/strong&gt;。&lt;br&gt;
     
     </summary>
     

@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。    　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。   　　 程序计数器　　程序计数器(Program Cou">
+<meta name="description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
 <meta name="keywords" content="Java虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入学习JAVA虚拟机（一）">
 <meta property="og:url" content="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。    　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。   　　 程序计数器　　程序计数器(Program Cou">
+<meta property="og:description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
 <meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
-<meta property="og:updated_time" content="2017-05-10T04:00:33.813Z">
+<meta property="og:updated_time" content="2017-05-10T11:17:19.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入学习JAVA虚拟机（一）">
-<meta name="twitter:description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。    　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。   　　 程序计数器　　程序计数器(Program Cou">
+<meta name="twitter:description" content="深入学习JAVA虚拟机（一）–java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
 <meta name="twitter:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
 
 
@@ -379,8 +379,8 @@
 <li>运行时数据区域</li>
 </ul>
 <hr>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""><br>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。
-  　　</p>
+<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""></p>
+<p>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。<br><a id="more"></a></p>
 <h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h4><p>　　程序计数器(Program Counter Register) 是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型中，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，<strong>分支、循环、跳转、异常处理、线程恢复等</strong>基础功能都需要依赖这个计数器来完成。</p>
 <ul>
 <li>Java虚拟机的多线程通过轮流切换并分配处理器执行时间实现。</li>
