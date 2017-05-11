@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-10T11:17:19.972Z</updated>
+  <updated>2017-05-11T12:31:19.477Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,217 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础原理笔记（二）</title>
+    <link href="http://yoursite.com/2017/09/11/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/09/11/Java基础原理笔记（二）/</id>
+    <published>2017-09-11T08:20:57.000Z</published>
+    <updated>2017-05-11T12:31:19.477Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数据类型和运算符"><a href="#数据类型和运算符" class="headerlink" title="数据类型和运算符"></a>数据类型和运算符</h2><p><strong>本章主要内容</strong></p>
+<ul>
+<li>基本类型的转换</li>
+<li>直接量</li>
+<li>运算符</li>
+</ul>
+<p>–</p>
+<h3 id="基本类型的类型转换"><a href="#基本类型的类型转换" class="headerlink" title="基本类型的类型转换"></a>基本类型的类型转换</h3><hr>
+<p>Java语言所提供的7中数值类型之间可以相互转换，有两种转换方式： <strong>自动类型转换、强制类型转换</strong></p>
+<h4 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h4><hr>
+<p>　　当把一个表数范围小的数值或变量直接赋给另一个表数范围大的变量时，西东可以自动类型转换，反之，则需要强制转换。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%9B%BE.png" alt=""></p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int a = 6;</div><div class="line">float b = a;//此时b的值为6.0</div><div class="line"></div><div class="line">byte c = 7;</div><div class="line">//下面代码将出错，byte类型不能自动转换成char类型</div><div class="line">char d = b;</div></pre></td></tr></table></figure>
+<p>　　特别地，当任何基本类型的值和字符串值进行连接运算时，基本类型的值会自动转换成字符串类型的值，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String TransToStr = 2.5f + &quot;&quot;;</div><div class="line"></div><div class="line">String Str1 = 3 + 4 + &quot;Hello!&quot;;//Str1的值为 &quot;7Hello!&quot;</div><div class="line"></div><div class="line">String Str2 = &quot;Hello!&quot; + 3 + 4;//Str2的值为 &quot;Hello34&quot;</div></pre></td></tr></table></figure>
+<h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><hr>
+<p>　　强制类型转换的格式为(targetType)value，需要注意的是，若转换的值超过了目标类型的表数范围，将会引起溢出，造成数据丢失，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">int iValue = 233;</div><div class="line">//将int型强制转换成byte型</div><div class="line">byte bValue = (byte)iValue;</div><div class="line">//数据溢出，将输出-23</div><div class="line">System.out.println(bValue);</div><div class="line"></div><div class="line">double dValue = 3.98;</div><div class="line">//将double型强制转换成int型</div><div class="line">int tol = (int)dValue;</div><div class="line">//将输出3</div><div class="line">System.out.println(tol);</div></pre></td></tr></table></figure>
+<p>原理：<br><img src="http://oppqlui3e.bkt.clouddn.com/int%E8%BD%ACbyte.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<p>　　32位int类型的233强制转换为8位的byte类型，需要截断前面的24位，截断后最左一位表示符号位，而负数在计算机中以补码形式存在，则11101001转成原码还需减一取反，得到10010111，即为-23。</p>
+<p>另外，有一个容易出错的地方，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//5.6默认是double型的，直接赋给一个float型的变量会出错</div><div class="line">float a = 5.6;</div><div class="line">//应为</div><div class="line">float a = (float)5.6;</div></pre></td></tr></table></figure>
+<p>　　一般的，字符串不能直接转换为基本类型，但是可以通过基本类型对应的包装类实现字符串转基本类型，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String a = &quot;25&quot;;</div><div class="line">int iValue = Integer.parseInt(a);</div></pre></td></tr></table></figure>
+<p>Java中八种基本类型对应的包装类如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">基本类型</th>
+<th style="text-align:center">包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:center">Boolean</td>
+</tr>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:center">Byte</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:center">Short</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:center">Integer</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:center">Long</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:center">charcter</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:center">Float</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:center">Double</td>
+</tr>
+</tbody>
+</table>
+<p>8个包装类均提供parseXxx(String str)静态方法用于将字符串转成对应的基本类型。</p>
+<h3 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h3><hr>
+<p>能指定直接量的通常只有三种类型： <strong>基本类型、字符类型、null型</strong></p>
+<ul>
+<li>基本类型： <strong>int、long、float、double、Boolean、char</strong></li>
+<li>字符类型： <strong>String</strong></li>
+<li>null类型： 只有一个值,即为 <strong>null</strong></li>
+</ul>
+<p>需要注意的是：</p>
+<ul>
+<li>String类型的直接量不能赋给其他类型的变量</li>
+<li>null类型的直接量可以直接赋给任何引用类型的变量</li>
+<li>Boolean类型的直接量只能赋给Boolean类型的变量</li>
+</ul>
+<p>　　 <strong>关于字符串直接量有一点需要指出</strong>，当程序第一次使用某个字符串直接量时，Java会使用常量池来缓存该字符串直接量，若后续要使用该字符串直接量，Java会直接使用常量池中的该直接量。</p>
+<p>　　 <strong>常量池</strong>指的是在编译期被确定，并被保存在已编译的.class魏建忠的一些数据。它包括关于 <strong>类、方法、接口</strong>中的常量，也包括 <strong>字符串常量</strong>。</p>
+<p>如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String s0 = &quot;hello&quot;;</div><div class="line">String s1 = &quot;hello&quot;;</div><div class="line">String s2 = &quot;he&quot; + &quot;llo&quot;;</div><div class="line">System.out.println( s0 == s1);</div><div class="line">System.out.println( s0 == s2);</div></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">true</div><div class="line">true</div></pre></td></tr></table></figure>
+<p>　　因为Java会确保每个字符串常量只有一个，不会产生多个副本。例子中的s0和s1中的”hello”都是字符串常量，他们在编译期就被确定了，所以s0==s1返回true;s2同样在编译器就被解析为一个字符串常量，所以s2也是常量池中”hello”的引用。</p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><hr>
+<p>Java中的算术运算符可分为如下几种：</p>
+<p>–</p>
+<ul>
+<li><strong>算术运算符</strong></li>
+<li><strong>赋值运算符</strong></li>
+<li><strong>比较运算符</strong></li>
+<li><strong>逻辑运算符</strong></li>
+<li><strong>位运算符</strong></li>
+<li><strong>类型相关运算符</strong></li>
+</ul>
+<p>–</p>
+<h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><hr>
+<ul>
+<li>+：加法运算符</li>
+<li>-：减法运算符</li>
+<li>*：乘法运算符</li>
+<li>/：除法运算符</li>
+<li>%：求余运算符</li>
+<li>++：自加</li>
+<li>–：自减</li>
+</ul>
+<p><strong>注意</strong>：自加和自减只能用于 <strong>操作变量</strong>，不能用于操作数值直接量、常量或表达式。如：5++、6–都是错误的。</p>
+<p>Java没有提供更复杂的运算符，如果要完成乘方、开方等运算，需借助 <strong>java.lang.Math</strong>类的工具方法完成。</p>
+<h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><hr>
+<p>用于为变量指定变量值，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String str = &quot;Java&quot;;</div><div class="line"></div><div class="line">String str2 = str;</div></pre></td></tr></table></figure>
+<p><strong>把变量当成一个盛装数据的容器，赋值运算就相当于“装入”的过程</strong>。赋值运算符是 <strong>从右向左</strong>执行计算的，程序先计算得到 <code>=</code>右边的值，再把该值装入左边的变量中。因此， <code>=</code>左边只能是变量。</p>
+<h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><hr>
+<ul>
+<li>&amp;：按位与。当两位同时为1时才返回1。</li>
+<li>|：按位或。只要有一位为1即可返回1。</li>
+<li>~：按位非。单目运算符，将操作数的每个位（包括符号位）全部取反。</li>
+<li>^ ：按位异或。当两位相同时返回0，不同时返回1。</li>
+<li>&lt;&lt;：左移运算符。</li>
+<li><blockquote>
+<blockquote>
+<p>：右移运算符。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>：无符号右移运算符。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>实例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &amp; 9);//输出1</div><div class="line">System.out.println(5 | 9);//输出13</div></pre></td></tr></table></figure>
+<p>原理如下：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/%E4%B8%8E%E6%88%96%E8%BF%90%E7%AE%97.png" alt=""></h2><p>按位异或和按位取反：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(~-5);//输出4</div><div class="line">System.out.println(5 ^ 9);//输出12</div></pre></td></tr></table></figure>
+<p>–<br><strong>按位取反原理如下</strong>：<br><img src="http://oppqlui3e.bkt.clouddn.com/%E9%9D%9E%E8%B4%9F5.png" alt=""></p>
+<p>–<br><strong>按位异或原理如下</strong>：</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/59%E5%BC%82%E6%88%96.png" alt=""></h2><p>左移运算符是将操作数的二进制码整体左移指定位数，左移后右边空出来的用0补充，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &lt;&lt; 2);//输出20</div><div class="line">System.out.println(-5 &lt;&lt; 2);//输出-20</div></pre></td></tr></table></figure>
+<p><strong>左移原理如下</strong>：</p>
+<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97.png" alt=""></h2><p>　　Java的右移运算符有两个 <strong>&gt;&gt;、&gt;&gt;&gt;</strong>，对于 <code>&gt;&gt;</code>运算符而言，把第一个操作数的二进制码右移指定位数后，左边空出来的为以原来的符号位填充，即如果是一个整数则以0补充，如果第一个操作数是负数则补1。 <code>&gt;&gt;&gt;</code>把第一个操作数右移指定位数后总以0补充。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &gt;&gt; 2);//输出-2</div><div class="line">System.out.println(-5 &gt;&gt;&gt; 2);//输出1073741822</div></pre></td></tr></table></figure>
+<p><strong>-5&gt;&gt;2的运算原理</strong>：<br><img src="http://oppqlui3e.bkt.clouddn.com/-5%E5%8F%B3%E7%A7%BB2%E4%BD%8D.png" alt=""></p>
+<p><strong>-5&gt;&gt;&gt;2的运算原理</strong>:</p>
+<h2 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/-5%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB.png" alt=""></h2><p><strong>注意：进行移位运算不会改变操作数本身，只是得到一个新的运算结果，原来的操作数本身不会改变</strong>。</p>
+<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><hr>
+<p>比较运算符用于判断两个变量或常量的大小，其结果是一个布尔值（true或false），如下：</p>
+<ul>
+<li><blockquote>
+<p>：大于，（只支持数值类型）</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>=：大于等于，（只支持数值类型）</p>
+</blockquote>
+</li>
+<li>&lt;：小于，（只支持数值类型）</li>
+<li>&lt;=：小于等于，（只支持数值类型）</li>
+<li>==：等于， 如果两边都是数值类型，即使它们数据类型不同，只要值相等也会返回true。如果两边是引用类型， <strong>只有当两个引用变量具有父子关系时才可比较</strong>，同时，这两个变量必须指向 <strong>同一个对象</strong>才会返回true。</li>
+<li>!=：不等于，（同==）</li>
+</ul>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><hr>
+<p>用于操作两个布尔类型的变量或常量，如下：</p>
+<ul>
+<li>&amp;&amp;：与，两边为true时返回true</li>
+<li>&amp;： 不短路与，（同&amp;&amp;）但不会短路</li>
+<li>||：或，两边有一个为true返回true</li>
+<li>|： 不短路或</li>
+<li>!： 非，只有一个操作数，为true返回false</li>
+<li>^ ：异或，两边结果不同时返回true，相同返回false</li>
+</ul>
+<h4 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h4><hr>
+<p>三目运算符只有一个：（？：）</p>
+<p>格式为：(expression) ? if-true-statement : if-false-statment;</p>
+<h4 id="运算符结合性和优先级"><a href="#运算符结合性和优先级" class="headerlink" title="运算符结合性和优先级"></a>运算符结合性和优先级</h4><hr>
+<p><strong>单目运算符、赋值运算符、三目运算符</strong>是 <strong>从右向左</strong>运算的。</p>
+<p>下表为运算符优先级表，上一行优先于下一行。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;数据类型和运算符&quot;&gt;&lt;a href=&quot;#数据类型和运算符&quot; class=&quot;headerlink&quot; title=&quot;数据类型和运算符&quot;&gt;&lt;/a&gt;数据类型和运算符&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本类型的转换&lt;/
+    
+    </summary>
+    
+      <category term="Java基础" scheme="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="数据类型转换" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>深入学习JAVA虚拟机（一）</title>
@@ -107,10 +318,9 @@
     <link href="http://yoursite.com/2016/09/10/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2016/09/10/Java基础原理笔记（一）/</id>
     <published>2016-09-10T07:06:55.000Z</published>
-    <updated>2017-05-10T11:16:31.297Z</updated>
+    <updated>2017-05-11T08:32:55.384Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Java基础原理笔记（一）"><a href="#Java基础原理笔记（一）" class="headerlink" title="Java基础原理笔记（一）"></a>Java基础原理笔记（一）</h1><h2 id="–Java数据类型介绍"><a href="#–Java数据类型介绍" class="headerlink" title="–Java数据类型介绍"></a>–Java数据类型介绍</h2><hr>
-<p><strong>本章主要内容</strong></p>
+    <content type="html"><![CDATA[<h2 id="Java数据类型介绍"><a href="#Java数据类型介绍" class="headerlink" title="Java数据类型介绍"></a>Java数据类型介绍</h2><p><strong>本章主要内容</strong></p>
 <ul>
 <li>数据类型分类</li>
 <li>基本数据类型</li>
@@ -174,8 +384,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Java基础原理笔记（一）&quot;&gt;&lt;a href=&quot;#Java基础原理笔记（一）&quot; class=&quot;headerlink&quot; title=&quot;Java基础原理笔记（一）&quot;&gt;&lt;/a&gt;Java基础原理笔记（一）&lt;/h1&gt;&lt;h2 id=&quot;–Java数据类型介绍&quot;&gt;&lt;a href=&quot;#–Java数据类型介绍&quot; class=&quot;headerlink&quot; title=&quot;–Java数据类型介绍&quot;&gt;&lt;/a&gt;–Java数据类型介绍&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;Java数据类型介绍&quot;&gt;&lt;a href=&quot;#Java数据类型介绍&quot; class=&quot;headerlink&quot; title=&quot;Java数据类型介绍&quot;&gt;&lt;/a&gt;Java数据类型介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;数据类型分类&lt;/li&gt;
 &lt;li&gt;基本数据类型&lt;/li&gt;
