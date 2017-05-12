@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-10T11:17:19.972Z</updated>
+  <updated>2017-05-12T09:07:32.617Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深入理解Java虚拟机（二）</title>
+    <link href="http://yoursite.com/2017/01/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/01/04/深入理解Java虚拟机（二）/</id>
+    <published>2017-01-04T02:10:16.000Z</published>
+    <updated>2017-05-12T09:07:32.617Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h2><p><strong>本章主要内容</strong></p>
+<ul>
+<li>对象访问</li>
+</ul>
+<hr>
+<p>在Java中，对象访问是如何进行的？</p>
+<p>　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 <strong>Java栈、Java堆、方法区</strong>这三个最重要的内存区域之间的关联关系。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object obj = new Object();</div></pre></td></tr></table></figure>
+<p>　　其中， <code>Object obj</code>这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出现。而 <code>new Object()</code>这部分的语义会反映到Java堆中，形成一块存储了Object类型所有实例数据值的结构化内存，根据具体类型及虚拟机实现的对象内存布局不同，这块内存是不固定的。在Java堆中还必须包含能查找到此对象类型数据（如对象类型、父类、实现的接口、方法等）的地址信息，这些类型数据则存储在方法区中。</p>
+<h2 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h2><p>主流的访问方式有两种：</p>
+<ul>
+<li><strong>句柄访问方式</strong>，Java堆中将会划分出一块内存来作为 <strong>句柄池</strong>，引用类型数据中存储的就是对象的句柄地址，句柄中包含了 <strong>对象实例数据</strong>和 <strong>类型数据</strong> 各自的具体地址信息。</li>
+</ul>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png" alt=""></p>
+<ul>
+<li><strong>直接指针访问方式</strong>，引用类型数据中存储的就是对象地址。</li>
+</ul>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">访问方式</th>
+<th style="text-align:center">优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">句柄访问</td>
+<td style="text-align:center">reference中存储的是稳定的句柄地址，在对象被移动中只会改变句柄中实例数据指针，而reference本身不必修改</td>
+</tr>
+<tr>
+<td style="text-align:left">直接指针访问</td>
+<td style="text-align:center">速度快，节省了一次指针定位的时间开销</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;对象访问&quot;&gt;&lt;a href=&quot;#对象访问&quot; class=&quot;headerlink&quot; title=&quot;对象访问&quot;&gt;&lt;/a&gt;对象访问&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对象访问&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;在
+    
+    </summary>
+    
+      <category term="Java虚拟机" scheme="http://yoursite.com/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+    
+      <category term="对象访问" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入学习JAVA虚拟机（一）</title>
     <link href="http://yoursite.com/2017/01/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/</id>
     <published>2017-01-03T12:11:32.000Z</published>
-    <updated>2017-05-10T11:17:19.972Z</updated>
+    <updated>2017-05-12T08:13:10.373Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="深入学习JAVA虚拟机（一）"><a href="#深入学习JAVA虚拟机（一）" class="headerlink" title="深入学习JAVA虚拟机（一）"></a>深入学习JAVA虚拟机（一）</h1><h2 id="–java内存区域与内存溢出异常"><a href="#–java内存区域与内存溢出异常" class="headerlink" title="–java内存区域与内存溢出异常"></a>–java内存区域与内存溢出异常</h2><hr>
+    <content type="html"><![CDATA[<h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><hr>
 <p><strong>本章主要内容</strong></p>
 <ul>
 <li>运行时数据区域</li>
@@ -84,7 +147,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;a href=&quot;#深入学习JAVA虚拟机（一）&quot; class=&quot;headerlink&quot; title=&quot;深入学习JAVA虚拟机（一）&quot;&gt;&lt;/a&gt;深入学习JAVA虚拟机（一）&lt;/h1&gt;&lt;h2 id=&quot;–java内存区域与内存溢出异常&quot;&gt;&lt;a href=&quot;#–java内存区域与内存溢出异常&quot; class=&quot;headerlink&quot; title=&quot;–java内存区域与内存溢出异常&quot;&gt;&lt;/a&gt;–java内存区域与内存溢出异常&lt;/h2&gt;&lt;hr&gt;
+      &lt;h2 id=&quot;java内存区域与内存溢出异常&quot;&gt;&lt;a href=&quot;#java内存区域与内存溢出异常&quot; class=&quot;headerlink&quot; title=&quot;java内存区域与内存溢出异常&quot;&gt;&lt;/a&gt;java内存区域与内存溢出异常&lt;/h2&gt;&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;运行时数据区域&lt;/li&gt;
@@ -98,7 +161,7 @@
       <category term="Java虚拟机" scheme="http://yoursite.com/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
     
-      <category term="Java虚拟机" scheme="http://yoursite.com/tags/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+      <category term="内存区域" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
     
   </entry>
   
@@ -107,15 +170,14 @@
     <link href="http://yoursite.com/2016/09/11/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2016/09/11/Java基础原理笔记（二）/</id>
     <published>2016-09-11T08:20:57.000Z</published>
-    <updated>2017-05-11T12:34:07.253Z</updated>
+    <updated>2017-05-12T08:38:46.154Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="数据类型和运算符"><a href="#数据类型和运算符" class="headerlink" title="数据类型和运算符"></a>数据类型和运算符</h2><p><strong>本章主要内容</strong></p>
+    <content type="html"><![CDATA[<h3 id="数据类型和运算符"><a href="#数据类型和运算符" class="headerlink" title="数据类型和运算符"></a>数据类型和运算符</h3><p><strong>本章主要内容</strong></p>
 <ul>
 <li>基本类型的转换</li>
 <li>直接量</li>
 <li>运算符</li>
 </ul>
-<p>–</p>
 <h3 id="基本类型的类型转换"><a href="#基本类型的类型转换" class="headerlink" title="基本类型的类型转换"></a>基本类型的类型转换</h3><hr>
 <p>Java语言所提供的7中数值类型之间可以相互转换，有两种转换方式： <strong>自动类型转换、强制类型转换</strong></p>
 <h4 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h4><hr>
@@ -199,7 +261,6 @@
 <p>　　因为Java会确保每个字符串常量只有一个，不会产生多个副本。例子中的s0和s1中的”hello”都是字符串常量，他们在编译期就被确定了，所以s0==s1返回true;s2同样在编译器就被解析为一个字符串常量，所以s2也是常量池中”hello”的引用。</p>
 <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><hr>
 <p>Java中的算术运算符可分为如下几种：</p>
-<p>–</p>
 <ul>
 <li><strong>算术运算符</strong></li>
 <li><strong>赋值运算符</strong></li>
@@ -208,7 +269,6 @@
 <li><strong>位运算符</strong></li>
 <li><strong>类型相关运算符</strong></li>
 </ul>
-<p>–</p>
 <h4 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h4><hr>
 <ul>
 <li>+：加法运算符</li>
@@ -232,47 +292,30 @@
 <li>~：按位非。单目运算符，将操作数的每个位（包括符号位）全部取反。</li>
 <li>^ ：按位异或。当两位相同时返回0，不同时返回1。</li>
 <li>&lt;&lt;：左移运算符。</li>
-<li><blockquote>
-<blockquote>
-<p>：右移运算符。</p>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>：无符号右移运算符。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>＞＞：右移运算符。</li>
+<li>＞＞＞：无符号右移运算符。</li>
 </ul>
 <p>实例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &amp; 9);//输出1</div><div class="line">System.out.println(5 | 9);//输出13</div></pre></td></tr></table></figure>
 <p>原理如下：</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/%E4%B8%8E%E6%88%96%E8%BF%90%E7%AE%97.png" alt=""></h2><p>按位异或和按位取反：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(~-5);//输出4</div><div class="line">System.out.println(5 ^ 9);//输出12</div></pre></td></tr></table></figure>
-<p>–<br><strong>按位取反原理如下</strong>：<br><img src="http://oppqlui3e.bkt.clouddn.com/%E9%9D%9E%E8%B4%9F5.png" alt=""></p>
-<p>–<br><strong>按位异或原理如下</strong>：</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/59%E5%BC%82%E6%88%96.png" alt=""></h2><p>左移运算符是将操作数的二进制码整体左移指定位数，左移后右边空出来的用0补充，如下：</p>
+<p>按位取反原理如下：<br><img src="http://oppqlui3e.bkt.clouddn.com/%E9%9D%9E%E8%B4%9F5.png" alt=""></p>
+<p>按位异或原理如下：<br><img src="http://oppqlui3e.bkt.clouddn.com/59%E5%BC%82%E6%88%96.png" alt=""></p>
+<p>左移运算符是将操作数的二进制码整体左移指定位数，左移后右边空出来的用0补充，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &lt;&lt; 2);//输出20</div><div class="line">System.out.println(-5 &lt;&lt; 2);//输出-20</div></pre></td></tr></table></figure>
-<p><strong>左移原理如下</strong>：</p>
-<h2 id="-2"><a href="#-2" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97.png" alt=""></h2><p>　　Java的右移运算符有两个 <strong>&gt;&gt;、&gt;&gt;&gt;</strong>，对于 <code>&gt;&gt;</code>运算符而言，把第一个操作数的二进制码右移指定位数后，左边空出来的为以原来的符号位填充，即如果是一个整数则以0补充，如果第一个操作数是负数则补1。 <code>&gt;&gt;&gt;</code>把第一个操作数右移指定位数后总以0补充。</p>
+<p>左移原理如下：<br><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A6%E7%A7%BB%E8%BF%90%E7%AE%97.png" alt=""></p>
+<p>　　Java的右移运算符有两个 <strong>&gt;&gt;、&gt;&gt;&gt;</strong>，对于 <code>&gt;&gt;</code>运算符而言，把第一个操作数的二进制码右移指定位数后，左边空出来的为以原来的符号位填充，即如果是一个整数则以0补充，如果第一个操作数是负数则补1。 <code>&gt;&gt;&gt;</code>把第一个操作数右移指定位数后总以0补充。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &gt;&gt; 2);//输出-2</div><div class="line">System.out.println(-5 &gt;&gt;&gt; 2);//输出1073741822</div></pre></td></tr></table></figure>
 <p><strong>-5&gt;&gt;2的运算原理</strong>：<br><img src="http://oppqlui3e.bkt.clouddn.com/-5%E5%8F%B3%E7%A7%BB2%E4%BD%8D.png" alt=""></p>
 <p><strong>-5&gt;&gt;&gt;2的运算原理</strong>:</p>
-<h2 id="-3"><a href="#-3" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/-5%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB.png" alt=""></h2><p><strong>注意：进行移位运算不会改变操作数本身，只是得到一个新的运算结果，原来的操作数本身不会改变</strong>。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/-5%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB.png" alt=""></p>
+<p><strong>注意：进行移位运算不会改变操作数本身，只是得到一个新的运算结果，原来的操作数本身不会改变</strong>。</p>
 <h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><hr>
 <p>比较运算符用于判断两个变量或常量的大小，其结果是一个布尔值（true或false），如下：</p>
 <ul>
-<li><blockquote>
-<p>：大于，（只支持数值类型）</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>=：大于等于，（只支持数值类型）</p>
-</blockquote>
-</li>
+<li>＞：大于，（只支持数值类型）</li>
+<li>＞=：大于等于，（只支持数值类型）</li>
 <li>&lt;：小于，（只支持数值类型）</li>
 <li>&lt;=：小于等于，（只支持数值类型）</li>
 <li>==：等于， 如果两边都是数值类型，即使它们数据类型不同，只要值相等也会返回true。如果两边是引用类型， <strong>只有当两个引用变量具有父子关系时才可比较</strong>，同时，这两个变量必须指向 <strong>同一个对象</strong>才会返回true。</li>
@@ -299,13 +342,12 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;数据类型和运算符&quot;&gt;&lt;a href=&quot;#数据类型和运算符&quot; class=&quot;headerlink&quot; title=&quot;数据类型和运算符&quot;&gt;&lt;/a&gt;数据类型和运算符&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+      &lt;h3 id=&quot;数据类型和运算符&quot;&gt;&lt;a href=&quot;#数据类型和运算符&quot; class=&quot;headerlink&quot; title=&quot;数据类型和运算符&quot;&gt;&lt;/a&gt;数据类型和运算符&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;基本类型的转换&lt;/li&gt;
 &lt;li&gt;直接量&lt;/li&gt;
 &lt;li&gt;运算符&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;–&lt;/p&gt;
 &lt;h3 id=&quot;基本类型的类型转换&quot;&gt;&lt;a href=&quot;#基本类型的类型转换&quot; class=&quot;headerlink&quot; title=&quot;基本类型的类型转换&quot;&gt;&lt;/a&gt;基本类型的类型转换&lt;/h3&gt;&lt;hr&gt;
 &lt;p&gt;Java语言所提供的7中数值类型之间可以相互转换，有两种转换方式： &lt;strong&gt;自动类型转换、强制类型转换&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&quot;自动类型转换&quot;&gt;&lt;a href=&quot;#自动类型转换&quot; class=&quot;headerlink&quot; title=&quot;自动类型转换&quot;&gt;&lt;/a&gt;自动类型转换&lt;/h4&gt;&lt;hr&gt;
