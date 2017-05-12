@@ -92,19 +92,19 @@
 
 
 
-<meta name="description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如： 1Object obj = new Object(); 　　其中， Object obj这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出">
+<meta name="description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如：">
 <meta name="keywords" content="对象访问">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java虚拟机（二）">
 <meta property="og:url" content="http://yoursite.com/2017/01/04/深入理解Java虚拟机（二）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如： 1Object obj = new Object(); 　　其中， Object obj这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出">
+<meta property="og:description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如：">
 <meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
 <meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
-<meta property="og:updated_time" content="2017-05-12T09:19:21.515Z">
+<meta property="og:updated_time" content="2017-05-12T09:20:15.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机（二）">
-<meta name="twitter:description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如： 1Object obj = new Object(); 　　其中， Object obj这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出">
+<meta name="twitter:description" content="对象访问本章主要内容  对象访问   在Java中，对象访问是如何进行的？ 　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 Java栈、Java堆、方法区这三个最重要的内存区域之间的关联关系。如：">
 <meta name="twitter:image" content="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E5%8F%A5%E6%9F%84%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png">
 
 
@@ -381,6 +381,7 @@
 <hr>
 <p>在Java中，对象访问是如何进行的？</p>
 <p>　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 <strong>Java栈、Java堆、方法区</strong>这三个最重要的内存区域之间的关联关系。如：</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object obj = new Object();</div></pre></td></tr></table></figure>
 <p>　　其中， <code>Object obj</code>这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出现。而 <code>new Object()</code>这部分的语义会反映到Java堆中，形成一块存储了Object类型所有实例数据值的结构化内存，根据具体类型及虚拟机实现的对象内存布局不同，这块内存是不固定的。在Java堆中还必须包含能查找到此对象类型数据（如对象类型、父类、实现的接口、方法等）的地址信息，这些类型数据则存储在方法区中。</p>
 <h2 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h2><p>主流的访问方式有两种：</p>

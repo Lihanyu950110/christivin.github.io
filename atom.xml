@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-12T09:19:21.515Z</updated>
+  <updated>2017-05-12T09:20:15.067Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/01/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/04/深入理解Java虚拟机（二）/</id>
     <published>2017-01-04T02:10:16.000Z</published>
-    <updated>2017-05-12T09:19:21.515Z</updated>
+    <updated>2017-05-12T09:20:15.067Z</updated>
     
     <content type="html"><![CDATA[<h2 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h2><p><strong>本章主要内容</strong></p>
 <ul>
@@ -29,6 +29,7 @@
 <hr>
 <p>在Java中，对象访问是如何进行的？</p>
 <p>　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 <strong>Java栈、Java堆、方法区</strong>这三个最重要的内存区域之间的关联关系。如：</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object obj = new Object();</div></pre></td></tr></table></figure>
 <p>　　其中， <code>Object obj</code>这部分的语义会反映到Java栈的本地变量表中，最为一个reference类型数据出现。而 <code>new Object()</code>这部分的语义会反映到Java堆中，形成一块存储了Object类型所有实例数据值的结构化内存，根据具体类型及虚拟机实现的对象内存布局不同，这块内存是不固定的。在Java堆中还必须包含能查找到此对象类型数据（如对象类型、父类、实现的接口、方法等）的地址信息，这些类型数据则存储在方法区中。</p>
 <h2 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式"></a>访问方式</h2><p>主流的访问方式有两种：</p>
@@ -73,7 +74,8 @@ table th:first-of-type {
 &lt;li&gt;对象访问&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;在
+&lt;p&gt;在Java中，对象访问是如何进行的？&lt;/p&gt;
+&lt;p&gt;　　对象访问在Java中无处不在，是最普通的程序行为，但是最简单的访问也会涉及 &lt;strong&gt;Java栈、Java堆、方法区&lt;/strong&gt;这三个最重要的内存区域之间的关联关系。如：&lt;/p&gt;
     
     </summary>
     
