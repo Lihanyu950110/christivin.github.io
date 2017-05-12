@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-12T09:07:32.617Z</updated>
+  <updated>2017-05-12T09:19:21.515Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/01/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/04/深入理解Java虚拟机（二）/</id>
     <published>2017-01-04T02:10:16.000Z</published>
-    <updated>2017-05-12T09:07:32.617Z</updated>
+    <updated>2017-05-12T09:19:21.515Z</updated>
     
     <content type="html"><![CDATA[<h2 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h2><p><strong>本章主要内容</strong></p>
 <ul>
@@ -40,21 +40,27 @@
 <li><strong>直接指针访问方式</strong>，引用类型数据中存储的就是对象地址。</li>
 </ul>
 <p><img src="http://oppqlui3e.bkt.clouddn.com/%E9%80%9A%E8%BF%87%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1.png" alt=""></p>
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
 <table>
 <thead>
 <tr>
 <th style="text-align:left">访问方式</th>
-<th style="text-align:center">优点</th>
+<th>优点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">句柄访问</td>
-<td style="text-align:center">reference中存储的是稳定的句柄地址，在对象被移动中只会改变句柄中实例数据指针，而reference本身不必修改</td>
+<td>reference中存储的是稳定的句柄地址，在对象被移动中只会改变句柄中实例数据指针，而reference本身不必修改</td>
 </tr>
 <tr>
 <td style="text-align:left">直接指针访问</td>
-<td style="text-align:center">速度快，节省了一次指针定位的时间开销</td>
+<td>速度快，节省了一次指针定位的时间开销</td>
 </tr>
 </tbody>
 </table>
