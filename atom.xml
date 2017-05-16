@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-12T09:20:15.067Z</updated>
+  <updated>2017-05-12T09:20:28.132Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/01/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/04/深入理解Java虚拟机（二）/</id>
     <published>2017-01-04T02:10:16.000Z</published>
-    <updated>2017-05-12T09:20:15.067Z</updated>
+    <updated>2017-05-12T09:20:28.132Z</updated>
     
     <content type="html"><![CDATA[<h2 id="对象访问"><a href="#对象访问" class="headerlink" title="对象访问"></a>对象访问</h2><p><strong>本章主要内容</strong></p>
 <ul>
@@ -174,11 +174,103 @@ table th:first-of-type {
   </entry>
   
   <entry>
+    <title>计算机网络笔记整理（一）</title>
+    <link href="http://yoursite.com/2016/09/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/09/17/计算机网络笔记整理（一）/</id>
+    <published>2016-09-17T01:42:09.000Z</published>
+    <updated>2017-05-16T05:43:12.735Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="因特网概述"><a href="#因特网概述" class="headerlink" title="因特网概述"></a>因特网概述</h3><p>　　因特网是世界上最大的互连网络，习惯上大家把连接在因特网上的计算机都称为主机（host）。网络互连并不是把计算机简单地在物理上连接起来，还需要计算机安装能够交互信息的软件。</p>
+<h4 id="因特网发展的三个阶段"><a href="#因特网发展的三个阶段" class="headerlink" title="因特网发展的三个阶段"></a>因特网发展的三个阶段</h4><p>　　 <strong>第一阶段是从单个网络ARPANET向互联网发展的过程</strong>。1969年美国国防部创建的第一个分组交换网ARPANET最初只是一个单个的分组交换网(并不是一个互连的网络)。所有要连接在ARPANET上的主机都直接与就近的结点交换机相连。 <strong>但到了上世纪70年代中期，人们己认识到不可能仅使用一个单独的网络来满足所有的通信问题。于是ARPA开始研究多种网络(如分组无线电网络)互连的技术，这就导致后来互连网的出现。</strong>这样的互连网就成为现在因特网((Internet)的雏形。 <strong>1983年，TCP/IP协议成为ARPANET上的标准协议</strong>，使得所有使用TCP/IP协议的计算机都能利用互连网相互通信，因而人们就把1983年作为因特网的诞生时间。1990年，ARPANET正式宣布关闭，因为它的实验任务己经完成。<br><a id="more"></a><br>　　 <strong>第二阶段的特点是建成了三级结构的因特网</strong>。从1985年起，美国国家科学基金会NSF(National Science Foundation)就围绕六个大型计算机中心建设计算机网络，即国家科学基金网NSFNET。它是一个三级计算机网络，分为 <strong>主干网、地区网和校园网(或企业网)</strong>。这种三级计算机网络覆盖了全美国主要的大学和研究所，并且成为因特网中的主要组成部分。1991年，NSF和美国的其他政府机构开始认识到， <strong>因特网必将扩大其使用范围，不应仅限于大学和研究机构</strong>。世界上的许多公司纷纷接入到因特网，网络上的通信量急剧增大，使因特网的容量己满足不了需要。于是美国政府决定将因特网的主干网转交给私人公司来经营，并开始对接入因特网的单位收费。1992年因特网上的主机超过100万台。1993年因特网主干网的速率提高到45Mb/s (T3速率)。</p>
+<p>　　 <strong>第三阶段的特点是逐渐形成了多层次ISP结构的因特网</strong>。从1993年开始，由美国政府资助的NSFNET逐渐被若干个商用的 <strong>因特网主干网</strong>替代，而政府机构不再负责因特网的运营。这样就出现了一个新的名词: <strong>因特网服务提供者ISP</strong> (Internet Service Provider)。在许多情况下，因特网服务提供者ISP就是一个进行商业活动的公司，因此ISP又常译为 <strong>因特网服务提供商</strong>。例如，中国电信、中国联通和中国移动就是我国最有名的ISP。</p>
+<p>　　ISP可以从因特网管理机构申请到很多IP地址(因特网上的主机都必须有IP地址才能上网，同时拥有通信线路(大的ISP自己建造通信线路，小的ISP则向电信公司租用通信线路)以及路由器等连网设备，因此任何机构和个人只要向某个ISP交纳规定的费用，就可从该ISP获取所需IP地址的使用权，并可通过该ISP接入到因特网。 <strong>所谓“上网”就是指“(通过某个ISP获得的IP地址)接入到因特网”</strong>，IP地址的管理机构不会把一个单个的IP地址分配给单个用户(不“零售”IP地址)，而是把一批IP地址有偿租赁给经审查合格的ISP(只“批发”IP地址)。由此可见，现在的因特网已不是某个单个组织所拥有而是全世界无数大大小小的ISP所共同拥有的，这就是因特网也称为“网络的网络”的原因。</p>
+<p><strong>注意以下两个意思相差很大的名词Internet和Internet</strong>:</p>
+<p>　　以小写字母i开始的Internet(互联网或互连网)是一个通用名词，它泛指由多个计算机网络互连而成的网络。在这些网络之间的通信协议(即通信规则)可以是任意的。</p>
+<p>　　以大写字母I开始的Internet(因特网)则是一个专用名词，它指当前全球最大的、开放的、由众多网络相互连接而成的特定计算机网络，它采用TCP/IP协议族作为通信的规则，且其前身是美国的AIZPANET。</p>
+<h3 id="因特网的组成"><a href="#因特网的组成" class="headerlink" title="因特网的组成"></a>因特网的组成</h3><ul>
+<li><strong>边缘部分</strong>由所有连接在因特网上的主机组成。由 <strong>用户直接使用</strong>，进行通信（传输数据，音频或视频）和资源共享。</li>
+<li><strong>核心部分</strong>由 <strong>大量网络和连接这些网络的路由器</strong>组成。为 <strong>边缘部分提供服务</strong>（提供连通性和交换）。</li>
+</ul>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%9B%A0%E7%89%B9%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<h4 id="边缘部分"><a href="#边缘部分" class="headerlink" title="边缘部分"></a>边缘部分</h4><p>　　 <strong>边缘部分</strong>指的是连接在因特网上的所有主机。这些主机称为端系统。小到个人电脑，大到大型计算机。边缘部分利用核心部分提供的服务，使众多主机之间能互相通信。</p>
+<p>　　 <strong>主机A和主机B进行通信</strong>，实际指 运行在主机A上的 <strong>某个程序</strong>和运行在主机B上的另一个程序进行通信。即主机A的 <strong>某个进程</strong>和主机B上的另一个进程进行通信。</p>
+<p>边缘系统中程序的通信方式：</p>
+<ul>
+<li><strong>客户端服务器方式</strong>（C/S方式）</li>
+<li><strong>对等方式</strong>（P2P方式）</li>
+</ul>
+<h5 id="客户端服务器方式"><a href="#客户端服务器方式" class="headerlink" title="客户端服务器方式"></a>客户端服务器方式</h5><ul>
+<li><strong>客户端</strong>和 <strong>服务器</strong>都是指通信中所涉及的两个应用进程。</li>
+<li>客户服务器方式所描述的是进程之间服务河北服务的关系。</li>
+<li>客户是服务的 <strong>请求方</strong>，服务器是服务的 <strong>提供方</strong>。</li>
+</ul>
+<p>客户A向服务器B发出请求服务，而服务器B向客户A提供服务，如下图：</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<h5 id="客户端服务器方式的特点"><a href="#客户端服务器方式的特点" class="headerlink" title="客户端服务器方式的特点"></a>客户端服务器方式的特点</h5><ul>
+<li><strong>客户程序</strong>，被用户调用和运行，在通信时主动向远地服务器发起通信（请求服务）。因此， <strong>客户端程序必须知道服务器程序的地址</strong>。</li>
+<li><strong>客户程序</strong>，不需要特殊的硬件和复杂的操作系统。</li>
+<li><strong>服务器程序</strong>，可 <strong>同时处理</strong>多个原地或本地客户的请求。</li>
+<li><strong>服务器程序</strong>，系统启动后自动调用并一直不断地运行着，被动地等待并接受来自各地的客户的通信请求。因此， <strong>不需要知道客户端程序地址</strong>。</li>
+<li><strong>服务器程序</strong>，需要强大的硬件和高级的操作系统支持。</li>
+</ul>
+<h5 id="对等连接方式"><a href="#对等连接方式" class="headerlink" title="对等连接方式"></a>对等连接方式</h5><ul>
+<li>两个主机在通信时 <strong>不区分</strong>哪一个式服务请求方还是服务提供方。</li>
+<li>只要两个主机都运行了对等连接软件，他们就可以<strong>平等的、对等连接通信</strong>。</li>
+<li>可以下载对方已经存储在硬盘中的共享文档。</li>
+</ul>
+<h5 id="对等连接方式的特点"><a href="#对等连接方式的特点" class="headerlink" title="对等连接方式的特点"></a>对等连接方式的特点</h5><p>本质上，对等连接仍是客户服务器方式，只是对等连接中的每一个主机即是客户又同时是服务器。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/P2P%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<h4 id="核心部分"><a href="#核心部分" class="headerlink" title="核心部分"></a>核心部分</h4><ul>
+<li>向网络边缘中的大量主机提供 <strong>连通性</strong>，是边缘部分中的任何一个主机都能够向其他主机通信（即传送或接收各种形式的数据）。</li>
+<li>在核心部分起特殊作用的是路由器。</li>
+<li>路由器是实现 <strong>分组交换</strong>的关键构件，其任务是转发收到的分组。</li>
+</ul>
+<p>三种交换方式：</p>
+<ul>
+<li>电路交换，整个报文的比特流连续地从源点直达终点，好像在一个管道中传送。</li>
+<li>报文交换，整个报文先传送到相邻结点，全部存储下来后查找转发表，转发下一个结点。</li>
+<li>分组交换，单个分组传送到相邻结点，存储下来后查找转发表，转发下一个结点。</li>
+</ul>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E4%B8%89%E7%A7%8D%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<h5 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h5><p><img src="http://oppqlui3e.bkt.clouddn.com/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></p>
+<p>建立连接（占用通信资源）→通话（一直占用通信资源）→释放连接（归还通信资源）</p>
+<p>其特点是，在通话全部时间内，通话的两个用户始终占用端到端的通信资源。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E5%8D%A0%E7%94%A8%E8%B5%84%E6%BA%90.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""><br>用电路交换来传送计算机数据时， <strong>其线路传输效率往往很低</strong>。</p>
+<h5 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h5><p>　　通常把要发送的整块数据称为一个 <strong>报文</strong>。在发送报文前先把较长的报文划分成一个个更小的 <strong>等长数据段</strong>。在每个数据段前加上一些必要的控制信息组成的 <strong>首部</strong>后，就构成了一个 <strong>分组</strong>，分组又称为 <strong>包</strong>。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%88%92%E5%88%86%E5%88%86%E7%BB%84%E7%9A%84%E6%A6%82%E5%BF%B5.png" alt=""><br>分组交换的优点：</p>
+<ul>
+<li><strong>高效</strong>，动态分配传输带宽，对通信链路是逐段占用。</li>
+<li><strong>灵活</strong>，以分组为传送单位和查找路由。</li>
+<li><strong>迅速</strong>，不必先建立连接就能向其他主机发送分组。</li>
+<li><strong>可靠</strong>，保证可靠性的网络协议，分布式的路由选择协议使网络有很好的生存性。</li>
+</ul>
+<p>分组交换存在的问题：</p>
+<ul>
+<li>分组在各个节点存储转发时需要排队，这会造成一定的时延。</li>
+<li>分组必须携带首部，造成了一定的开销。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;因特网概述&quot;&gt;&lt;a href=&quot;#因特网概述&quot; class=&quot;headerlink&quot; title=&quot;因特网概述&quot;&gt;&lt;/a&gt;因特网概述&lt;/h3&gt;&lt;p&gt;　　因特网是世界上最大的互连网络，习惯上大家把连接在因特网上的计算机都称为主机（host）。网络互连并不是把计算机简单地在物理上连接起来，还需要计算机安装能够交互信息的软件。&lt;/p&gt;
+&lt;h4 id=&quot;因特网发展的三个阶段&quot;&gt;&lt;a href=&quot;#因特网发展的三个阶段&quot; class=&quot;headerlink&quot; title=&quot;因特网发展的三个阶段&quot;&gt;&lt;/a&gt;因特网发展的三个阶段&lt;/h4&gt;&lt;p&gt;　　 &lt;strong&gt;第一阶段是从单个网络ARPANET向互联网发展的过程&lt;/strong&gt;。1969年美国国防部创建的第一个分组交换网ARPANET最初只是一个单个的分组交换网(并不是一个互连的网络)。所有要连接在ARPANET上的主机都直接与就近的结点交换机相连。 &lt;strong&gt;但到了上世纪70年代中期，人们己认识到不可能仅使用一个单独的网络来满足所有的通信问题。于是ARPA开始研究多种网络(如分组无线电网络)互连的技术，这就导致后来互连网的出现。&lt;/strong&gt;这样的互连网就成为现在因特网((Internet)的雏形。 &lt;strong&gt;1983年，TCP/IP协议成为ARPANET上的标准协议&lt;/strong&gt;，使得所有使用TCP/IP协议的计算机都能利用互连网相互通信，因而人们就把1983年作为因特网的诞生时间。1990年，ARPANET正式宣布关闭，因为它的实验任务己经完成。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络概述" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java基础原理笔记（二）</title>
     <link href="http://yoursite.com/2016/09/11/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2016/09/11/Java基础原理笔记（二）/</id>
     <published>2016-09-11T08:20:57.000Z</published>
-    <updated>2017-05-12T08:38:46.154Z</updated>
+    <updated>2017-05-16T01:57:55.835Z</updated>
     
     <content type="html"><![CDATA[<h3 id="数据类型和运算符"><a href="#数据类型和运算符" class="headerlink" title="数据类型和运算符"></a>数据类型和运算符</h3><p><strong>本章主要内容</strong></p>
 <ul>
@@ -306,7 +398,8 @@ table th:first-of-type {
 <p>实例代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(5 &amp; 9);//输出1</div><div class="line">System.out.println(5 | 9);//输出13</div></pre></td></tr></table></figure>
 <p>原理如下：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://oppqlui3e.bkt.clouddn.com/%E4%B8%8E%E6%88%96%E8%BF%90%E7%AE%97.png" alt=""></h2><p>按位异或和按位取反：</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E4%B8%8E%E6%88%96%E8%BF%90%E7%AE%97.png" alt=""></p>
+<p>按位异或和按位取反：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(~-5);//输出4</div><div class="line">System.out.println(5 ^ 9);//输出12</div></pre></td></tr></table></figure>
 <p>按位取反原理如下：<br><img src="http://oppqlui3e.bkt.clouddn.com/%E9%9D%9E%E8%B4%9F5.png" alt=""></p>
 <p>按位异或原理如下：<br><img src="http://oppqlui3e.bkt.clouddn.com/59%E5%BC%82%E6%88%96.png" alt=""></p>
@@ -318,7 +411,7 @@ table th:first-of-type {
 <p><strong>-5&gt;&gt;2的运算原理</strong>：<br><img src="http://oppqlui3e.bkt.clouddn.com/-5%E5%8F%B3%E7%A7%BB2%E4%BD%8D.png" alt=""></p>
 <p><strong>-5&gt;&gt;&gt;2的运算原理</strong>:</p>
 <p><img src="http://oppqlui3e.bkt.clouddn.com/-5%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB.png" alt=""></p>
-<p><strong>注意：进行移位运算不会改变操作数本身，只是得到一个新的运算结果，原来的操作数本身不会改变</strong>。</p>
+<p>注意： <strong>进行移位运算不会改变操作数本身，只是得到一个新的运算结果，原来的操作数本身不会改变</strong>。</p>
 <h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><hr>
 <p>比较运算符用于判断两个变量或常量的大小，其结果是一个布尔值（true或false），如下：</p>
 <ul>
