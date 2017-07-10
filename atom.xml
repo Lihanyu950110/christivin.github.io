@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-10T11:56:47.723Z</updated>
+  <updated>2017-07-10T12:02:49.928Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>深入理解Java虚拟机（二）</title>
-    <link href="http://yoursite.com/2017/01/04/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/01/04/深入理解JAVA虚拟机（三）/</id>
-    <published>2017-01-04T02:10:16.000Z</published>
-    <updated>2017-07-10T11:56:47.723Z</updated>
+    <title>深入理解Java虚拟机（三）</title>
+    <link href="http://yoursite.com/2017/01/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/01/05/深入理解JAVA虚拟机（三）/</id>
+    <published>2017-01-05T02:23:17.000Z</published>
+    <updated>2017-07-10T12:02:49.928Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;在了解了Java运行时内存区域之后，我们知道虚拟机可能造成内存溢出OOM，虽然有垃圾回收机制，但是可能也不能避免，<font color="red">我们现在就看看Java的垃圾收集机制为例避免内存溢出异常已经做出了哪些努力。</font></p>
 <a id="more"></a>
@@ -118,7 +118,7 @@
 <p>（4）通过Minor GC后进入老年代的平均大小大于老年代的可用内存</p>
 <p>（5）由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;本次介绍了垃圾收集算法和多种收集器，以及自动内存分配的一些机制。内存回收与垃圾收集在很多时候都是影响系统性能、并发俄力的主要因素之一，虚拟机提供了多种不同收集器与大量调节参数。必须要了解每个具体收集器行为、优点缺点。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 ]]></content>
     
     <summary type="html">

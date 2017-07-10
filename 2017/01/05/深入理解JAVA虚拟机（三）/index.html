@@ -95,8 +95,8 @@
 <meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;在了解了Java运行时内存区域之后，我们知道虚拟机可能造成内存溢出OOM，虽然有垃圾回收机制，但是可能也不能避免，我们现在就看看Java的垃圾收集机制为例避免内存溢出异常已经做出了哪些努力。">
 <meta name="keywords" content="对象访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解Java虚拟机（二）">
-<meta property="og:url" content="http://yoursite.com/2017/01/04/深入理解JAVA虚拟机（三）/index.html">
+<meta property="og:title" content="深入理解Java虚拟机（三）">
+<meta property="og:url" content="http://yoursite.com/2017/01/05/深入理解JAVA虚拟机（三）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;在了解了Java运行时内存区域之后，我们知道虚拟机可能造成内存溢出OOM，虽然有垃圾回收机制，但是可能也不能避免，我们现在就看看Java的垃圾收集机制为例避免内存溢出异常已经做出了哪些努力。">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201210/03/1349278110_8410.jpg">
@@ -104,9 +104,9 @@
 <meta property="og:image" content="http://7xkjk9.com1.z0.glb.clouddn.com/jvm-9.jpg">
 <meta property="og:image" content="http://7xkjk9.com1.z0.glb.clouddn.com/jvm-11.jpg">
 <meta property="og:image" content="http://7xkjk9.com1.z0.glb.clouddn.com/jvm-12.jpg">
-<meta property="og:updated_time" content="2017-07-10T11:56:47.723Z">
+<meta property="og:updated_time" content="2017-07-10T12:02:49.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解Java虚拟机（二）">
+<meta name="twitter:title" content="深入理解Java虚拟机（三）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;在了解了Java运行时内存区域之后，我们知道虚拟机可能造成内存溢出OOM，虽然有垃圾回收机制，但是可能也不能避免，我们现在就看看Java的垃圾收集机制为例避免内存溢出异常已经做出了哪些努力。">
 <meta name="twitter:image" content="http://img.my.csdn.net/uploads/201210/03/1349278110_8410.jpg">
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/04/深入理解JAVA虚拟机（三）/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/05/深入理解JAVA虚拟机（三）/"/>
 
 
 
 
 
-  <title>深入理解Java虚拟机（二） | 徐盛的博客</title>
+  <title>深入理解Java虚拟机（三） | 徐盛的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/04/深入理解JAVA虚拟机（三）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/05/深入理解JAVA虚拟机（三）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐盛">
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解Java虚拟机（二）</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解Java虚拟机（三）</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-04T10:10:16+08:00">
-                2017-01-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-05T10:23:17+08:00">
+                2017-01-05
               </time>
             
 
@@ -473,7 +473,7 @@
 <p>（4）通过Minor GC后进入老年代的平均大小大于老年代的可用内存</p>
 <p>（5）由Eden区、From Space区向To Space区复制时，对象大小大于To Space可用内存，则把该对象转存到老年代，且老年代的可用内存小于该对象大小</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;本次介绍了垃圾收集算法和多种收集器，以及自动内存分配的一些机制。内存回收与垃圾收集在很多时候都是影响系统性能、并发俄力的主要因素之一，虚拟机提供了多种不同收集器与大量调节参数。必须要了解每个具体收集器行为、优点缺点。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 
       
     </div>
@@ -661,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么判断对象已死？"><span class="nav-number">3.</span> <span class="nav-text">怎么判断对象已死？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-number">3.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根搜索算法"><span class="nav-number">3.2.</span> <span class="nav-text">根搜索算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用的几个类型"><span class="nav-number">4.</span> <span class="nav-text">引用的几个类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生存还是死亡？"><span class="nav-number">5.</span> <span class="nav-text">生存还是死亡？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回收方法区"><span class="nav-number">6.</span> <span class="nav-text">回收方法区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">7.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-清除"><span class="nav-number">7.1.</span> <span class="nav-text">标记-清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制算法"><span class="nav-number">7.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">7.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代收集算法"><span class="nav-number">7.4.</span> <span class="nav-text">分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">8.</span> <span class="nav-text">垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#serial"><span class="nav-number">8.1.</span> <span class="nav-text">serial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParNew"><span class="nav-number">8.2.</span> <span class="nav-text">ParNew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-Scavenge"><span class="nav-number">8.3.</span> <span class="nav-text">Parallel Scavenge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serial-Old"><span class="nav-number">8.4.</span> <span class="nav-text">serial Old</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-Old"><span class="nav-number">8.5.</span> <span class="nav-text">Parallel Old</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS"><span class="nav-number">8.6.</span> <span class="nav-text">CMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CMS-优缺点"><span class="nav-number">8.6.1.</span> <span class="nav-text">CMS 优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G1收集器"><span class="nav-number">8.7.</span> <span class="nav-text">G1收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配与回收策略"><span class="nav-number">9.</span> <span class="nav-text">内存分配与回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象优先在Eden中分配"><span class="nav-number">9.1.</span> <span class="nav-text">对象优先在Eden中分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大对象直接进入老年代"><span class="nav-number">9.2.</span> <span class="nav-text">大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长期存活的对象进入老年代"><span class="nav-number">9.3.</span> <span class="nav-text">长期存活的对象进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态对象年龄判断"><span class="nav-number">9.4.</span> <span class="nav-text">动态对象年龄判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间分配担保"><span class="nav-number">9.5.</span> <span class="nav-text">空间分配担保</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC／Full-GC触发条件"><span class="nav-number">9.6.</span> <span class="nav-text">Minor GC／Full GC触发条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number"></span> <span class="nav-text">说明</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么判断对象已死？"><span class="nav-number">3.</span> <span class="nav-text">怎么判断对象已死？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数法"><span class="nav-number">3.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根搜索算法"><span class="nav-number">3.2.</span> <span class="nav-text">根搜索算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用的几个类型"><span class="nav-number">4.</span> <span class="nav-text">引用的几个类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生存还是死亡？"><span class="nav-number">5.</span> <span class="nav-text">生存还是死亡？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回收方法区"><span class="nav-number">6.</span> <span class="nav-text">回收方法区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">7.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-清除"><span class="nav-number">7.1.</span> <span class="nav-text">标记-清除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制算法"><span class="nav-number">7.2.</span> <span class="nav-text">复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记-整理算法"><span class="nav-number">7.3.</span> <span class="nav-text">标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分代收集算法"><span class="nav-number">7.4.</span> <span class="nav-text">分代收集算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">8.</span> <span class="nav-text">垃圾收集器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#serial"><span class="nav-number">8.1.</span> <span class="nav-text">serial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ParNew"><span class="nav-number">8.2.</span> <span class="nav-text">ParNew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-Scavenge"><span class="nav-number">8.3.</span> <span class="nav-text">Parallel Scavenge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#serial-Old"><span class="nav-number">8.4.</span> <span class="nav-text">serial Old</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-Old"><span class="nav-number">8.5.</span> <span class="nav-text">Parallel Old</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMS"><span class="nav-number">8.6.</span> <span class="nav-text">CMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CMS-优缺点"><span class="nav-number">8.6.1.</span> <span class="nav-text">CMS 优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G1收集器"><span class="nav-number">8.7.</span> <span class="nav-text">G1收集器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配与回收策略"><span class="nav-number">9.</span> <span class="nav-text">内存分配与回收策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象优先在Eden中分配"><span class="nav-number">9.1.</span> <span class="nav-text">对象优先在Eden中分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大对象直接进入老年代"><span class="nav-number">9.2.</span> <span class="nav-text">大对象直接进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长期存活的对象进入老年代"><span class="nav-number">9.3.</span> <span class="nav-text">长期存活的对象进入老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态对象年龄判断"><span class="nav-number">9.4.</span> <span class="nav-text">动态对象年龄判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间分配担保"><span class="nav-number">9.5.</span> <span class="nav-text">空间分配担保</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minor-GC／Full-GC触发条件"><span class="nav-number">9.6.</span> <span class="nav-text">Minor GC／Full GC触发条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">11.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
