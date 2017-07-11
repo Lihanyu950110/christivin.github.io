@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="内存区域," />
+  <meta name="keywords" content="文件结构," />
 
 
 
@@ -92,19 +92,17 @@
 
 
 
-<meta name="description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta name="keywords" content="内存区域">
+<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;以前计算机程序课上老师总说：计算机只认识0和1，写的程序都会编译成为0和1组成的二进制格式才能被计算机执行。然而10多年的时间过去了，今天的计算机仍然只能识别0和1，但是建立在虚拟机之上的大量程序语言发展迅速，将2我们编写的程序编译成二进制本地机器码（native code）已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令无">
+<meta name="keywords" content="文件结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入学习JAVA虚拟机（一）">
-<meta property="og:url" content="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/index.html">
+<meta property="og:title" content="深入理解Java虚拟机（四）">
+<meta property="og:url" content="http://yoursite.com/2017/01/06/深入理解JAVA虚拟机（四）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
-<meta property="og:updated_time" content="2017-05-12T08:13:10.373Z">
+<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;以前计算机程序课上老师总说：计算机只认识0和1，写的程序都会编译成为0和1组成的二进制格式才能被计算机执行。然而10多年的时间过去了，今天的计算机仍然只能识别0和1，但是建立在虚拟机之上的大量程序语言发展迅速，将2我们编写的程序编译成二进制本地机器码（native code）已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令无">
+<meta property="og:updated_time" content="2017-07-11T08:38:59.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入学习JAVA虚拟机（一）">
-<meta name="twitter:description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta name="twitter:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
+<meta name="twitter:title" content="深入理解Java虚拟机（四）">
+<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;以前计算机程序课上老师总说：计算机只认识0和1，写的程序都会编译成为0和1组成的二进制格式才能被计算机执行。然而10多年的时间过去了，今天的计算机仍然只能识别0和1，但是建立在虚拟机之上的大量程序语言发展迅速，将2我们编写的程序编译成二进制本地机器码（native code）已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令无">
 
 
 
@@ -132,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/06/深入理解JAVA虚拟机（四）/"/>
 
 
 
 
 
-  <title>深入学习JAVA虚拟机（一） | 徐盛的博客</title>
+  <title>深入理解Java虚拟机（四） | 徐盛的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/06/深入理解JAVA虚拟机（四）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐盛">
@@ -304,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入学习JAVA虚拟机（一）</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解Java虚拟机（四）</h1>
         
 
         <div class="post-meta">
@@ -316,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-03T20:11:32+08:00">
-                2017-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-06T22:23:17+08:00">
+                2017-01-06
               </time>
             
 
@@ -373,64 +371,23 @@
       
 
       
-        <h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><hr>
-<p><strong>本章主要内容</strong></p>
-<ul>
-<li>运行时数据区域</li>
-</ul>
-<hr>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""></p>
-<p>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。<br><a id="more"></a></p>
-<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h4><p>　　程序计数器(Program Counter Register) 是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型中，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，<strong>分支、循环、跳转、异常处理、线程恢复等</strong>基础功能都需要依赖这个计数器来完成。</p>
-<ul>
-<li>Java虚拟机的多线程通过轮流切换并分配处理器执行时间实现。</li>
-<li>在任何一个确定的时刻，一个处理器只会执行一条线程的指令。</li>
-<li>每个线程都有一个独立的程序计数器，线程切换后，找到正确的执行位置。</li>
-<li>各线程之间的计数器独立存储。</li>
-</ul>
-<p>　　如果线程正在执行的是一个Java方法，这个计数器记录的时正在执行的虚拟机字节码指令的地址；如果正在执行的是<strong>Native方法</strong>，这个计数器的值为空。此内存区域是唯一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
-<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a><strong>Java虚拟机栈</strong></h4><p>　　与程序计数器一样，Java虚拟机栈(Java Virtual Machine Stacks)也是线程私有的，它的生命周期与线程相同。它描述的Java方法执行的内存模型。</p>
-<ul>
-<li>每个方法被执行的时候会创建一个栈帧(Stack Frame)。</li>
-<li>栈帧用于存储局部变量表、操作栈、动态链接、方法出口等信息。</li>
-<li>方法从被调用到执行完成对应着一个栈帧在虚拟机栈中入站到出站的过程。</li>
-</ul>
-<p>通常最关注的、与对象内存分配关系最密切的内存区就是<strong>虚拟机栈</strong>（局部变量表）和<strong>Java堆</strong>。<br><strong>局部变量表</strong>存放了编译器可知的各种基本数据类型：</p>
-<ul>
-<li>byte (1 Slot)</li>
-<li>short(1 Slot)</li>
-<li>int(1 Slot)</li>
-<li>char(1 Slot)</li>
-<li>float(1 Slot)</li>
-<li>long(2 Slot)</li>
-<li>double(2 Slot)</li>
-<li>boolean(1 Slot)</li>
-</ul>
-<p>　　其中64位长度的long 和double类型的数据会占用2个局部变量空间(Slot),其余的只占一个。<br>　　局部变量表所需的内存空间<strong>在编译期间完成分配</strong>，进入一个方法时，这个方法需要在帧中<strong>分配多大的局部变量空间是完全确定的</strong>，在方法运行期间不会改变局部变量表的大小。</p>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a><strong>本地方法栈</strong></h4><p>　　与虚拟机栈的作用类似，虚拟机栈为虚拟机执行<strong>Java方法</strong>（字节码）服务，本地方法栈为虚拟机的<strong>Native方法</strong>服务。具体的虚拟机可以自由实现本地方法栈。</p>
-<h4 id="Java栈"><a href="#Java栈" class="headerlink" title="Java栈"></a><strong>Java栈</strong></h4><ul>
-<li>Java堆(Java Heap)是Java虚拟机所管理的内存中最大的一块。</li>
-<li>Java堆被<strong>所有线程共享</strong>的一块内存区域，在虚拟机启动时创建。</li>
-<li>此内存区域唯一目的就是<strong>存放对象实例</strong>。</li>
-<li>Java堆是垃圾收集器管理的主要区域。</li>
-<li>Java堆只要求逻辑上连续，可以处于物理上不连续的内存空间中。</li>
-</ul>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a><strong>方法区</strong></h4><ul>
-<li>方法区(Method Area) 与Java堆一样，是个各线程共享的内存区域。</li>
-<li>用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。</li>
-<li>不需要连续的内存，还可以选择不实现垃圾收集。</li>
-<li>这个区域的内存回收目标主要是<strong>针对常量池的回收</strong>和对<strong>类型的卸载</strong>。</li>
-</ul>
-<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a><strong>运行时常量池</strong></h4><ul>
-<li>运行时常量池(Runtime Constant Pool)是方法区的一部分。</li>
-<li>用于存放<strong>编译期</strong>生成的各种<strong>字面量</strong>和<strong>符号引用</strong>，这部分内容将在类加载后存放到方法区的运行时常量池中。</li>
-<li>运行时常量池具备动态性，即运行期间也可能将新的常量放入池中，例如String类的intern()方法。</li>
-<li>当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</li>
-</ul>
-<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a><strong>直接内存</strong></h4><ul>
-<li>不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是被频繁使用。</li>
-<li>本机直接内存的分配不受到Java堆大小的限制，但是会受到本机总内存(RAM及SWAP区或分页文件)的大小及处理器寻址空间的限制。服务器管理员配置虚拟机参数时一般会根据实际内存设置-Xmx等参数信息，但是经常忽略直接内存，使得各个内存区域的总和大于物理内存限制，导致动态扩展时出现OutOfMemoryError异常。</li>
-</ul>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;以前计算机程序课上老师总说：计算机只认识0和1，写的程序都会编译成为0和1组成的二进制格式才能被计算机执行。然而10多年的时间过去了，今天的计算机仍然只能识别0和1，但是建立在虚拟机之上的大量程序语言发展迅速，将2我们编写的程序编译成二进制本地机器码（native code）已不再是唯一的选择，<font color="red">越来越多的程序语言选择了与操作系统和机器指令无关平台中立的格式作为程序编译之后的存储格式</font>。这也是Java这类语言，平台无关性的基石。而且虚拟机上更有语言无关性的趋势。</p>
+<a id="more"></a>
+<h2 id="Class类文件的结构"><a href="#Class类文件的结构" class="headerlink" title="Class类文件的结构"></a>Class类文件的结构</h2><p>&#160; &#160; &#160; &#160;Class文件是一组以8位字节为基础的二进制，各个数据项目严格按照顺序紧凑的排列Class文件之间，中间没有添加任何分隔符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据。</p>
+<p>&#160; &#160; &#160; &#160;虚拟机规范：Class文件格式采用一种类似于C语言结构体的伪结构来存储，这种伪结构中还有两种数据结构：无符号和表，后面的解析都要以这两种数据类型为基础。</p>
+<p>&#160; &#160; &#160; &#160;无符号数属于基本的数据类型，用u1,u2,u4,u8分别代表1个字节、2个字节、4个字节、8个字节的无符号数，可以用来描述数字、索引引用、数量值，或者按照UTF-8编码构成字符串值。</p>
+<p>&#160; &#160; &#160; &#160;表是由多个无符号数或其他数据项构成的复合结构数据，整个class文件本质上就是一张表。</p>
+<h3 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h3><p>&#160; &#160; &#160; &#160;每个class文件的头四个字节被称为魔数，它的唯一作用是确定这个文件是否为一个能被虚拟机接受的Class文件。很多图片格式在文件头都有魔数。Java中为：0XCAFFBABE；</p>
+<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>&#160; &#160; &#160; &#160;紧接着4个字节存储的是Class文件的版本号：5-6是次版本，7-8是主版本。</p>
+<h3 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h3><p>&#160; &#160; &#160; &#160;主次版本号之后是常量池的入口，也是与其他项目关联最多的数据类型，也是占用class文件空间最大的项目之一，同时还是第一个出现的表类型。主要存放字面量和引用。</p>
+<h3 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h3><p>&#160; &#160; &#160; &#160;在常量池之后，紧接2个字节代表访问标志，包括是接口还是类，是否public，abstract，final等等。</p>
+<h3 id="类索引、父亲索引与接口索引集合"><a href="#类索引、父亲索引与接口索引集合" class="headerlink" title="类索引、父亲索引与接口索引集合"></a>类索引、父亲索引与接口索引集合</h3><p>&#160; &#160; &#160; &#160;类索引和父类索引都是一个u2类型的数据，而接口索引集合是一组u2类型的数据集合。类确定了这个类的全限定名，父亲索引确定这个父类的全限定名。不允许多继承，所以父类索引直邮一个。除了object都有父类。接口索引表示这个类实现了哪些接口。</p>
+<h3 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h3><p>&#160; &#160; &#160; &#160;字段表用于描述接口或类中声明的变量</p>
+<h3 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h3><p>&#160; &#160; &#160; &#160;访问标志、名称索引、描述符索引都表达清楚了，方法里面的代码经过编译器编译成字节码指令之后，存放在方法属性表集合中一个名为code的属性里面，属性表作为class文件格式最具扩展性的一种数据项目。</p>
+<h3 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h3><p>&#160; &#160; &#160; &#160;class文件、字段表、方法表都可以携带自己的属性表集合，以用于描述某些场景专有的信息。</p>
+<h2 id="class文件结构的发展"><a href="#class文件结构的发展" class="headerlink" title="class文件结构的发展"></a>class文件结构的发展</h2><p>&#160; &#160; &#160; &#160;上面这些属性大部分都用于支持Java中许多新出现的语言特性，如枚举、变长参数、泛型、动态注解。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;class文件是Java虚拟机执行引擎的数据入口，也是技术体系的基础支柱之一。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 
       
     </div>
@@ -460,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/内存区域/" rel="tag"># 内存区域</a>
+            <a href="/tags/文件结构/" rel="tag"># 文件结构</a>
           
         </div>
       
@@ -473,8 +430,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/18/计算机网络笔记整理（二）/" rel="next" title="计算机网络笔记整理（二）">
-                <i class="fa fa-chevron-left"></i> 计算机网络笔记整理（二）
+              <a href="/2017/01/05/深入理解JAVA虚拟机（三）/" rel="next" title="深入理解Java虚拟机（三）">
+                <i class="fa fa-chevron-left"></i> 深入理解Java虚拟机（三）
               </a>
             
           </div>
@@ -482,10 +439,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/04/深入理解Java虚拟机（二）/" rel="prev" title="深入理解Java虚拟机（二）">
-                深入理解Java虚拟机（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java内存区域与内存溢出异常"><span class="nav-number">1.</span> <span class="nav-text">java内存区域与内存溢出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时数据区域"><span class="nav-number">1.1.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序计数器"><span class="nav-number">1.1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java虚拟机栈"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java虚拟机栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地方法栈"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java栈"><span class="nav-number">1.1.4.</span> <span class="nav-text">Java栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法区"><span class="nav-number">1.1.5.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时常量池"><span class="nav-number">1.1.6.</span> <span class="nav-text">运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接内存"><span class="nav-number">1.1.7.</span> <span class="nav-text">直接内存</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class类文件的结构"><span class="nav-number">2.</span> <span class="nav-text">Class类文件的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#魔数"><span class="nav-number">2.1.</span> <span class="nav-text">魔数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本号"><span class="nav-number">2.2.</span> <span class="nav-text">版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量池"><span class="nav-number">2.3.</span> <span class="nav-text">常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问标志"><span class="nav-number">2.4.</span> <span class="nav-text">访问标志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类索引、父亲索引与接口索引集合"><span class="nav-number">2.5.</span> <span class="nav-text">类索引、父亲索引与接口索引集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段表集合"><span class="nav-number">2.6.</span> <span class="nav-text">字段表集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法表集合"><span class="nav-number">2.7.</span> <span class="nav-text">方法表集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性表集合"><span class="nav-number">2.8.</span> <span class="nav-text">属性表集合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class文件结构的发展"><span class="nav-number">3.</span> <span class="nav-text">class文件结构的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number"></span> <span class="nav-text">说明</span></a></div>
             
 
           </div>
