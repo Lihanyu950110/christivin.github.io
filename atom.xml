@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-11T08:38:59.588Z</updated>
+  <updated>2017-07-11T08:42:01.621Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/01/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
     <id>http://yoursite.com/2017/01/06/深入理解JAVA虚拟机（四）/</id>
     <published>2017-01-06T14:23:17.000Z</published>
-    <updated>2017-07-11T08:38:59.588Z</updated>
+    <updated>2017-07-11T08:42:01.621Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;以前计算机程序课上老师总说：计算机只认识0和1，写的程序都会编译成为0和1组成的二进制格式才能被计算机执行。然而10多年的时间过去了，今天的计算机仍然只能识别0和1，但是建立在虚拟机之上的大量程序语言发展迅速，将2我们编写的程序编译成二进制本地机器码（native code）已不再是唯一的选择，<font color="red">越来越多的程序语言选择了与操作系统和机器指令无关平台中立的格式作为程序编译之后的存储格式</font>。这也是Java这类语言，平台无关性的基石。而且虚拟机上更有语言无关性的趋势。</p>
 <a id="more"></a>
@@ -38,7 +38,7 @@
 <h3 id="属性表集合"><a href="#属性表集合" class="headerlink" title="属性表集合"></a>属性表集合</h3><p>&#160; &#160; &#160; &#160;class文件、字段表、方法表都可以携带自己的属性表集合，以用于描述某些场景专有的信息。</p>
 <h2 id="class文件结构的发展"><a href="#class文件结构的发展" class="headerlink" title="class文件结构的发展"></a>class文件结构的发展</h2><p>&#160; &#160; &#160; &#160;上面这些属性大部分都用于支持Java中许多新出现的语言特性，如枚举、变长参数、泛型、动态注解。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;class文件是Java虚拟机执行引擎的数据入口，也是技术体系的基础支柱之一。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 ]]></content>
     
     <summary type="html">
