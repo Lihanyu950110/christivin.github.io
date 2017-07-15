@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-15T03:53:38.142Z</updated>
+  <updated>2017-07-15T03:55:10.046Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySQL学习笔记整理（二）</title>
+    <title>MySQL学习笔记整理（三）</title>
     <link href="http://yoursite.com/2017/02/15/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%89%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/15/MySQL学习笔记整理（三）/</id>
     <published>2017-02-15T05:02:11.000Z</published>
-    <updated>2017-07-15T03:53:38.142Z</updated>
+    <updated>2017-07-15T03:55:10.046Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;上篇已经建立了测试数据库，然后通过相关工具找到了慢查询的语句，这些就是我们优化的对象，本篇就从索引的角度去改善我们的数据库性能。共四种索引，主键索引、唯一索引、普通索引、全文索引。索引是有消耗的，占空间的，MYI格式文件在data文件夹下。<br>  <a id="more"></a></p>
 <p>&#160; &#160; &#160; &#160;<font color="red">索引能使查询变快的原理</font>：先建了一个索引文件，就是MYI文件，然后建立查找二叉树（也叫B树，二叉搜索树，二叉排序树）。利用了二叉树算法，使搜索性能逼近二分查找，但是他比连续内存空间的二分查找优点是，插入和删除不需要移动大量数据，通常是常数开销。记录下了对应索引数值的物理位置，所以数据库换了路径，索引也失效了。</p>
