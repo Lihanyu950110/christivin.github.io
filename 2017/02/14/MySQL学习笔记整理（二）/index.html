@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://opb7t58xj.bkt.clouddn.com/cunshuguochen.png">
 <meta property="og:image" content="http://opb7t58xj.bkt.clouddn.com/shuju.png">
 <meta property="og:image" content="http://opb7t58xj.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-05%20%E4%B8%8B%E5%8D%885.16.25.png">
-<meta property="og:updated_time" content="2017-07-15T03:48:57.374Z">
+<meta property="og:updated_time" content="2017-07-15T03:51:08.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL学习笔记整理（二）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;之前已经了解过mysql的基本原理，重点是我们该从哪些方面去改善数据库性能，或者从设计开始怎么样去合适的设计，可以使用哪些工具和方法去帮助我们监测数据库，并根据在数据库原理的理解基础上，对不同的业务需求不同的软硬件环境，尽量做出最优的优化策略。下面就看下有哪些优化方法和适用场景，可以根据实际选用其中一部分进行优化，而且优化是一个整体的，所以">
@@ -438,7 +438,7 @@
 <p>&#160; &#160; &#160; &#160;然后我们需要开启慢查询日志（不同操作系统不同设置方式和文件路径，百度应该有很多），然后重启mysql，上面就会记录着我们的慢查询语句是什么。如下图，这是我的结果。</p>
 <p><img src="http://opb7t58xj.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-05-05%20%E4%B8%8B%E5%8D%885.16.25.png" alt=""></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;这里我们主要是形成测试样本，利用慢查询工具，这只是一个例子，还有很多命令方法工具帮助我们来找出问题，可以参考手册来。下篇博客讲讲发现问题了，我们如何优化。</p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 
       
     </div>
@@ -626,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql优化"><span class="nav-number">2.</span> <span class="nav-text">mysql优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#范式"><span class="nav-number">2.1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#show-status"><span class="nav-number">2.2.</span> <span class="nav-text">show status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压力测试脚本生成"><span class="nav-number">2.3.</span> <span class="nav-text">压力测试脚本生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询"><span class="nav-number">2.4.</span> <span class="nav-text">慢查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number"></span> <span class="nav-text">说明</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql优化"><span class="nav-number">2.</span> <span class="nav-text">mysql优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#范式"><span class="nav-number">2.1.</span> <span class="nav-text">范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#show-status"><span class="nav-number">2.2.</span> <span class="nav-text">show status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压力测试脚本生成"><span class="nav-number">2.3.</span> <span class="nav-text">压力测试脚本生成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢查询"><span class="nav-number">2.4.</span> <span class="nav-text">慢查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
