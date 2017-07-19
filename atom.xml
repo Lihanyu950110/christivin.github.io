@@ -1055,6 +1055,40 @@ table th:first-of-type {
   </entry>
   
   <entry>
+    <title>JAVA Web笔记整理（一）</title>
+    <link href="http://yoursite.com/2016/10/03/JAVA-Web%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/10/03/JAVA-Web笔记整理（一）/</id>
+    <published>2016-10-03T07:58:20.000Z</published>
+    <updated>2017-07-19T07:59:54.696Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;Java最先的流行就是从Web上的动态页面小程序开始的，万维网的流行，Java Web的发展也很快，从最先的页面，到JSP，添加内置对象，JavaBean出现实现业务逻辑分离，到Servlet的发展。这里回顾一下这些发展历程。</p>
+ <a id="more"></a>
+<h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p>&#160; &#160; &#160; &#160;JSP提供了由容器实现和管理的内置对象，首先一个问题就是为什么会出现内置对象呢，他的作用是什么？</p>
+<p>&#160; &#160; &#160; &#160;答：JSP使用Java作文脚本程序语言，具有巨大的对象处理能力，动态创建Web页面，而在Java语言中，需要创建实例才能引用，操作繁琐，为了简化，<font color="red">JSP提供了9大内置对象和4个作用域，作用域如下图，对象分别是request、response、session、application、out、page、config、exception、pageContext。</font></p>
+<p>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://img2.tuicool.com/2Ejm63.jpg!web" alt=""></p>
+<p>&#160; &#160; &#160; &#160;内置对象的作用可参考博文，文字较多。<a href="http://www.tuicool.com/articles/VNB3AjA" target="_blank" rel="external">九大内置对象作用</a>。</p>
+<p>&#160; &#160; &#160; &#160;重要的是request、response分别包装了Http请求和响应信息，session是适用于同一个应用程序中每个客户端的各个页面的共享数据，application是全局共享数据，out用于在JSP中输出各种类型数据。</p>
+<p>&#160; &#160; &#160; &#160;这里需要补充的是容器、JSP容器，servlet容器，web容器，web服务器，应用服务器的概念。参考博文：<a href="http://blog.csdn.net/qmw19910301/article/details/53463285" target="_blank" rel="external">Servlet，Servlet容器，Jsp容器，Web容器</a>，<a href="https://www.zhihu.com/question/20096067" target="_blank" rel="external">Web 服务器与应用服务器的区别</a>。</p>
+<h2 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h2><p>&#160; &#160; &#160; &#160;JavaBean的产生使JSP页面中的业务逻辑变得更加清晰，程序中的实体对象及业务逻辑可以单独封装到Java类中。不仅提高可读性和易维护性，还提高了可重用性。</p>
+<p>&#160; &#160; &#160; &#160;在JSP网页初级阶段开源社区还没有那么活跃，也并没有分层和框架的出现，将大量代码嵌入HTML中效率很低，JavaBean出现和JSP组合开发模式将业务逻辑，如数据库操作通过引用JavaBean组件来完成。</p>
+<p>&#160; &#160; &#160; &#160;Spring中也有很多实例的Bean，类似类的实例了，有一些概念，如PO,VO,BO,POJO等，参考博文<a href="http://blog.chinaunix.net/uid-20556037-id-2810927.html" target="_blank" rel="external">PO、VO、BO、DTO、POJO、DAO之间的关系 </a>。</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;Java最先的流行就是从Web上的动态页面小程序开始的，万维网的流行，Java Web的发展也很快，从最先的页面，到JSP，添加内置对象，JavaBean出现实现业务逻辑分离，到Servlet的发展。这里回顾一下这些发展历程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java Web" scheme="http://yoursite.com/categories/Java-Web/"/>
+    
+    
+      <category term="JSP、JavaBean" scheme="http://yoursite.com/tags/JSP%E3%80%81JavaBean/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络笔记整理（五）</title>
     <link href="http://yoursite.com/2016/09/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <id>http://yoursite.com/2016/09/27/计算机网络笔记整理（五）/</id>
@@ -1742,100 +1776,6 @@ table th:first-of-type {
     
     
       <category term="数据类型转换" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础原理笔记(一)</title>
-    <link href="http://yoursite.com/2016/09/10/Java%E5%9F%BA%E7%A1%80%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/09/10/Java基础原理笔记（一）/</id>
-    <published>2016-09-10T07:06:55.000Z</published>
-    <updated>2017-05-11T08:32:55.384Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Java数据类型介绍"><a href="#Java数据类型介绍" class="headerlink" title="Java数据类型介绍"></a>Java数据类型介绍</h2><p><strong>本章主要内容</strong></p>
-<ul>
-<li>数据类型分类</li>
-<li>基本数据类型</li>
-</ul>
-<hr>
-<h3 id="数据类型分类"><a href="#数据类型分类" class="headerlink" title="数据类型分类"></a>数据类型分类</h3><p>Java语言是强类型（strongly typed）语言，强类型包含两方面的含义：</p>
-<ul>
-<li>所有的变量必须先声明、后使用。</li>
-<li>指定类型的变量只能接受类型与之匹配的值。</li>
-</ul>
-<p>在了解数据类型前先弄懂两个问题：</p>
-<h4 id="什么是变量？变量有什么用？"><a href="#什么是变量？变量有什么用？" class="headerlink" title="什么是变量？变量有什么用？"></a>什么是变量？变量有什么用？</h4><p>　　 <strong>编程的本质，就是对内存中的数据的访问和修改</strong>。程序所用的数据都会保存在内存中，程序员需要一种机制来访问或修改内存中的数据。这种机制就是 <strong>变量</strong>。每个变量都代表某一小块内存，而且变量是有名字的，程序对变量赋值， <strong>实际上就是把数据装入该变量所代表的内存区的过程</strong>；<br>程序读取变量的值， <strong>实际上就是从该变量所代表的内存区中取值的过程</strong>。 <strong>变量相当于一个有名称的容器，该容器用于装各种不同类型的数据</strong>。<br><a id="more"></a></p>
-<p>Java语言支持的类型分为两种： <strong>基本类型</strong>和 <strong>引用类型</strong>。</p>
-<p><strong>基本类型</strong>包括Boolean类型和数值类型。数值类型有整数类型和浮点类型。</p>
-<p>整数类型包括： <strong>byte</strong>、 <strong>short</strong>、 <strong>int</strong>、 <strong>long</strong>、 <strong>char</strong></p>
-<p>浮点类型包括： <strong>float</strong>和 <strong>double</strong></p>
-<p>注意：char代表字符型，实际上字符型也是一种 <strong>整数类型</strong>，相当于 <strong>无符号整数类型</strong>。</p>
-<p><strong>引用类型</strong>包括 <strong>类、接口、数组类型</strong>，还有一种特殊的 <strong>null类型</strong>。</p>
-<p>引用类型就是对一个对象的引用，对象包括实例和数组两种。实际上，引用类型变量就是一个指针。</p>
-<h3 id="数据基本类型"><a href="#数据基本类型" class="headerlink" title="数据基本类型"></a>数据基本类型</h3><p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png?imageView2/2/00/h/200/q/75|imageslim" alt=""></p>
-<p>Java中只包含这八种基本类型， <strong>字符串不是基本数据类型</strong>，字符串是一个类，即为一个引用数据类型。</p>
-<h4 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h4><p>int 是最常用的整数类型，因此直接给出一个整数值默认就是int类型。</p>
-<p>如果直接将一个较小的整数值（在byte或short类型的表数范围内）赋给一个byte或short变量系统会自动把这个整数值当成byte/short类型来处理。但是使用一个很大的整数，Java不会把它当成long类型处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//系统不会把99999999999999999当成long类型处理,超出了int范围，引起错误</div><div class="line">long bg=99999999999999999;</div><div class="line">//应该在巨大整数值后使用L后缀，强制使用long类型</div><div class="line">long bg=99999999999999999L;</div></pre></td></tr></table></figure>
-<h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><p>字符型值有三种表现形式</p>
-<ul>
-<li>通过单个字符指定字符型值，如’A’, ‘1’。</li>
-<li>通过转义字符表示特殊字符型值，如’\n’、 ‘\t’。</li>
-<li>直接用Unicode值来表示字符型值’\uXXXX’， 其中XXXX代表一个十六进制的整数。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B8%B8%E7%94%A8%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6.png?imageView2/2/w/700/h/200/q/75|imageslim" alt=""></li>
-</ul>
-<p><strong>什么是字符集？</strong></p>
-<p>　　给所有字符的编号组成综合。早期只要一个字节（8位）即可支持256个字符编号，就是ASCII字符集。后来又为所有的书面语言字符进行统一编号，使用2个字节（16位）支持65536个字符，这就是Unicode字符集。</p>
-<p>由于计算机底层保存字符时， <strong>实际保存该字符对应的编号</strong>，因此char类型的值可直接作为整形值来使用，它相当于一个16位无符号整数，范围是0~65535。可以参与数学运算。</p>
-<p><strong>用法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class CharTest</div><div class="line">&#123;</div><div class="line">	public static void main(String[] args)</div><div class="line">	&#123;</div><div class="line">		char xiang= &apos;\u9999&apos;;</div><div class="line">		//将输出&apos;香&apos;字</div><div class="line">		 System.out.println(xiang);</div><div class="line">		//直接把一个0~65535内的int整数赋给一个char变量</div><div class="line">		char a = 12;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><p>浮点型有两种： <strong>float、double</strong></p>
-<p>它们有固定的表数范围和字段长度，字段长度和表数范围与机器无关，遵循IEEE754标准。采用 <strong>二进制</strong>数据的 <strong>科学计数法</strong>来表示浮点数。</p>
-<p><strong>float型</strong></p>
-<p>单精度浮点数，占4字节、32位</p>
-<p>第1位是符号位，接下来8为表示指数，在接下来23为表示尾数</p>
-<p><strong>double型</strong></p>
-<p>双精度浮点数，占8字节、64位</p>
-<p>第1位是符号位，接下来11为表示指数，在接下来52为表示尾数</p>
-<p><strong>十进制形式</strong>：5.22、52.0 （必须包含一个小数点，否则会被当成int类型处理）</p>
-<p><strong>科学计数法</strong>： 5.2e2 或 5.2E2 (即5.2*10^2)</p>
-<p>Java中浮点类型默认为double型，如果希望把一个浮点类型值当做float型来处理应在这个浮点类型值后紧跟f或F。</p>
-<p>Java中有三个特殊的浮点数值： <strong>正无穷大(POSITIVE_INFINITY)、负无穷大(NEGATIVE_INFINITY)、非数(NaN)</strong>。</p>
-<p>正无穷大和正无穷大相等、负无穷大和负无穷大相等、NaN和谁都不相等（包括和NaN）。 <strong>只有浮点数</strong>除0才可以得到正负无穷大，因为Java会自动把浮点数运算的0当成0.0来处理，如果一个整数除以0，则会抛出异常：ArithmeticException：/by zero</p>
-<h4 id="数值中使用下划线"><a href="#数值中使用下划线" class="headerlink" title="数值中使用下划线"></a>数值中使用下划线</h4><p>可以在任意数值中自由的使用下划线，通过下划线可以更直观的分辨数值中包含多少位。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int binVal = 0B1000_0000_0000_0000_0000_0000_0011;</div><div class="line">double pi = 3.14_15_926_53_59;</div></pre></td></tr></table></figure>
-<h4 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h4><p>布尔型只有一个Boolean类型，用于表示逻辑上的“真”或“假”。值只能是 <strong>TRUE</strong>或 <strong>FALSE</strong>。其他的基本数据类型也不能转化成Boolean类型。</p>
-<p>布尔类型主要用于流程控制</p>
-<ul>
-<li>if条件控制语句</li>
-<li>while循环控制语句</li>
-<li>do循环控制语句</li>
-<li>for循环控制语句</li>
-</ul>
-<p>布尔类型的变量还可用在三目运算符（？：）中。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Java数据类型介绍&quot;&gt;&lt;a href=&quot;#Java数据类型介绍&quot; class=&quot;headerlink&quot; title=&quot;Java数据类型介绍&quot;&gt;&lt;/a&gt;Java数据类型介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数据类型分类&lt;/li&gt;
-&lt;li&gt;基本数据类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;数据类型分类&quot;&gt;&lt;a href=&quot;#数据类型分类&quot; class=&quot;headerlink&quot; title=&quot;数据类型分类&quot;&gt;&lt;/a&gt;数据类型分类&lt;/h3&gt;&lt;p&gt;Java语言是强类型（strongly typed）语言，强类型包含两方面的含义：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;所有的变量必须先声明、后使用。&lt;/li&gt;
-&lt;li&gt;指定类型的变量只能接受类型与之匹配的值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;在了解数据类型前先弄懂两个问题：&lt;/p&gt;
-&lt;h4 id=&quot;什么是变量？变量有什么用？&quot;&gt;&lt;a href=&quot;#什么是变量？变量有什么用？&quot; class=&quot;headerlink&quot; title=&quot;什么是变量？变量有什么用？&quot;&gt;&lt;/a&gt;什么是变量？变量有什么用？&lt;/h4&gt;&lt;p&gt;　　 &lt;strong&gt;编程的本质，就是对内存中的数据的访问和修改&lt;/strong&gt;。程序所用的数据都会保存在内存中，程序员需要一种机制来访问或修改内存中的数据。这种机制就是 &lt;strong&gt;变量&lt;/strong&gt;。每个变量都代表某一小块内存，而且变量是有名字的，程序对变量赋值， &lt;strong&gt;实际上就是把数据装入该变量所代表的内存区的过程&lt;/strong&gt;；&lt;br&gt;程序读取变量的值， &lt;strong&gt;实际上就是从该变量所代表的内存区中取值的过程&lt;/strong&gt;。 &lt;strong&gt;变量相当于一个有名称的容器，该容器用于装各种不同类型的数据&lt;/strong&gt;。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Java基础" scheme="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="数据类型" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     
   </entry>
   
