@@ -217,7 +217,7 @@ transient int modCount;//被修改的次数
     <link href="http://yoursite.com/2017/03/02/%E9%AB%98%E6%95%88%E5%B9%B6%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/03/02/高效并发（一）/</id>
     <published>2017-03-02T08:33:26.000Z</published>
-    <updated>2017-07-21T08:37:35.495Z</updated>
+    <updated>2017-07-21T08:38:34.498Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;并发处理的广泛应用是使得Amdahl定律代替摩尔定律称为计算机性能发展源动力的根本原因，也是人类压榨计算机能力最有力的武器。</p>
  <a id="more"></a>
@@ -261,7 +261,7 @@ transient int modCount;//被修改的次数
 <h2 id="内存模型的特点"><a href="#内存模型的特点" class="headerlink" title="内存模型的特点"></a>内存模型的特点</h2><h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>&#160; &#160; &#160; &#160;由Java内存模型来直接保证的原子性变量操作包括read、load、assign、use、store和write这六个，我们可以大致的认为基本数据类型的访问读写是具备原子性的（long和double除外）。Java代码中的同步块即synchronized关键字，因此在synchronized块之间的操作也具备原子性。内部是通过字节码指令monitorenter和monitorexit来实现。</p>
 <h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>&#160; &#160; &#160; &#160;就是当一个线程修改了共享变量的值，其他线程能够立即得知这个修改。Java内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值。关键字synchronized和final也能保证可见性。首先同步块是因为对变量执行unlock操作之前，必须先把次变量同步回主内存中。而final关键字的可见性是指：被final修饰的字段在构造器中一旦被初始化完成，并且构造器没有把this指针传递出去，那么在其他线程中就能看见final字段的值。</p>
 <h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>&#160; &#160; &#160; &#160;用synchronized和volatile关键字来保证线程操作之间的有序性。volatile本省就包含禁止指令重排序的语义，而synchronized则是因为：一个变量在同一时刻只允许一条线程对齐进行lock操作。这个规则决定了持有同一个锁的两个同步块只能串行的进入。</p>
-<h2 id="先行发生原则"><a href="#先行发生原则" class="headerlink" title="先行发生原则"></a>先行发生原则</h2><p>&#160; &#160; &#160; &#160;如果Java内存模型中所有的有序性都只靠volatile和synchronized来完成，那么有一些操作将会变得很啰嗦。java内存模型中的一个重点原则——先行发生原则（Happens-Before），使用这个原则作为依据，来指导你判断是否存在线程安全和竞争问题。</p>
+<h2 id="先行发生原则"><a href="#先行发生原则" class="headerlink" title="先行发生原则"></a>先行发生原则</h2><p>　　如果Java内存模型中所有的有序性都只靠volatile和synchronized来完成，那么有一些操作将会变得很啰嗦。java内存模型中的一个重点原则——先行发生原则（Happens-Before），使用这个原则作为依据，来指导你判断是否存在线程安全和竞争问题。</p>
 <ol>
 <li>程序顺序规则：在程序中，如果A操作在B操作之前（比如A代码在B代码上面，或者由A程序调用B程序），那么在这个线程中，A操作将在B操作之前执行。</li>
 <li>管理锁定规则：一个unlock操作先于后面对同一个锁的lock操作之前执行。<br>volatile变量规则：对一个volatile变量的写操作必须在对该变量的读操作之前发生。</li>
@@ -270,9 +270,9 @@ transient int modCount;//被修改的次数
 <li>线程中断规则：对线程interrupt()方法的调用必须在被中断线程的代码检测到interrupt调用之前执行。</li>
 <li>对象终结规则：对象的初始化（构造函数的调用）必须在该对象的finalize()方法完成。<br>传递性：如果A先行发生于B，B先行发生于C，那么A先行发生于C。</li>
 </ol>
-<h2 id="线程的实现"><a href="#线程的实现" class="headerlink" title="线程的实现"></a>线程的实现</h2><p>&#160; &#160; &#160; &#160;主要有三种方式：使用内核线程KLT、用户线程UT、使用用户和轻量级进程LWP混合。操作系统支持怎么样的线程模型，很大程度决定了java采用何种线程实现方式，对于java程序的编码和运行来说是差异是透明的。</p>
-<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p>&#160; &#160; &#160; &#160;分为协同式和抢占式两种。</p>
-<h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>&#160; &#160; &#160; &#160;分为以下几种：新建、运行、无限期等待、限期等待、阻塞、结束</p>
+<h2 id="线程的实现"><a href="#线程的实现" class="headerlink" title="线程的实现"></a>线程的实现</h2><p>　　主要有三种方式：使用内核线程KLT、用户线程UT、使用用户和轻量级进程LWP混合。操作系统支持怎么样的线程模型，很大程度决定了java采用何种线程实现方式，对于java程序的编码和运行来说是差异是透明的。</p>
+<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p>　　分为协同式和抢占式两种。</p>
+<h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>　　分为以下几种：新建、运行、无限期等待、限期等待、阻塞、结束</p>
 <p><img src="http://img.blog.csdn.net/20160717080817309" alt=""></p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
 ]]></content>
