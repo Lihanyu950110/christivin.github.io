@@ -217,7 +217,7 @@ transient int modCount;//被修改的次数
     <link href="http://yoursite.com/2017/03/02/%E9%AB%98%E6%95%88%E5%B9%B6%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/03/02/高效并发（一）/</id>
     <published>2017-03-02T08:33:26.000Z</published>
-    <updated>2017-07-21T08:34:44.320Z</updated>
+    <updated>2017-07-21T08:36:00.212Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;并发处理的广泛应用是使得Amdahl定律代替摩尔定律称为计算机性能发展源动力的根本原因，也是人类压榨计算机能力最有力的武器。</p>
  <a id="more"></a>
@@ -274,7 +274,7 @@ transient int modCount;//被修改的次数
 <h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p>&#160; &#160; &#160; &#160;分为协同式和抢占式两种。</p>
 <h3 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h3><p>&#160; &#160; &#160; &#160;分为以下几种：新建、运行、无限期等待、限期等待、阻塞、结束</p>
 <p><img src="http://img.blog.csdn.net/20160717080817309" alt=""></p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
 ]]></content>
     
     <summary type="html">
