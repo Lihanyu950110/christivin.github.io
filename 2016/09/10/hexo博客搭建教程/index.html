@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="mysql优化," />
+  <meta name="keywords" content="hexo博客搭建," />
 
 
 
@@ -92,19 +92,17 @@
 
 
 
-<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上篇已经讲了怎么去建立索引，对索引的基本操作，这篇讲如果去适当的使用索引。我们先了解索引的优缺点，然后在这个基础上分析使用索引的恰当时机。">
-<meta name="keywords" content="mysql优化">
+<meta name="description" content="markdown语法Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。">
+<meta name="keywords" content="hexo博客搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL学习笔记整理（四）">
-<meta property="og:url" content="http://yoursite.com/2017/02/16/MySQL学习笔记整理（四）/index.html">
+<meta property="og:title" content="hexo搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2016/09/10/hexo博客搭建教程/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上篇已经讲了怎么去建立索引，对索引的基本操作，这篇讲如果去适当的使用索引。我们先了解索引的优缺点，然后在这个基础上分析使用索引的恰当时机。">
-<meta property="og:image" content="http://opb7t58xj.bkt.clouddn.com/explain.png">
-<meta property="og:updated_time" content="2017-07-16T07:04:46.825Z">
+<meta property="og:description" content="markdown语法Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。">
+<meta property="og:updated_time" content="2017-07-22T04:01:49.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL学习笔记整理（四）">
-<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上篇已经讲了怎么去建立索引，对索引的基本操作，这篇讲如果去适当的使用索引。我们先了解索引的优缺点，然后在这个基础上分析使用索引的恰当时机。">
-<meta name="twitter:image" content="http://opb7t58xj.bkt.clouddn.com/explain.png">
+<meta name="twitter:title" content="hexo搭建个人博客">
+<meta name="twitter:description" content="markdown语法Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。">
 
 
 
@@ -132,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/16/MySQL学习笔记整理（四）/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/10/hexo博客搭建教程/"/>
 
 
 
 
 
-  <title>MySQL学习笔记整理（四） | 徐盛的博客</title>
+  <title>hexo搭建个人博客 | 徐盛的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/16/MySQL学习笔记整理（四）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/10/hexo博客搭建教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐盛">
@@ -304,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL学习笔记整理（四）</h1>
+          <h1 class="post-title" itemprop="name headline">hexo搭建个人博客</h1>
         
 
         <div class="post-meta">
@@ -316,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-16T12:12:13+08:00">
-                2017-02-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-10T10:17:52+08:00">
+                2016-09-10
               </time>
             
 
@@ -339,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql学习/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql学习</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -373,72 +371,21 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;上篇已经讲了怎么去建立索引，对索引的基本操作，这篇讲如果去适当的使用索引。我们先了解索引的优缺点，然后在这个基础上分析使用索引的恰当时机。</p>
-  <a id="more"></a>
-<h2 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a>索引的优缺点</h2><p>&#160; &#160; &#160; &#160;创建索引可以大大提高系统的性能。</p>
-<ol>
-<li>通过创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</li>
-<li>可以大大加快数据的检索速度，这也是创建索引的最主要的原因。</li>
-<li>可以加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。</li>
-<li>在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。</li>
-<li>通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。 </li>
-</ol>
-<p>&#160; &#160; &#160; &#160;也许会有人要问：增加索引有如此多的优点，为什么不对表中的每一个列创建一个索引呢？因为，增加索引也有许多不利的方面。</p>
-<ol>
-<li>创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加。</li>
-<li>索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大。</li>
-<li>当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，这样就降低了数据的维护速度。</li>
-</ol>
-<h2 id="适合建立索引的情况"><a href="#适合建立索引的情况" class="headerlink" title="适合建立索引的情况"></a>适合建立索引的情况</h2><p>一般来说，应该在这些列上创建索引：</p>
-<ol>
-<li>在经常需要搜索的列上，可以加快搜索的速度；</li>
-<li>在作为主键的列上，强制该列的唯一性和组织表中数据的排列结构；</li>
-<li>在经常用在连接的列上，这些列主要是一些外键，可以加快连接的速度；</li>
-<li>在经常需要根据范围进行搜索的列上创建索引，因为索引已经排序，其指定的范围是连续的；</li>
-<li>在经常需要排序的列上创建索引，因为索引已经排序，这样查询可以利用索引的排序，加快排序查询时间；</li>
-<li>在经常使用在WHERE子句中的列上面创建索引，加快条件的判断速度。</li>
-</ol>
-<h2 id="不适合建立索引的情况"><a href="#不适合建立索引的情况" class="headerlink" title="不适合建立索引的情况"></a>不适合建立索引的情况</h2><p>一般来说，不应该创建索引的的这些列具有下列特点：</p>
-<ol>
-<li>对于那些在查询中很少使用或者参考的列不应该创建索引。这是因为，既然这些列很少使用到，因此有索引或者无索引，并不能提高查询速度。相反，由于增加了索引，反而降低了系统的维护速度和增大了空间需求。</li>
-<li>对于那些只有很少数据值的列也不应该增加索引。这是因为，由于这些列的取值很少，例如人事表的性别列，在查询的结果中，结果集的数据行占了表中数据行的很大比例，即需要在表中搜索的数据行的比例很大。增加索引，并不能明显加快检索速度。</li>
-<li>对于那些定义为text, image和bit数据类型的列不应该增加索引。这是因为，这些列的数据量要么相当大，要么取值很少。</li>
-<li>当修改性能远远大于检索性能时，不应该创建索引。这是因为，修改性能和检索性能是互相矛盾的。当增加索引时，会提高检索性能，但是会降低修改性能。当减少索引时，会提高修改性能，降低检索性能。因此，当修改性能远远大于检索性能时，不应该创建索引。</li>
-</ol>
-<p><a href="http://blog.csdn.net/kennyrose/article/details/7532032" target="_blank" rel="external">此处为参考链接</a>。</p>
-<h2 id="索引的使用分析"><a href="#索引的使用分析" class="headerlink" title="索引的使用分析"></a>索引的使用分析</h2><h3 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h3><p>&#160; &#160; &#160; &#160;下图说明利用这个指令出现的每项及其含义：</p>
-<p><img src="http://opb7t58xj.bkt.clouddn.com/explain.png" alt=""></p>
-<h3 id="使用索引的几个注意事项"><a href="#使用索引的几个注意事项" class="headerlink" title="使用索引的几个注意事项"></a>使用索引的几个注意事项</h3><p>&#160; &#160; &#160; &#160;我们把dept这张表的deptno列设为主键，然后在把dname和loc列设为复合索引。代码如下：</p>
-<pre><code>//添加主键
-alter table dept add primary key(deptno);
-//  dname 左边的列,loc就是右边的列
-alter table dept add index my_ind (dname,loc); 
-</code></pre><ol>
-<li>说明，如果我们的表中有复合索引(索引作用在多列上)， 此时我们注意:对于创建的多列索引，只要查询条件使用了最左边的列，索引一般就会被使用。<pre><code>explain select * from dept where loc=&apos;aaa&apos;\G；//此处就不会使用到索引
-</code></pre></li>
-</ol>
-<ol>
-<li><p>对于使用like的查询，查询如果是  ‘%aaa’ 不会使用到索引,‘aaa%’ 会使用到索引。</p>
-<p> explain select * from dept where dname like ‘%aaa’\G</p>
-<p> 不能使用索引，即，在like查询时，关键的 ‘关键字’ , 最前面，不能使用 % 或者 _这样的字符.， 如果一定要前面有变化的值，则考虑使用 全文索引-&gt;sphinx.</p>
-</li>
-<li><p>如果条件中有or，即使其中有条件带索引也不会使用。换言之，就是要求使用的所有字段，都必须建立索引, 我们建议大家尽量避免使用or 关键字</p>
-<p>select * from dept where dname=’xxx’ or loc=’xx’</p>
-<p>select * from dept where dname=’xxx’ or loc=’xx’ or deptno=45</p>
-<p>这两个语句执行比较就可以等到结果。</p>
-</li>
-<li><p>如果列类型是字符串，那一定要在条件中将数据使用引号引用起来。否则不使用索引。(添加时,字符串必须’’), 也就是，如果列是字符串类型，就一定要用 ‘’ 把他包括起来.</p>
-</li>
-<li><p>如果mysql估计使用全表扫描要比使用索引快，则不使用索引。情况特殊，比如空表或者记录只有一条的时候。</p>
-</li>
-</ol>
-<h3 id="查询索引使用情况"><a href="#查询索引使用情况" class="headerlink" title="查询索引使用情况"></a>查询索引使用情况</h3><p>&#160; &#160; &#160; &#160;如何查看索引使用的情况，就像看缓存命中率一样:</p>
-<pre><code>show status like ‘Handler_read%’;
-</code></pre><p>tips：</p>
-<pre><code>handler_read_key:这个值越高越好，越高表示使用索引查询到的次数。
-
-handler_read_rnd_next:这个值越高，说明查询低效。
-</code></pre><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+        <h2 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h2><p>Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。例如此文从内容到格式，甚至插图，键盘就可以通通搞定了。<br><a id="more"></a></p>
+<h3 id="Markdown-官方文档"><a href="#Markdown-官方文档" class="headerlink" title="Markdown 官方文档"></a>Markdown 官方文档</h3><p>这里可以看到官方的 Markdown 语法规则文档，当然，后文我也会用自己的方式阐述这些语法的具体用法。</p>
+<p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="external">创始人 John Gruber 的 Markdown 语法说明</a></p>
+<p><a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="external">Markdown 中文版语法说明</a></p>
+<h3 id="Mac下的编辑器Mou和MacDown"><a href="#Mac下的编辑器Mou和MacDown" class="headerlink" title="Mac下的编辑器Mou和MacDown"></a>Mac下的编辑器Mou和MacDown</h3><p>代码高亮</p>
+<p>Mou 和 MacDown 都支持 fenced code blocks（前后三个反引号可以表示代码块），但 MacDown 支持加语言标识符实现代码高亮，这对程序员来说简直是福音啊，非常棒的功能。</p>
+<p>MacDown 支持代码高亮<br>MacDown 支持代码高亮<br>GFM Task List 支持</p>
+<p>MacDown 支持 Task list，有了这个功能，你可以将你的 MD 编辑器立马变成 TODO list，是不是很赞？</p>
+<p>MacDown 对 Task list 的支持<br>MacDown 对 Task list 的支持<br>Jekyll Front-matter 支持</p>
+<p>很多人使用 Jekyll 作为博客引擎，这时 Jekyll 的前面那段该怎么去渲染呢？MacDown 和 github 一样可以支持。</p>
+<p>MacDown 对 Jekyll front-matter 的支持<br>MacDown 对 Jekyll front-matter 的支持</p>
+<h2 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h2><p><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="external">参考链接</a></p>
+<h2 id="nodejs-git-并安装hexo"><a href="#nodejs-git-并安装hexo" class="headerlink" title="nodejs+git 并安装hexo"></a>nodejs+git 并安装hexo</h2><p>这个教程很多，参照链接<br><a href="http://www.jianshu.com/p/ecd51e8ef2fa" target="_blank" rel="external">参考链接</a></p>
+<h2 id="next主题安装，并个性化设置"><a href="#next主题安装，并个性化设置" class="headerlink" title="next主题安装，并个性化设置"></a>next主题安装，并个性化设置</h2><p>这个真是走了很多弯路。根据官方文档一步步来。<br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">官方文档</a></p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 
       
     </div>
@@ -468,7 +415,7 @@ handler_read_rnd_next:这个值越高，说明查询低效。
       
         <div class="post-tags">
           
-            <a href="/tags/mysql优化/" rel="tag"># mysql优化</a>
+            <a href="/tags/hexo博客搭建/" rel="tag"># hexo博客搭建</a>
           
         </div>
       
@@ -481,18 +428,14 @@ handler_read_rnd_next:这个值越高，说明查询低效。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/15/MySQL学习笔记整理（三）/" rel="next" title="MySQL学习笔记整理（三）">
-                <i class="fa fa-chevron-left"></i> MySQL学习笔记整理（三）
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/18/MySQL学习笔记整理（五）/" rel="prev" title="MySQL学习笔记整理（五）">
-                MySQL学习笔记整理（五） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/10/Java基础原理笔记（一）/" rel="prev" title="Java基础原理笔记(一)">
+                Java基础原理笔记(一) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +573,7 @@ handler_read_rnd_next:这个值越高，说明查询低效。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的优缺点"><span class="nav-number">2.</span> <span class="nav-text">索引的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适合建立索引的情况"><span class="nav-number">3.</span> <span class="nav-text">适合建立索引的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适合建立索引的情况"><span class="nav-number">4.</span> <span class="nav-text">不适合建立索引的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用分析"><span class="nav-number">5.</span> <span class="nav-text">索引的使用分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#explain"><span class="nav-number">5.1.</span> <span class="nav-text">explain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用索引的几个注意事项"><span class="nav-number">5.2.</span> <span class="nav-text">使用索引的几个注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询索引使用情况"><span class="nav-number">5.3.</span> <span class="nav-text">查询索引使用情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">6.</span> <span class="nav-text">说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#markdown语法"><span class="nav-number">1.</span> <span class="nav-text">markdown语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-官方文档"><span class="nav-number">1.1.</span> <span class="nav-text">Markdown 官方文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac下的编辑器Mou和MacDown"><span class="nav-number">1.2.</span> <span class="nav-text">Mac下的编辑器Mou和MacDown</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门指南"><span class="nav-number">2.</span> <span class="nav-text">入门指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs-git-并安装hexo"><span class="nav-number">3.</span> <span class="nav-text">nodejs+git 并安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题安装，并个性化设置"><span class="nav-number">4.</span> <span class="nav-text">next主题安装，并个性化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">5.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
