@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20150929153140497">
 <meta property="og:image" content="http://static.codeceo.com/images/2016/08/reentrantlock01.png">
 <meta property="og:image" content="http://static.oschina.net/uploads/space/2016/0403/104016_XiVq_1759553.png">
-<meta property="og:updated_time" content="2017-07-23T09:21:26.794Z">
+<meta property="og:updated_time" content="2017-07-23T09:22:06.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高效并发（三）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;在前面的基础知识之上，我们开始对concurrent包的全面分析。">
@@ -474,9 +474,9 @@ long getDelay(TimeUnit unit);
 <li><p>仅唤醒写线程阻塞队列中的一个。</p>
 </li>
 </ol>
-<p>&#160; &#160; &#160; &#160;这就是多个Condition的强大之处，假设缓存队列中已经存满，那么阻塞的肯定是写线程，唤醒的肯定是读线程，相反，阻塞的肯定是读线程，唤醒的肯定是写线程，那么假设只有一个Condition会有什么效果呢，缓存队列中已经存满，这个Lock不知道唤醒的是读线程还是写线程了，如果唤醒的是读线程，皆大欢喜，如果唤醒的是写线程，那么线程刚被唤醒，又被阻塞了，这时又去唤醒，这样就浪费了很多时间。</p>
+<p>　　这就是多个Condition的强大之处，假设缓存队列中已经存满，那么阻塞的肯定是写线程，唤醒的肯定是读线程，相反，阻塞的肯定是读线程，唤醒的肯定是写线程，那么假设只有一个Condition会有什么效果呢，缓存队列中已经存满，这个Lock不知道唤醒的是读线程还是写线程了，如果唤醒的是读线程，皆大欢喜，如果唤醒的是写线程，那么线程刚被唤醒，又被阻塞了，这时又去唤醒，这样就浪费了很多时间。</p>
 <p>参考博文：<a href="http://blog.csdn.net/luonanqin/article/details/41894755" target="_blank" rel="external">Condition的await-signal流程详解</a>,<a href="http://blog.csdn.net/ghsau/article/details/7481142" target="_blank" rel="external">Condition-线程通信更高效的方式</a>,<a href="http://www.importnew.com/9281.html" target="_blank" rel="external">怎么理解Condition</a>.</p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
 
       
     </div>
