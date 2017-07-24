@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/10/高效并发（四）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上篇已经分析了lock和concurrent提供的集合类包括阻塞队列和容器类。这里我们来介绍">
-<meta property="og:updated_time" content="2017-07-24T06:46:14.766Z">
+<meta property="og:updated_time" content="2017-07-24T06:46:53.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高效并发（四）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上篇已经分析了lock和concurrent提供的集合类包括阻塞队列和容器类。这里我们来介绍">
@@ -426,9 +426,9 @@ private static int ctlOf(int rs, int wc) { return rs | wc; }
 <h3 id="信号量Semaphone"><a href="#信号量Semaphone" class="headerlink" title="信号量Semaphone"></a>信号量Semaphone</h3><p>&#160; &#160; &#160; &#160;之前讲的闭锁控制访问的时间，而信号量则用来控制访问某个特定资源的操作数量，控制空间。而且闭锁只能够减少，一次性使用，而信号量则申请可释放，可增可减。 计数信号量还可以用来实现某种资源池，或者对容器施加边界。</p>
 <p>&#160; &#160; &#160; &#160;Semaphone 管理这一组许可（permit），可通过构造函数指定。同时提供了阻塞方法acquire，用来获取许可。同时提供了release方法表示释放一个许可。</p>
 <p>&#160; &#160; &#160; &#160;Semaphone 可以将任何一种容器变为有界阻塞容器，如用于实现资源池。例如数据库连接池。我们可以构造一个固定长度的连接池，使用阻塞方法 acquire和release获取释放连接，而不是获取不到便失败。（当然，一开始设计时就使用BlockingQueue来保存连接池的资源是一种更简单的方法）。</p>
-<h3 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h3><p>&#160; &#160; &#160; &#160;FutureTask也可以用作闭锁。它表示一种抽象的可生成结果的计算。是通过 Callable 来实现的，相当于一种可生成结果的 Runnable ，并且可处于以下三种状态：等待运行，正在运行，运行完成。当FutureTask进入完成状态后，它会停留在这个状态上。</p>
-<p>&#160; &#160; &#160; &#160;Future.get 用来获取计算结果，如果FutureTask还未运行完成，则会阻塞。FutureTask 将计算结果从执行计算的线程传递到获取这个结果的线程，而FutureTask 的规范确保了这种传递过程能实现结果的安全发布。</p>
-<p>&#160; &#160; &#160; &#160;FutureTask在Executor框架中表示异步任务，还可以用来表示一些时间较长的计算，这些计算可以在使用计算结果之前启动。</p>
+<h3 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h3><p>　　FutureTask也可以用作闭锁。它表示一种抽象的可生成结果的计算。是通过 Callable 来实现的，相当于一种可生成结果的 Runnable ，并且可处于以下三种状态：等待运行，正在运行，运行完成。当FutureTask进入完成状态后，它会停留在这个状态上。</p>
+<p>　　Future.get 用来获取计算结果，如果FutureTask还未运行完成，则会阻塞。FutureTask 将计算结果从执行计算的线程传递到获取这个结果的线程，而FutureTask 的规范确保了这种传递过程能实现结果的安全发布。</p>
+<p>　　FutureTask在Executor框架中表示异步任务，还可以用来表示一些时间较长的计算，这些计算可以在使用计算结果之前启动。</p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！</p>
 
       
