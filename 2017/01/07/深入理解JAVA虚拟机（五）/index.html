@@ -92,19 +92,19 @@
 
 
 
-<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
+<meta name="description" content="前言　　我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
 <meta name="keywords" content="类加载机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java虚拟机（五）">
 <meta property="og:url" content="http://yoursite.com/2017/01/07/深入理解JAVA虚拟机（五）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
+<meta property="og:description" content="前言　　我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
 <meta property="og:image" content="http://img.blog.csdn.net/20140105211344671">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201009/25/0_1285421756PHyZ.gif">
-<meta property="og:updated_time" content="2017-07-13T03:04:59.211Z">
+<meta property="og:updated_time" content="2017-07-28T07:32:10.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机（五）">
-<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
+<meta name="twitter:description" content="前言　　我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？。这是我们接下来要学习的内容。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20140105211344671">
 
 
@@ -374,7 +374,7 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。<font color="red">而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？</font>。这是我们接下来要学习的内容。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　我们已经了解了Class文件存储格式的具体细节，在Class文件中描述的各种信息，最终都需要加载到虚拟机中之后才能被运行和使用。<font color="red">而虚拟机如何加载这些Class文件？这些信息进入到虚拟机后会发生什么变化？</font>。这是我们接下来要学习的内容。</p>
  <a id="more"></a>
 <p>&#160; &#160; &#160; &#160;虚拟机把描述类的数据从calss文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。<font color="red">与那些在编译期需要进行连接的工作语言不同，在Java语言里，类加载荷连接过程都是在程序运行期间完成的，这样会在类加载时稍微增加一些性能开销，但是却能为程序提供高度的灵活性</font>，动态扩展的特性也就是依赖运行期间动态加载和动态连接这个特点实现的。如面向接口的编程。</p>
 <h2 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h2><p>&#160; &#160; &#160; &#160;类从加载到虚拟机内存中开始，到卸载出内存为止，它的生命周期共包含七个阶段，如下图：</p>
