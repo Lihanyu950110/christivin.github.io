@@ -293,11 +293,11 @@ transient int modCount;//被修改的次数
     <link href="http://yoursite.com/2017/03/18/OOM%E5%BC%82%E5%B8%B8%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2017/03/18/OOM异常实战/</id>
     <published>2017-03-18T08:27:03.000Z</published>
-    <updated>2017-07-28T07:30:09.681Z</updated>
+    <updated>2017-07-28T07:30:49.138Z</updated>
     
     <content type="html"><![CDATA[<h1 id="OOM异常实战"><a href="#OOM异常实战" class="headerlink" title="OOM异常实战"></a>OOM异常实战</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;在Java虚拟机除了程序计数器外，其他几个运行时内存区域都可能发生OOM，下面实例一下溢出场景，并分析。</p>
 <a id="more"></a>
-<h2 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h2><h3 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h3><p>&#160; &#160; &#160; &#160;有几个重要参数设置如下：</p>
+<h2 id="Java堆溢出"><a href="#Java堆溢出" class="headerlink" title="Java堆溢出"></a>Java堆溢出</h2><h3 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h3><p>有几个重要参数设置如下：</p>
 <ol>
 <li><p>-Xms  堆大小的最小值设置参数</p>
 </li>
