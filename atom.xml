@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-19T08:03:31.140Z</updated>
+  <updated>2017-07-28T07:28:13.258Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OOM异常实战</title>
+    <link href="http://yoursite.com/2017/07/28/OOM%E5%BC%82%E5%B8%B8%E5%AE%9E%E6%88%98/"/>
+    <id>http://yoursite.com/2017/07/28/OOM异常实战/</id>
+    <published>2017-07-28T07:28:13.000Z</published>
+    <updated>2017-07-28T07:28:13.258Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>JDK源码阅读（三）</title>
@@ -1525,40 +1539,6 @@ table th:first-of-type {
     
     
       <category term="内存区域" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JAVA Web笔记整理（一）</title>
-    <link href="http://yoursite.com/2016/10/03/JAVA-Web%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/10/03/JAVA-Web笔记整理（一）/</id>
-    <published>2016-10-03T07:58:20.000Z</published>
-    <updated>2017-07-19T07:59:54.696Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;Java最先的流行就是从Web上的动态页面小程序开始的，万维网的流行，Java Web的发展也很快，从最先的页面，到JSP，添加内置对象，JavaBean出现实现业务逻辑分离，到Servlet的发展。这里回顾一下这些发展历程。</p>
- <a id="more"></a>
-<h2 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h2><p>&#160; &#160; &#160; &#160;JSP提供了由容器实现和管理的内置对象，首先一个问题就是为什么会出现内置对象呢，他的作用是什么？</p>
-<p>&#160; &#160; &#160; &#160;答：JSP使用Java作文脚本程序语言，具有巨大的对象处理能力，动态创建Web页面，而在Java语言中，需要创建实例才能引用，操作繁琐，为了简化，<font color="red">JSP提供了9大内置对象和4个作用域，作用域如下图，对象分别是request、response、session、application、out、page、config、exception、pageContext。</font></p>
-<p>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://img2.tuicool.com/2Ejm63.jpg!web" alt=""></p>
-<p>&#160; &#160; &#160; &#160;内置对象的作用可参考博文，文字较多。<a href="http://www.tuicool.com/articles/VNB3AjA" target="_blank" rel="external">九大内置对象作用</a>。</p>
-<p>&#160; &#160; &#160; &#160;重要的是request、response分别包装了Http请求和响应信息，session是适用于同一个应用程序中每个客户端的各个页面的共享数据，application是全局共享数据，out用于在JSP中输出各种类型数据。</p>
-<p>&#160; &#160; &#160; &#160;这里需要补充的是容器、JSP容器，servlet容器，web容器，web服务器，应用服务器的概念。参考博文：<a href="http://blog.csdn.net/qmw19910301/article/details/53463285" target="_blank" rel="external">Servlet，Servlet容器，Jsp容器，Web容器</a>，<a href="https://www.zhihu.com/question/20096067" target="_blank" rel="external">Web 服务器与应用服务器的区别</a>。</p>
-<h2 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h2><p>&#160; &#160; &#160; &#160;JavaBean的产生使JSP页面中的业务逻辑变得更加清晰，程序中的实体对象及业务逻辑可以单独封装到Java类中。不仅提高可读性和易维护性，还提高了可重用性。</p>
-<p>&#160; &#160; &#160; &#160;在JSP网页初级阶段开源社区还没有那么活跃，也并没有分层和框架的出现，将大量代码嵌入HTML中效率很低，JavaBean出现和JSP组合开发模式将业务逻辑，如数据库操作通过引用JavaBean组件来完成。</p>
-<p>&#160; &#160; &#160; &#160;Spring中也有很多实例的Bean，类似类的实例了，有一些概念，如PO,VO,BO,POJO等，参考博文<a href="http://blog.chinaunix.net/uid-20556037-id-2810927.html" target="_blank" rel="external">PO、VO、BO、DTO、POJO、DAO之间的关系 </a>。</p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;Java最先的流行就是从Web上的动态页面小程序开始的，万维网的流行，Java Web的发展也很快，从最先的页面，到JSP，添加内置对象，JavaBean出现实现业务逻辑分离，到Servlet的发展。这里回顾一下这些发展历程。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java Web" scheme="http://yoursite.com/categories/Java-Web/"/>
-    
-    
-      <category term="JSP、JavaBean" scheme="http://yoursite.com/tags/JSP%E3%80%81JavaBean/"/>
     
   </entry>
   
