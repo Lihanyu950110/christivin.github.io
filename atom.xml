@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-01T07:03:21.774Z</updated>
+  <updated>2017-07-19T08:03:31.140Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,109 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>算法总结-排序（一）</title>
-    <link href="http://yoursite.com/2017/12/01/%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93-%E6%8E%92%E5%BA%8F%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/12/01/算法总结-排序（一）/</id>
-    <published>2017-12-01T06:55:39.000Z</published>
-    <updated>2017-08-01T07:03:21.774Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;看完了牛客网上的买的算法课程，准备首先从基础的<font color="red"><strong>数据结构</strong></font>和<font color="red"><strong>算法</strong></font>开始写。  </p>
-<p>  &#160; &#160; &#160; &#160;本篇先从基础的排序开始，需要要掌握的有<em>冒泡排序</em>，<em>选择排序</em>和 <em>插入排序</em>。</p>
-  <a id="more"></a>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h3 id="算法思路："><a href="#算法思路：" class="headerlink" title="算法思路："></a>算法思路：</h3><p>  1.<em>第一次循环</em>：从0到n-2（即0&lt;=i&lt;n-1-0），每个位置上的数拿本身和后一位相比，如果比后一位大就交换两个位置的值。</p>
-<p>  2.<em>第二次循环</em>：从0到n-3即（即0&lt;=i&lt;n-1-1），操作同第一次循环一样。</p>
-<p>  ….多次循环后….</p>
-<p>  3.<em>第n-1次循环</em>：0位置上的数（即0&lt;=i&lt;n-1-(n-2)），操作同第一次循环。</p>
-<p>  &#160; &#160; &#160; &#160;说明：为了实现本身和后一位相比直到最后，要用内层循环实现，范围区间已在上面给出，外层共有n-1次循环，我们可以写出代码如下。</p>
-<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><pre><code>public static int[] BubbleSort(int[] A, int n) {
-
-    // 给变量赋初识值
-    int temp,i = 0,j = 0;
-    //外层循环计数如上面算法思想的减数部分
-    for(;i &lt; n-1;++i){
-    //内层循环来实现相邻两个比较
-        for(;j&lt;n-i-1;++j){
-        //前一个比后一个大，冒泡到最后
-        //说明：逆序排列的话条件相反
-            if(A [j] &gt; A [j+1]){
-                temp = A[j];
-                A[j] = A[j+1];
-                A[j+1] = temp;
-            }
-        }
-    }
-    return A;
-}
-</code></pre><h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p> 1.<em>第一次循环</em>：从0到n-1（即1&lt;=i&lt;n），选出区间最小值放到位置0上。</p>
-<p>  2.<em>第二次循环</em>：从1到n-1（即2&lt;=i&lt;n），选出最小值放到位置1上。</p>
-<p>  ….多次循环后….</p>
-<p>  3.<em>第n-1次循环</em>：从n-2到n-1（即n-2&lt;=i&lt;n），选出最小值放在位置n-2上。</p>
-<p>  &#160; &#160; &#160; &#160;说明：内层循环选取区间内的最小值，循环区间上面已给出，利用附加空间的int k来存储最小值的索引，最后和对应位置值交换，外层循环循环n-1次。根据以上思路可以写出实现代码。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public static int[] selectSort(int[] data){
-//初始化变量，需要额外的k存最小智的索引
-    int i, j, k, tmp = 0;
-    //外层循环，0-n-2，循环n-2次
-    for (i = 0; i &lt; data.length - 1; i++) {
-        //记录下区间第一个值
-        k = i;
-        //内层循环从区间第二个值开始比较
-        for (j = i + 1; j &lt; data.length; j++)
-        //更新最小值索引
-            if (data[j] &lt; data[k])
-                k = j;
-        //如果最小值索引不是当前位置，交换他们的值
-        if (k != i) {
-            tmp = data[i];
-            data[i] = data[k];
-            data[k] = tmp;
-        }
-    }
-    return data;
-}
-</code></pre><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h3 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h3><p> 1.<em>第一次循环</em>：从位置1上的数开始，与它的前一位比较，如果比他小就交换它们的值，并从它的前一位开始继续向前比较，直接当前位置比前一个位置大，停止循环，或者直到和位置0上的数相比，比较结束，此时0——1区间一定有序。</p>
-<p>  2.<em>第二次循环</em>：从位置2上的数开始，与它的前一位比较，如果比他小就交换它们的值，并从它的前一位开始继续向前比较，直接当前位置比前一个位置大，停止循环，或者直到和位置0上的数相比，比较结束，此时0——2区间一定有序。</p>
-<p>  ….多次循环后….</p>
-<p>  3.<em>第n-1次循环</em>：从位置n-1上的数开始，与它的前一位比较，如果比他小就交换它们的值，并从它的前一位开始继续向前比较，直接当前位置比前一个位置大，停止循环，或者直到和位置0上的数相比，比较结束，此时0——n-1区间即整个数列就有序了。</p>
-<p>  &#160; &#160; &#160; &#160;说明：外层循环循环n-1次。从1到n-1，即1&lt;=i&lt;n。内层循环首先取当前索引的前一位索引，与当前索引位置的值比较，如果当前索引位置较小就交换当前索引和前一位的值，并从它的前一位开始继续向前比较。根据以上思路可以写出实现代码。</p>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code>public static int[] insertionSort(int[] A, int n) {
-    // 外层循环从1——n-1，共n-1次。
-    for(int i=1;i&lt;n;++i){
-        //j从当前索引i前一位开始，每次比较后j递减更新当前索引位置
-        for(int j=i-1;j&gt;=0;--j){
-            //比较前一位和当前索引位置，如果当前位置小则交换
-            if(A[j]&gt;A[j+1]){
-                int temp=A[j];
-                A[j]=A[j+1];
-                A[j+1]=temp;
-            }
-            //如果当前位置大，停止内层循环
-            else
-                break;
-        }
-
-    }
-    return A;
-}
-</code></pre><p>明天讲其他几种，最后试着插入一个动图！！！</p>
-<p>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://ww2.sinaimg.cn/bmiddle/88070423gw1ep30aw8an7g204d04gkgd.gif" alt="亦菲表演机器猫"></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;看完了牛客网上的买的算法课程，准备首先从基础的&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;数据结构&lt;/strong&gt;&lt;/font&gt;和&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;算法&lt;/strong&gt;&lt;/font&gt;开始写。  &lt;/p&gt;
-&lt;p&gt;  &amp;#160; &amp;#160; &amp;#160; &amp;#160;本篇先从基础的排序开始，需要要掌握的有&lt;em&gt;冒泡排序&lt;/em&gt;，&lt;em&gt;选择排序&lt;/em&gt;和 &lt;em&gt;插入排序&lt;/em&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="经典算法" scheme="http://yoursite.com/tags/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
   
   <entry>
     <title>JDK源码阅读（三）</title>
@@ -1594,6 +1491,93 @@ table th:first-of-type {
     
     
       <category term="对象访问" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深入学习JAVA虚拟机（一）</title>
+    <link href="http://yoursite.com/2017/01/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/</id>
+    <published>2017-01-03T12:11:32.000Z</published>
+    <updated>2017-05-12T08:13:10.373Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><hr>
+<p><strong>本章主要内容</strong></p>
+<ul>
+<li>运行时数据区域</li>
+</ul>
+<hr>
+<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""></p>
+<p>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。<br><a id="more"></a></p>
+<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h4><p>　　程序计数器(Program Counter Register) 是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型中，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，<strong>分支、循环、跳转、异常处理、线程恢复等</strong>基础功能都需要依赖这个计数器来完成。</p>
+<ul>
+<li>Java虚拟机的多线程通过轮流切换并分配处理器执行时间实现。</li>
+<li>在任何一个确定的时刻，一个处理器只会执行一条线程的指令。</li>
+<li>每个线程都有一个独立的程序计数器，线程切换后，找到正确的执行位置。</li>
+<li>各线程之间的计数器独立存储。</li>
+</ul>
+<p>　　如果线程正在执行的是一个Java方法，这个计数器记录的时正在执行的虚拟机字节码指令的地址；如果正在执行的是<strong>Native方法</strong>，这个计数器的值为空。此内存区域是唯一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
+<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a><strong>Java虚拟机栈</strong></h4><p>　　与程序计数器一样，Java虚拟机栈(Java Virtual Machine Stacks)也是线程私有的，它的生命周期与线程相同。它描述的Java方法执行的内存模型。</p>
+<ul>
+<li>每个方法被执行的时候会创建一个栈帧(Stack Frame)。</li>
+<li>栈帧用于存储局部变量表、操作栈、动态链接、方法出口等信息。</li>
+<li>方法从被调用到执行完成对应着一个栈帧在虚拟机栈中入站到出站的过程。</li>
+</ul>
+<p>通常最关注的、与对象内存分配关系最密切的内存区就是<strong>虚拟机栈</strong>（局部变量表）和<strong>Java堆</strong>。<br><strong>局部变量表</strong>存放了编译器可知的各种基本数据类型：</p>
+<ul>
+<li>byte (1 Slot)</li>
+<li>short(1 Slot)</li>
+<li>int(1 Slot)</li>
+<li>char(1 Slot)</li>
+<li>float(1 Slot)</li>
+<li>long(2 Slot)</li>
+<li>double(2 Slot)</li>
+<li>boolean(1 Slot)</li>
+</ul>
+<p>　　其中64位长度的long 和double类型的数据会占用2个局部变量空间(Slot),其余的只占一个。<br>　　局部变量表所需的内存空间<strong>在编译期间完成分配</strong>，进入一个方法时，这个方法需要在帧中<strong>分配多大的局部变量空间是完全确定的</strong>，在方法运行期间不会改变局部变量表的大小。</p>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a><strong>本地方法栈</strong></h4><p>　　与虚拟机栈的作用类似，虚拟机栈为虚拟机执行<strong>Java方法</strong>（字节码）服务，本地方法栈为虚拟机的<strong>Native方法</strong>服务。具体的虚拟机可以自由实现本地方法栈。</p>
+<h4 id="Java栈"><a href="#Java栈" class="headerlink" title="Java栈"></a><strong>Java栈</strong></h4><ul>
+<li>Java堆(Java Heap)是Java虚拟机所管理的内存中最大的一块。</li>
+<li>Java堆被<strong>所有线程共享</strong>的一块内存区域，在虚拟机启动时创建。</li>
+<li>此内存区域唯一目的就是<strong>存放对象实例</strong>。</li>
+<li>Java堆是垃圾收集器管理的主要区域。</li>
+<li>Java堆只要求逻辑上连续，可以处于物理上不连续的内存空间中。</li>
+</ul>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a><strong>方法区</strong></h4><ul>
+<li>方法区(Method Area) 与Java堆一样，是个各线程共享的内存区域。</li>
+<li>用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。</li>
+<li>不需要连续的内存，还可以选择不实现垃圾收集。</li>
+<li>这个区域的内存回收目标主要是<strong>针对常量池的回收</strong>和对<strong>类型的卸载</strong>。</li>
+</ul>
+<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a><strong>运行时常量池</strong></h4><ul>
+<li>运行时常量池(Runtime Constant Pool)是方法区的一部分。</li>
+<li>用于存放<strong>编译期</strong>生成的各种<strong>字面量</strong>和<strong>符号引用</strong>，这部分内容将在类加载后存放到方法区的运行时常量池中。</li>
+<li>运行时常量池具备动态性，即运行期间也可能将新的常量放入池中，例如String类的intern()方法。</li>
+<li>当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</li>
+</ul>
+<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a><strong>直接内存</strong></h4><ul>
+<li>不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是被频繁使用。</li>
+<li>本机直接内存的分配不受到Java堆大小的限制，但是会受到本机总内存(RAM及SWAP区或分页文件)的大小及处理器寻址空间的限制。服务器管理员配置虚拟机参数时一般会根据实际内存设置-Xmx等参数信息，但是经常忽略直接内存，使得各个内存区域的总和大于物理内存限制，导致动态扩展时出现OutOfMemoryError异常。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;java内存区域与内存溢出异常&quot;&gt;&lt;a href=&quot;#java内存区域与内存溢出异常&quot; class=&quot;headerlink&quot; title=&quot;java内存区域与内存溢出异常&quot;&gt;&lt;/a&gt;java内存区域与内存溢出异常&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;运行时数据区域&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;运行时数据区域&quot;&gt;&lt;a href=&quot;#运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;运行时数据区域&quot;&gt;&lt;/a&gt;运行时数据区域&lt;/h3&gt;&lt;p&gt;Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。&lt;br&gt;  &lt;img src=&quot;http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java虚拟机" scheme="http://yoursite.com/categories/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+    
+      <category term="内存区域" scheme="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/"/>
     
   </entry>
   
