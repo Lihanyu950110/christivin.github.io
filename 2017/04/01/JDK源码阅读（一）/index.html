@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;看JDK的源码是非常有效的学习方法，对深入学习和理解起着关键作用，要保持阅读源码的习惯，之后我们会经常对一些重要的源码进行整理，之前已经看了集合类，今天从基本类型开始，关键是多看，每次看都有新发现，这里主要列出别人整理过的深层次理解，方便自己经常结合源码看。">
 <meta property="og:image" content="http://img.blog.csdn.net/20161205181623207">
-<meta property="og:updated_time" content="2017-07-18T05:56:35.409Z">
+<meta property="og:updated_time" content="2017-08-02T08:13:56.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK源码阅读（一）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;看JDK的源码是非常有效的学习方法，对深入学习和理解起着关键作用，要保持阅读源码的习惯，之后我们会经常对一些重要的源码进行整理，之前已经看了集合类，今天从基本类型开始，关键是多看，每次看都有新发现，这里主要列出别人整理过的深层次理解，方便自己经常结合源码看。">
@@ -376,7 +376,7 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;看JDK的源码是非常有效的学习方法，对深入学习和理解起着关键作用，要保持阅读源码的习惯，之后我们会经常对一些重要的源码进行整理，之前已经看了集合类，今天从基本类型开始，关键是多看，每次看都有新发现，这里主要列出别人整理过的深层次理解，方便自己经常结合源码看。</p>
  <a id="more"></a>
 <p>&#160; &#160; &#160; &#160;我们运行的demo的时候，肯定想看自己的结果，所以首先的基础内容就是java的格式化输出，包括保留几位小数啦、进制之间的转换，不同类型之间的转化啦。这里就给几个整理的非常好的总结博客：<a href="http://blog.csdn.net/lonely_fireworks/article/details/7962171/" target="_blank" rel="external">String.format的用法</a>、<a href="http://www.cnblogs.com/huhx/p/javaFormatter.html" target="_blank" rel="external">Formatter的用法</a>、<a href="http://blog.csdn.net/feiyudiaoling/article/details/51354413" target="_blank" rel="external">Java基础类型和字符串之间的转化</a>。而且我们看源码，不是看了就懂的，作为准备得有一定的基础知识的补充才行，补充之后在进行一定拓展我这里就按照这种方式，整理出一个系统完全的学习笔记。每个类的测试demo，我放在了Github上，传送门：<a href="">wustzoujing/Java_Learning</a>.</p>
-<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>&#160; &#160; &#160; &#160;Java中所有的类都有一个共同的祖先，它就是Object类，我们首先就学习它。他有12个成员方法。按照用途如下：构造函数 ；hashCode和equale函数用来判断对象是否相同;wait(), wait(long), wait(long,int), notify(), notifyAll() ;toString()和getClass； clone() 用途是用来另存一个当前存在的对象。；finalize() 用于在垃圾回收；</p>
+<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>&#160; &#160; &#160; &#160;Java中所有的类都有一个共同的祖先，它就是Object类，我们首先就学习它。他有12个成员方法。按照用途如下：构造函数 ；hashCode和equals函数用来判断对象是否相同;wait(), wait(long), wait(long,int), notify(), notifyAll() ;toString()和getClass； clone() 用途是用来另存一个当前存在的对象。；finalize() 用于在垃圾回收；</p>
 <p>&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;&#160; &#160; &#160; &#160;<img src="http://img.blog.csdn.net/20161205181623207" alt=""></p>
 <p>这里是整理的博客，和应该关注的重点！！！</p>
 <p><a href="http://www.cnblogs.com/langtianya/archive/2013/01/31/2886572.html" target="_blank" rel="external">全方法注释解析</a>。源码上英文注释，我们试着翻译一下。注意native方法。   </p>
