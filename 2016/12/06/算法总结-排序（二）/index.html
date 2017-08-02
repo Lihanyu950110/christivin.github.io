@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="内存区域," />
+  <meta name="keywords" content="经典算法," />
 
 
 
@@ -92,19 +92,21 @@
 
 
 
-<meta name="description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta name="keywords" content="内存区域">
+<meta name="description" content="改进排序算法及其Java实现前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上节讲了经典的三个排序算法，这节将对改进的排序算法进行分析，有快速排序和归并排序。对于排序和数据结构，推荐一个很棒的网站，支持能动态的看排序过程，可以单步，调节快慢：学习利器">
+<meta name="keywords" content="经典算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入学习JAVA虚拟机（一）">
-<meta property="og:url" content="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/index.html">
+<meta property="og:title" content="算法基础篇：排序（二）">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/算法总结-排序（二）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
-<meta property="og:updated_time" content="2017-05-12T08:13:10.373Z">
+<meta property="og:description" content="改进排序算法及其Java实现前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上节讲了经典的三个排序算法，这节将对改进的排序算法进行分析，有快速排序和归并排序。对于排序和数据结构，推荐一个很棒的网站，支持能动态的看排序过程，可以单步，调节快慢：学习利器">
+<meta property="og:image" content="http://img.blog.csdn.net/20160426213936501">
+<meta property="og:image" content="http://img.blog.csdn.net/20160427172905073">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493531505656&di=3fcca775d3be2b21bad6ac93d3a7ade9&imgtype=0&src=http%3A%2F%2Fimgs.aixifan.com%2Fcontent%2F2016_09_10%2F1473520477.gif">
+<meta property="og:updated_time" content="2017-08-02T06:11:06.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入学习JAVA虚拟机（一）">
-<meta name="twitter:description" content="java内存区域与内存溢出异常 本章主要内容  运行时数据区域   运行时数据区域Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。     　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。">
-<meta name="twitter:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png">
+<meta name="twitter:title" content="算法基础篇：排序（二）">
+<meta name="twitter:description" content="改进排序算法及其Java实现前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;上节讲了经典的三个排序算法，这节将对改进的排序算法进行分析，有快速排序和归并排序。对于排序和数据结构，推荐一个很棒的网站，支持能动态的看排序过程，可以单步，调节快慢：学习利器">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160426213936501">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/06/算法总结-排序（二）/"/>
 
 
 
 
 
-  <title>深入学习JAVA虚拟机（一） | 徐盛的博客</title>
+  <title>算法基础篇：排序（二） | 徐盛的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +289,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/03/深入理解JAVA虚拟机（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/06/算法总结-排序（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐盛">
@@ -304,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入学习JAVA虚拟机（一）</h1>
+          <h1 class="post-title" itemprop="name headline">算法基础篇：排序（二）</h1>
         
 
         <div class="post-meta">
@@ -316,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-03T20:11:32+08:00">
-                2017-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-06T10:07:42+08:00">
+                2016-12-06
               </time>
             
 
@@ -339,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java虚拟机/" itemprop="url" rel="index">
-                    <span itemprop="name">Java虚拟机</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -373,64 +375,85 @@
       
 
       
-        <h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><hr>
-<p><strong>本章主要内容</strong></p>
-<ul>
-<li>运行时数据区域</li>
-</ul>
-<hr>
-<h3 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把他所管理的内存划分成若干不同的数据区域。<br>  <img src="http://oppqlui3e.bkt.clouddn.com/%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F.png" alt=""></p>
-<p>  　　这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。<br><a id="more"></a></p>
-<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a><strong>程序计数器</strong></h4><p>　　程序计数器(Program Counter Register) 是一块较小的内存空间，它的作用可以看做是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型中，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，<strong>分支、循环、跳转、异常处理、线程恢复等</strong>基础功能都需要依赖这个计数器来完成。</p>
-<ul>
-<li>Java虚拟机的多线程通过轮流切换并分配处理器执行时间实现。</li>
-<li>在任何一个确定的时刻，一个处理器只会执行一条线程的指令。</li>
-<li>每个线程都有一个独立的程序计数器，线程切换后，找到正确的执行位置。</li>
-<li>各线程之间的计数器独立存储。</li>
-</ul>
-<p>　　如果线程正在执行的是一个Java方法，这个计数器记录的时正在执行的虚拟机字节码指令的地址；如果正在执行的是<strong>Native方法</strong>，这个计数器的值为空。此内存区域是唯一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
-<h4 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a><strong>Java虚拟机栈</strong></h4><p>　　与程序计数器一样，Java虚拟机栈(Java Virtual Machine Stacks)也是线程私有的，它的生命周期与线程相同。它描述的Java方法执行的内存模型。</p>
-<ul>
-<li>每个方法被执行的时候会创建一个栈帧(Stack Frame)。</li>
-<li>栈帧用于存储局部变量表、操作栈、动态链接、方法出口等信息。</li>
-<li>方法从被调用到执行完成对应着一个栈帧在虚拟机栈中入站到出站的过程。</li>
-</ul>
-<p>通常最关注的、与对象内存分配关系最密切的内存区就是<strong>虚拟机栈</strong>（局部变量表）和<strong>Java堆</strong>。<br><strong>局部变量表</strong>存放了编译器可知的各种基本数据类型：</p>
-<ul>
-<li>byte (1 Slot)</li>
-<li>short(1 Slot)</li>
-<li>int(1 Slot)</li>
-<li>char(1 Slot)</li>
-<li>float(1 Slot)</li>
-<li>long(2 Slot)</li>
-<li>double(2 Slot)</li>
-<li>boolean(1 Slot)</li>
-</ul>
-<p>　　其中64位长度的long 和double类型的数据会占用2个局部变量空间(Slot),其余的只占一个。<br>　　局部变量表所需的内存空间<strong>在编译期间完成分配</strong>，进入一个方法时，这个方法需要在帧中<strong>分配多大的局部变量空间是完全确定的</strong>，在方法运行期间不会改变局部变量表的大小。</p>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a><strong>本地方法栈</strong></h4><p>　　与虚拟机栈的作用类似，虚拟机栈为虚拟机执行<strong>Java方法</strong>（字节码）服务，本地方法栈为虚拟机的<strong>Native方法</strong>服务。具体的虚拟机可以自由实现本地方法栈。</p>
-<h4 id="Java栈"><a href="#Java栈" class="headerlink" title="Java栈"></a><strong>Java栈</strong></h4><ul>
-<li>Java堆(Java Heap)是Java虚拟机所管理的内存中最大的一块。</li>
-<li>Java堆被<strong>所有线程共享</strong>的一块内存区域，在虚拟机启动时创建。</li>
-<li>此内存区域唯一目的就是<strong>存放对象实例</strong>。</li>
-<li>Java堆是垃圾收集器管理的主要区域。</li>
-<li>Java堆只要求逻辑上连续，可以处于物理上不连续的内存空间中。</li>
-</ul>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a><strong>方法区</strong></h4><ul>
-<li>方法区(Method Area) 与Java堆一样，是个各线程共享的内存区域。</li>
-<li>用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。</li>
-<li>不需要连续的内存，还可以选择不实现垃圾收集。</li>
-<li>这个区域的内存回收目标主要是<strong>针对常量池的回收</strong>和对<strong>类型的卸载</strong>。</li>
-</ul>
-<h4 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a><strong>运行时常量池</strong></h4><ul>
-<li>运行时常量池(Runtime Constant Pool)是方法区的一部分。</li>
-<li>用于存放<strong>编译期</strong>生成的各种<strong>字面量</strong>和<strong>符号引用</strong>，这部分内容将在类加载后存放到方法区的运行时常量池中。</li>
-<li>运行时常量池具备动态性，即运行期间也可能将新的常量放入池中，例如String类的intern()方法。</li>
-<li>当常量池无法再申请到内存时会抛出OutOfMemoryError异常。</li>
-</ul>
-<h4 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a><strong>直接内存</strong></h4><ul>
-<li>不属于虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是被频繁使用。</li>
-<li>本机直接内存的分配不受到Java堆大小的限制，但是会受到本机总内存(RAM及SWAP区或分页文件)的大小及处理器寻址空间的限制。服务器管理员配置虚拟机参数时一般会根据实际内存设置-Xmx等参数信息，但是经常忽略直接内存，使得各个内存区域的总和大于物理内存限制，导致动态扩展时出现OutOfMemoryError异常。</li>
-</ul>
+        <h1 id="改进排序算法及其Java实现"><a href="#改进排序算法及其Java实现" class="headerlink" title="改进排序算法及其Java实现"></a>改进排序算法及其Java实现</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;上节讲了经典的三个排序算法，这节将对改进的排序算法进行分析，有快速排序和归并排序。对于排序和数据结构，推荐一个很棒的网站，支持能动态的看排序过程，可以单步，调节快慢：<font color="red"><a href="http://zh.visualgo.net" target="_blank" rel="external"><strong>学习利器</strong></a></font></p>
+  <a id="more"></a>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>&#160; &#160; &#160;&#160; 快速排序（Quicksort）是对<em>冒泡排序</em>的一种改进。</p>
+<p>&#160; &#160; &#160;&#160; 快速排序由C. A. R. Hoare在1962年提出。它的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。快速排序对海量数据来说，相对其他排序方式是较快的， 他的时间复杂度比经典排序小且常系数也比较小才称为快速排序。以数组{49,38,65,97,76,13,27,49}为例，选择第一个元素49为基准,初始化关键字： [49,38,65,97,76,13,27,49]</p>
+<p>&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;<img src="http://img.blog.csdn.net/20160426213936501" alt=""></p>
+<h3 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h3><p>&#160; &#160; &#160;&#160; 首先随机选择数列中的一个数（可用随机数产生，但也可以就选第一个数），然后进行一个partition函数，他的思想是扫描一遍数列把大于这个基数的数都放在右边，小于这个基数的数都放在左边。最后利用分治的思想，对基数的右边和左边分别在进行这个partition操作，最后数列就有序了。我这里为了代码尽量简洁，写出以下代码。</p>
+<h3 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h3><pre><code>//快速排序，s代表数列，l是数列第一项索引，r是数列最后一项的索引
+public static void quicksort(int[] s,int l,int r){
+//用i，j接住首位和末位，后面分别代表小于区间和??等于区间。x代表基数，这里用首位代表基数，没有随机产生
+    int i=l,j=r,x=s[l];
+    //执行操作条件
+    if(l&lt;r){
+        //循环结束条件
+        while(i&lt;j){
+            //从右至左找小于基数的数
+            while(i&lt;j&amp;&amp;s[j]&gt;=x)
+                j--;//如果大于等于基数j--，因为它们顺序正确
+             //找到之后放在左边，此处精妙的使用i++
+            if(i&lt;j)
+                s[i++]=s[j];
+            //从左至右找大于等于基数的数
+            while(i&lt;j&amp;&amp;s[i]&lt;x)
+                i++;
+            //放在
+            if(i&lt;j)
+                s[j--]=s[i];
+        }
+        //最后把基数放在i位置上，完成了partition操作
+        s[i]=x;
+        //对数列左边和右边分别递归
+        quicksort(s,l,i-1);
+        quicksort(s,i+1,r);
+    }
+}
+</code></pre><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><h3 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h3><p>&#160; &#160; &#160;&#160; 基本原理如下：对于给定的一组记录，利用递归与分治技术将数据序列划分成为越来越小的半子表，在对半子表排序，最后再用递归方法将排好序的半子表合并成为越来越大的有序序列。 经过第一轮比较后得到最小的记录，然后将该记录的位置与第一个记录的位置交换；接着对不包括第一个记录以外的其他记录进行第二次比较，得到最小记录并与第二个位置记录交换；重复该过程，直到进行比较的记录只剩下一个为止。</p>
+<p>&#160; &#160; &#160;&#160;以数组{50,10,90,30,70,40,80,60,20}为例，排序过程如下图：</p>
+<p><img src="http://img.blog.csdn.net/20160427172905073" alt=""></p>
+<h3 id="算法实现-1"><a href="#算法实现-1" class="headerlink" title="算法实现"></a>算法实现</h3><pre><code>public static void merge(int[] a, int low, int mid, int high) {
+    int[] temp = new int[high - low + 1];
+    int i = low;// 左指针
+    int j = mid + 1;// 右指针
+    int k = 0;
+    // 把较小的数先移到新数组中
+    while (i &lt;= mid &amp;&amp; j &lt;= high) {
+        if (a[i] &lt; a[j]) {
+            temp[k++] = a[i++];
+        } else {
+            temp[k++] = a[j++];
+        }
+    }
+    // 把左边剩余的数移入数组
+    while (i &lt;= mid) {
+        temp[k++] = a[i++];
+    }
+    // 把右边边剩余的数移入数组
+    while (j &lt;= high) {
+        temp[k++] = a[j++];
+    }
+    // 把新数组中的数覆盖nums数组
+    for (int k2 = 0; k2 &lt; temp.length; k2++) {
+        a[k2 + low] = temp[k2];
+    }
+}
+
+public static void mergeSort(int[] a, int low, int high) {
+    int mid = (low + high) / 2;
+    if (low &lt; high) {
+        // 左边
+        mergeSort(a, low, mid);
+        // 右边
+        mergeSort(a, mid + 1, high);
+        // 左右归并
+        merge(a, low, mid, high);
+        System.out.println(Arrays.toString(a));
+    }
+
+}
+</code></pre><p> &#160; &#160; &#160;&#160;&#160; &#160; &#160;&#160;<img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1493531505656&amp;di=3fcca775d3be2b21bad6ac93d3a7ade9&amp;imgtype=0&amp;src=http%3A%2F%2Fimgs.aixifan.com%2Fcontent%2F2016_09_10%2F1473520477.gif" alt=""></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 
       
     </div>
@@ -460,7 +483,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/内存区域/" rel="tag"># 内存区域</a>
+            <a href="/tags/经典算法/" rel="tag"># 经典算法</a>
           
         </div>
       
@@ -473,8 +496,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/06/算法总结-排序（二）/" rel="next" title="算法基础篇：排序（二）">
-                <i class="fa fa-chevron-left"></i> 算法基础篇：排序（二）
+              <a href="/2016/10/03/JAVA-Web笔记整理（一）/" rel="next" title="JAVA Web笔记整理（一）">
+                <i class="fa fa-chevron-left"></i> JAVA Web笔记整理（一）
               </a>
             
           </div>
@@ -483,8 +506,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/04/深入理解JAVA虚拟机（二）/" rel="prev" title="深入理解Java虚拟机（二）">
-                深入理解Java虚拟机（二） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/03/深入理解JAVA虚拟机（一）/" rel="prev" title="深入学习JAVA虚拟机（一）">
+                深入学习JAVA虚拟机（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -622,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java内存区域与内存溢出异常"><span class="nav-number">1.</span> <span class="nav-text">java内存区域与内存溢出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时数据区域"><span class="nav-number">1.1.</span> <span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#程序计数器"><span class="nav-number">1.1.1.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java虚拟机栈"><span class="nav-number">1.1.2.</span> <span class="nav-text">Java虚拟机栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地方法栈"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java栈"><span class="nav-number">1.1.4.</span> <span class="nav-text">Java栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法区"><span class="nav-number">1.1.5.</span> <span class="nav-text">方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时常量池"><span class="nav-number">1.1.6.</span> <span class="nav-text">运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接内存"><span class="nav-number">1.1.7.</span> <span class="nav-text">直接内存</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#改进排序算法及其Java实现"><span class="nav-number">1.</span> <span class="nav-text">改进排序算法及其Java实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速排序"><span class="nav-number">1.2.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法思想"><span class="nav-number">1.2.1.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现"><span class="nav-number">1.2.2.</span> <span class="nav-text">算法实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#归并排序"><span class="nav-number">1.3.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法思想-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法实现-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">算法实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">2.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
