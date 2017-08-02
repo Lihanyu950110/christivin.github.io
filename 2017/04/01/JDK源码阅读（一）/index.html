@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;看JDK的源码是非常有效的学习方法，对深入学习和理解起着关键作用，要保持阅读源码的习惯，之后我们会经常对一些重要的源码进行整理，之前已经看了集合类，今天从基本类型开始，关键是多看，每次看都有新发现，这里主要列出别人整理过的深层次理解，方便自己经常结合源码看。">
 <meta property="og:image" content="http://img.blog.csdn.net/20161205181623207">
-<meta property="og:updated_time" content="2017-08-02T08:13:56.126Z">
+<meta property="og:updated_time" content="2017-08-02T08:24:33.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK源码阅读（一）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;看JDK的源码是非常有效的学习方法，对深入学习和理解起着关键作用，要保持阅读源码的习惯，之后我们会经常对一些重要的源码进行整理，之前已经看了集合类，今天从基本类型开始，关键是多看，每次看都有新发现，这里主要列出别人整理过的深层次理解，方便自己经常结合源码看。">
@@ -381,7 +381,7 @@
 <p>这里是整理的博客，和应该关注的重点！！！</p>
 <p><a href="http://www.cnblogs.com/langtianya/archive/2013/01/31/2886572.html" target="_blank" rel="external">全方法注释解析</a>。源码上英文注释，我们试着翻译一下。注意native方法。   </p>
 <p><a href="http://blog.csdn.net/liuyanbohome/article/details/8899964" target="_blank" rel="external">equal和==、hashcode</a> String和hashmap等重写了这两个方法，必须一起重写，理由和怎么写？看博客。  </p>
-<p><a href="http://blog.csdn.net/zhangjg_blog/article/details/18369201" target="_blank" rel="external">clone。浅拷贝和深拷贝</a>  这时C++里面重要的概念，应为C++中要delete，自己回收，而java不用。</p>
+<p><a href="http://blog.csdn.net/zhangjg_blog/article/details/18369201" target="_blank" rel="external">clone。浅拷贝和深拷贝</a>  这是C++里面重要的概念，因为C++中要delete，自己回收，而java不用。</p>
 <p><a href="http://longdick.iteye.com/blog/453615" target="_blank" rel="external">wait notify notifyall实例</a>    理解这三个函数的作用。</p>
 <h2 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h2><p>&#160; &#160; &#160; &#160;我们这里拿Integer类来学习Java中的基本数据类型，在JDK源码中有大量的位运算和空间换时间的设计来优化速度。下面是整理的重点知识。</p>
 <p><a href="http://blog.csdn.net/javazejian/article/details/51192130" target="_blank" rel="external">Java中参数传递</a>。这个是在运行自己写的交换函数的时候发现的问题。Java中其实都是值传递，都是栈空间中的，要么是基本类型，要么是引用类型，就是一个地址。</p>
