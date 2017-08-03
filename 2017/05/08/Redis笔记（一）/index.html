@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NoSql," />
 
 
 
@@ -92,16 +92,17 @@
 
 
 
-<meta name="description" content="这是一个描述">
+<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;Redis作为一种典型的NoSql，可以做缓存也可以持久化，我们要从事务，消息订阅，持久化机制，集群部署，客户端使用等方面进行学习。">
+<meta name="keywords" content="NoSql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis笔记（一）">
-<meta property="og:url" content="http://yoursite.com/2017/08/03/Redis笔记（一）/index.html">
+<meta property="og:title" content="Redis学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/Redis笔记（一）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
-<meta property="og:description" content="这是一个描述">
-<meta property="og:updated_time" content="2017-08-03T05:27:42.856Z">
+<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;Redis作为一种典型的NoSql，可以做缓存也可以持久化，我们要从事务，消息订阅，持久化机制，集群部署，客户端使用等方面进行学习。">
+<meta property="og:updated_time" content="2017-08-03T05:30:25.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis笔记（一）">
-<meta name="twitter:description" content="这是一个描述">
+<meta name="twitter:title" content="Redis学习笔记（一）">
+<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;Redis作为一种典型的NoSql，可以做缓存也可以持久化，我们要从事务，消息订阅，持久化机制，集群部署，客户端使用等方面进行学习。">
 
 
 
@@ -129,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/03/Redis笔记（一）/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/08/Redis笔记（一）/"/>
 
 
 
 
 
-  <title>Redis笔记（一） | 徐盛的博客</title>
+  <title>Redis学习笔记（一） | 徐盛的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/03/Redis笔记（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/Redis笔记（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐盛">
@@ -301,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Redis笔记（一）</h1>
+          <h1 class="post-title" itemprop="name headline">Redis学习笔记（一）</h1>
         
 
         <div class="post-meta">
@@ -313,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T13:27:42+08:00">
-                2017-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T09:00:20+08:00">
+                2017-05-08
               </time>
             
 
@@ -323,6 +324,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -348,7 +371,43 @@
       
 
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;Redis作为一种典型的NoSql，可以做缓存也可以持久化，我们要从事务，消息订阅，持久化机制，集群部署，客户端使用等方面进行学习。</p>
+ <a id="more"></a>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>&#160; &#160; &#160; &#160;安装部署可以根据自己的系统去找安装教程，这个不多说。Redis官方介绍说是一种开源的，BSD许可的，高级的key-value,单线程存储系统，可以用来存储字符串，哈希，链表，集合，索所以常用来提供数据结构。</p>
+<p>&#160; &#160; &#160; &#160;相比另一个缓存数据看memcached，他的特点如下：</p>
+<ol>
+<li>Redis有持久化机制，除了缓存还可以做存储。</li>
+<li>Redis数据结构丰富，而memcached只有字符串。</li>
+</ol>
+<p>&#160; &#160; &#160; &#160;安装成功后，有五个文件夹，分别是redis性能测试工具，aof日志工具，rdb日志工具，连接客户端和redis服务进程。</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>&#160; &#160; &#160; &#160;相关指令有get，set，move，select，ttl等等，支持模糊匹配，还有一些配置设置，不同数据结构不一样，可以查API，Redis对Java，C#，C++，PHP等语言的支持，其实也就是这些操作的语言的工具包。</p>
+<h2 id="数据结构底层原理"><a href="#数据结构底层原理" class="headerlink" title="数据结构底层原理"></a>数据结构底层原理</h2><ol>
+<li><a href="http://blog.csdn.net/caishenfans/article/details/44784131" target="_blank" rel="external">Redis的五种对象类型及其底层实现</a>. </li>
+<li><a href="http://blog.csdn.net/hanhuili/article/details/17710781" target="_blank" rel="external">深入理解Redis：底层数据结构</a></li>
+</ol>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ol>
+<li><a href="http://www.jb51.net/article/54774.htm" target="_blank" rel="external">Redis中5种数据结构的使用场景介绍</a></li>
+<li><a href="http://blog.csdn.net/u011204847/article/details/51302109" target="_blank" rel="external">Redis高级特性及应用场景</a></li>
+</ol>
+<h2 id="事务和锁"><a href="#事务和锁" class="headerlink" title="事务和锁"></a>事务和锁</h2><ol>
+<li><a href="http://blog.csdn.net/hechurui/article/details/49508749" target="_blank" rel="external">Redis事务介绍</a></li>
+<li><a href="http://blog.csdn.net/bugall/article/details/52386698" target="_blank" rel="external">redis 事务实现原理</a></li>
+</ol>
+<h2 id="消息发布和订阅"><a href="#消息发布和订阅" class="headerlink" title="消息发布和订阅"></a>消息发布和订阅</h2><ol>
+<li><a href="http://blog.csdn.net/clh604/article/details/19754939" target="_blank" rel="external">Redis 发布/订阅机制原理分析</a></li>
+<li><a href="http://www.cnblogs.com/redcreen/archive/2011/02/15/1955521.html" target="_blank" rel="external">redis 发布订阅</a></li>
+</ol>
+<h2 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h2><p>&#160; &#160; &#160; &#160;持久化有两种，快照rdb和日志aof。</p>
+<ol>
+<li><a href="http://blog.csdn.net/yinxiangbing/article/details/48627997" target="_blank" rel="external">redis 的两种持久化方式及原理</a></li>
+<li><a href="http://www.cnblogs.com/Fairy-02-11/p/6182478.html" target="_blank" rel="external">redis持久化方法对比分析</a></li>
+<li><a href="http://blog.csdn.net/freebird_lb/article/details/7778981" target="_blank" rel="external">Redis持久化</a></li>
+</ol>
+<h2 id="集群部署"><a href="#集群部署" class="headerlink" title="集群部署"></a>集群部署</h2><ol>
+<li><a href="https://my.oschina.net/pwd/blog/381212" target="_blank" rel="external">redis集群,主从复制</a></li>
+</ol>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+
       
     </div>
 
@@ -374,6 +433,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NoSql/" rel="tag"># NoSql</a>
+          
+        </div>
       
 
       
@@ -440,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -467,7 +541,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -478,7 +552,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -510,6 +584,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">3.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构底层原理"><span class="nav-number">4.</span> <span class="nav-text">数据结构底层原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-number">5.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务和锁"><span class="nav-number">6.</span> <span class="nav-text">事务和锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息发布和订阅"><span class="nav-number">7.</span> <span class="nav-text">消息发布和订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久化机制"><span class="nav-number">8.</span> <span class="nav-text">持久化机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群部署"><span class="nav-number">9.</span> <span class="nav-text">集群部署</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number"></span> <span class="nav-text">说明</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
