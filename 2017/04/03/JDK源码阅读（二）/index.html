@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://images.cnitblog.com/blog/400827/201409/041358026259354.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20140716084631981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbnNfY29kZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20140716084409234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbnNfY29kZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-08-04T12:06:47.393Z">
+<meta property="og:updated_time" content="2017-08-04T12:10:23.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK源码阅读（二）">
 <meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;在了解了基类和基础数据类型加上字符串的基础上，我们就要开始集合类的学习了，这些就是我们需要经常用到的一些。">
@@ -426,18 +426,18 @@ transient int modCount;//被修改的次数
 <h3 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h3><p>&#160; &#160; &#160; &#160;输出顺序按输入顺序一样，是hashmap的一个子类,也允许一个null的key。</p>
 <p><img src="http://img.blog.csdn.net/20140716084631981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbnNfY29kZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""><br><img src="http://img.blog.csdn.net/20140716084409234?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbnNfY29kZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>&#160; &#160; &#160; &#160; 关于LinkedHashMap的源码，给出以下几点比较重要的总结：</p>
-<ol>
+<ul>
 <li>从源码中可以看出，LinkedHashMap中加入了一个head头结点，将所有插入到该LinkedHashMap中的Entry按照插入的先后顺序依次加入到以head为头结点的双向循环链表的尾部。</li>
-</ol>
-<ol>
+</ul>
+<ul>
 <li>实际上就是HashMap和LinkedList两个集合类的存储结构的结合。在LinkedHashMapMap中，所有put进来的Entry都保存在如第一个图所示的哈希表中，但它又额外定义了一个以head为头结点的空的双向循环链表，每次put进来Entry，除了将其保存到对哈希表中对应的位置上外，还要将其插入到双向循环链表的尾部。</li>
-</ol>
-<ol>
+</ul>
+<ul>
 <li>注意源码中的accessOrder标志位，当它false时，表示双向链表中的元素按照Entry插入LinkedHashMap到中的先后顺序排序，即每次put到LinkedHashMap中的Entry都放在双向链表的尾部，这样遍历双向链表时，Entry的输出顺序便和插入的顺序一致，这也是默认的双向链表的存储顺序；当它为true时，表示双向链表中的元素按照访问的先后顺序排列，可以看到，虽然Entry插入链表的顺序依然是按照其put到LinkedHashMap中的顺序，但put和get方法均有调用recordAccess方法（put方法在key相同，覆盖原有的Entry的情况下调用recordAccess方法），该方法判断accessOrder是否为true，如果是，则将当前访问的Entry（put进来的Entry或get出来的Entry）移到双向链表的尾部（key不相同时，put新Entry时，会调用addEntry，它会调用creatEntry，该方法同样将新插入的元素放入到双向链表的尾部，既符合插入的先后顺序，又符合访问的先后顺序，因为这时该Entry也被访问了），否则，什么也不做。</li>
-</ol>
-<ol>
+</ul>
+<ul>
 <li>注意构造方法，前四个构造方法都将accessOrder设为false，说明默认是按照插入顺序排序的，而第五个构造方法可以自定义传入的accessOrder的值，因此可以指定双向循环链表中元素的排序规则，一般要用LinkedHashMap实现LRU算法，就要用该构造方法，将accessOrder置为true。</li>
-</ol>
+</ul>
 <h3 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h3><p>&#160; &#160; &#160; &#160;现在使用的较少了，是hashtable的线程安全版本，且不允许插入null值，效率较低，我们后面重点介绍concurrent包里面的效率较高的map。这里针对Hashtable，我们同样给出几点比较重要的总结，但要结合与HashMap的比较来总结。</p>
 <ol>
 <li>二者的存储结构和解决冲突的方法都是相同的。</li>
