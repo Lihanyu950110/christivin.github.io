@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-11T04:33:07.678Z</updated>
+  <updated>2017-08-04T02:23:58.173Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,20 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>算法：旋转数组的最小数字</title>
-    <link href="http://yoursite.com/2017/08/11/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"/>
-    <id>http://yoursite.com/2017/08/11/算法：旋转数组的最小数字/</id>
-    <published>2017-08-11T04:33:07.000Z</published>
-    <updated>2017-08-11T04:33:07.678Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Redis学习笔记（二）</title>
@@ -1339,6 +1325,33 @@ create unique index 索引名  on 表名 (列表..);
     
     
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指offer：旋转数组的最小数字</title>
+    <link href="http://yoursite.com/2017/01/23/%E7%AE%97%E6%B3%95%EF%BC%9A%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"/>
+    <id>http://yoursite.com/2017/01/23/算法：旋转数组的最小数字/</id>
+    <published>2017-01-23T06:23:32.000Z</published>
+    <updated>2017-08-11T04:35:12.072Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&#160; &#160; &#160; &#160;这道题找数组中的最小数字，类似的题目之前蘑菇街视频面试都考过，找数组中的最大的两个值或者三个值。直观解题方法就是循环一遍数组，这样的复杂度是O（n），但是由题目可知，数组已部分排序，我们利用二分查找的方法是可以减少我们的复杂度的，达到O（log n）。</p>
+  <a id="more"></a>
+<h1 id="旋转数组的最小数字"><a href="#旋转数组的最小数字" class="headerlink" title="旋转数组的最小数字"></a>旋转数组的最小数字</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>&#160; &#160; &#160; &#160;把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>&#160; &#160; &#160; &#160;二分查找法的核心思想就是：每次查找都可以排除不需要查找的一半，这道题我们是可以利用这个思想的。</p>
+<p>&#160; &#160; &#160; &#160;我们定义两个标志，初识是分别指向第一位和最后一位，按照题目的旋转规则，我们找到数组中间的元素，如果中间的元素位于前面的递增数组中，那他应该小于等于第二个个标志指向的元素，此时数组中最小的元素应该位于该中间元素的后面，排除了一半，利用了二分的思想；同样，如果中间元素位于后面递增子数组中，那么它应该大于等于第二个标志指向的元素。如果相等，把最高位往前移一位，最后第一个标志上就是最小值。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">public class minNumberInRotateArray_6 &#123;</div><div class="line"></div><div class="line">    public int minNumberInRotateArray(int [] array) &#123;</div><div class="line"></div><div class="line">        //定义两个标志指向首位索引</div><div class="line">        int low = 0 ; int high = array.length - 1;</div><div class="line">        //结束条件</div><div class="line">        while(low &lt; high)&#123;</div><div class="line">            //取中间元素</div><div class="line">            int mid = low + (high - low) / 2;</div><div class="line">            //中间元素比尾数大，最小值在后半段</div><div class="line">            if(array[mid] &gt; array[high])&#123;</div><div class="line">                low = mid + 1;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            //如果相等，高位减1</div><div class="line">            else if(array[mid] == array[high])&#123;</div><div class="line">                high = high - 1;</div><div class="line">            &#125;</div><div class="line">            //如果中间元素比尾数小，最小值在前半段</div><div class="line">            else&#123;</div><div class="line">                high = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        //循环结束，低位标志就是最小值所在</div><div class="line">        return array[low];</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;这道题找数组中的最小数字，类似的题目之前蘑菇街视频面试都考过，找数组中的最大的两个值或者三个值。直观解题方法就是循环一遍数组，这样的复杂度是O（n），但是由题目可知，数组已部分排序，我们利用二分查找的方法是可以减少我们的复杂度的，达到O（log n）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="剑指offer详解" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer%E8%AF%A6%E8%A7%A3/"/>
+    
+    
+      <category term="算法题" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"/>
     
   </entry>
   
