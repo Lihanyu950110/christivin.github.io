@@ -1333,11 +1333,11 @@ create unique index 索引名  on 表名 (列表..);
     <link href="http://yoursite.com/2017/02/08/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/08/Java基础之面向对象（一）/</id>
     <published>2017-02-08T04:38:25.000Z</published>
-    <updated>2017-08-14T05:36:05.609Z</updated>
+    <updated>2017-08-14T05:37:24.254Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Java面向对象特性（一）"><a href="#Java面向对象特性（一）" class="headerlink" title="Java面向对象特性（一）"></a>Java面向对象特性（一）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;后面准备整理一下Java基础、JVM和并发编程的知识，后面再是ssm框架。这些都是基础部分，也是最重要的部分之一。本篇从Java语言的面向对象特性开始讲诉，Java的这个特点和C#很像。Java主要有封装、继承、多态这三个特性，抽象不是特性，但是也很重要。</p>
+    <content type="html"><![CDATA[<h1 id="Java面向对象特性（一）"><a href="#Java面向对象特性（一）" class="headerlink" title="Java面向对象特性（一）"></a>Java面向对象特性（一）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　后面准备整理一下Java基础、JVM和并发编程的知识，后面再是ssm框架。这些都是基础部分，也是最重要的部分之一。本篇从Java语言的面向对象特性开始讲诉，Java的这个特点和C#很像。Java主要有封装、继承、多态这三个特性，抽象不是特性，但是也很重要。</p>
   <a id="more"></a>
-<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><p>&#160; &#160; &#160; &#160;区分类和对象，由类实例出对象，怎么去定义一个类，怎么通过类的构造器实例一个对象。类中有属性和方法。方法有构造方法和普通方法。属性有成员变量和局部变量。构造器没有返回值，返回值时隐式的。</p>
+<h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><p>　　区分类和对象，由类实例出对象，怎么去定义一个类，怎么通过类的构造器实例一个对象。类中有属性和方法。方法有构造方法和普通方法。属性有成员变量和局部变量。构造器没有返回值，返回值时隐式的。</p>
 <h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><p>&#160; &#160; &#160; &#160;如果没有构造器，会默认提供一个无参数的构造器，构造器最大的用处是在创建对象时执行，创建一个对象的时候会执行初始化：所有基本类型0，布尔为false，引用类型为null。构造器也不是完全负责创建Java对象，new的时候已经开辟了内存空间，只不过智能字啊构造器中通过this使用，构造器用来返回一个对象，通常还会赋值给一个引用变量。</p>
 <p>&#160; &#160; &#160; &#160;构造器也可以像方法一样重载。</p>
 <h3 id="方法详解"><a href="#方法详解" class="headerlink" title="方法详解"></a>方法详解</h3><p>&#160; &#160; &#160; &#160;方法在逻辑上要么属于类，要么属于对象。方法是类或对象的行为特征的抽象。类似传统结构化程序中的函数。</p>
@@ -1382,7 +1382,7 @@ if(hello instanceof String){
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Java面向对象特性（一）&quot;&gt;&lt;a href=&quot;#Java面向对象特性（一）&quot; class=&quot;headerlink&quot; title=&quot;Java面向对象特性（一）&quot;&gt;&lt;/a&gt;Java面向对象特性（一）&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;后面准备整理一下Java基础、JVM和并发编程的知识，后面再是ssm框架。这些都是基础部分，也是最重要的部分之一。本篇从Java语言的面向对象特性开始讲诉，Java的这个特点和C#很像。Java主要有封装、继承、多态这三个特性，抽象不是特性，但是也很重要。&lt;/p&gt;
+      &lt;h1 id=&quot;Java面向对象特性（一）&quot;&gt;&lt;a href=&quot;#Java面向对象特性（一）&quot; class=&quot;headerlink&quot; title=&quot;Java面向对象特性（一）&quot;&gt;&lt;/a&gt;Java面向对象特性（一）&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;　　后面准备整理一下Java基础、JVM和并发编程的知识，后面再是ssm框架。这些都是基础部分，也是最重要的部分之一。本篇从Java语言的面向对象特性开始讲诉，Java的这个特点和C#很像。Java主要有封装、继承、多态这三个特性，抽象不是特性，但是也很重要。&lt;/p&gt;
     
     </summary>
     
