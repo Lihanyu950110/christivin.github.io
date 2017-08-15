@@ -1333,7 +1333,7 @@ create unique index 索引名  on 表名 (列表..);
     <link href="http://yoursite.com/2017/02/10/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/10/Java基础之面向对象（二）/</id>
     <published>2017-02-10T07:25:36.000Z</published>
-    <updated>2017-08-15T02:41:25.952Z</updated>
+    <updated>2017-08-15T02:42:26.776Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Java面向对象特性（二）"><a href="#Java面向对象特性（二）" class="headerlink" title="Java面向对象特性（二）"></a>Java面向对象特性（二）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;本篇继续讲面向对象特性，自动装箱和拆箱，抽象和接口，内部类和lambda表达式，枚举类型等方面。</p>
   <a id="more"></a>
@@ -1397,7 +1397,7 @@ create unique index 索引名  on 表名 (列表..);
 <p>&#160; &#160; &#160; &#160;参考这篇博客：<a href="http://www.cnblogs.com/franson-2016/p/5593080.html" target="_blank" rel="external">lambda表达式总结</a></p>
 <h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><p>&#160; &#160; &#160; &#160;早期会用简单的静态变量来表示枚举，但是类型不安全，没有命名空间，意义不明确，后来用类来封装，但是额外要写代码，JDK1.5之后增加了对枚举类的支持。enum。</p>
 <p>&#160; &#160; &#160; &#160;参考这篇博客：<a href="http://www.cnblogs.com/oumyye/p/4232532.html" target="_blank" rel="external">lambda表达式总结</a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
 ]]></content>
     
     <summary type="html">
