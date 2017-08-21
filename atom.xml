@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-21T09:17:51.181Z</updated>
+  <updated>2017-08-21T09:19:25.896Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,15 +17,19 @@
   
   <entry>
     <title>mybatis整理笔记（四）</title>
-    <link href="http://yoursite.com/2017/08/21/mybatis%E6%95%B4%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/08/21/mybatis整理笔记（四）/</id>
-    <published>2017-08-21T09:17:51.000Z</published>
-    <updated>2017-08-21T09:17:51.181Z</updated>
+    <link href="http://yoursite.com/2017/11/02/mybatis%E6%95%B4%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/11/02/mybatis整理笔记（四）/</id>
+    <published>2017-11-02T09:17:51.000Z</published>
+    <updated>2017-08-21T09:19:25.896Z</updated>
     
     <summary type="html">
     
     </summary>
     
+      <category term="mybatis" scheme="http://yoursite.com/categories/mybatis/"/>
+    
+    
+      <category term="入门程序" scheme="http://yoursite.com/tags/%E5%85%A5%E9%97%A8%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
