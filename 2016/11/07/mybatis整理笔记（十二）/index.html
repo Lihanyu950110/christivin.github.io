@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/07/mybatis整理笔记（十二）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言本文实现一对多查询，查询订单及订单明细的信息">
-<meta property="og:updated_time" content="2017-08-29T03:27:31.529Z">
+<meta property="og:updated_time" content="2017-08-29T03:29:03.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis整理笔记（十二）">
 <meta name="twitter:description" content="前言本文实现一对多查询，查询订单及订单明细的信息">
@@ -403,7 +403,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查询订单(关联用户)及订单明细</span></div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt;  <span class="title">findOrdersAndOrderDetailResultMap</span><span class="params">()</span><span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>mybatis使用resultMap的collection对关联查询的多条记录映射到一个list集合属性中。</p>
 <p>使用resultType实现：将订单明细映射到orders中的orderdetails中，需要自己处理，使用双重循环遍历，去掉重复记录，将订单明细放在orderdetails中。</p>
-<p>另外，下面这篇文章对一对多的resultMap机制解释的很清楚：</p>
+<p>下面这篇文章对一对多的resultMap机制解释的很清楚：</p>
 <blockquote>
 <p><a href="http://blog.csdn.net/xzm_rainbow/article/details/15336933" target="_blank" rel="external">MyBatis：一对多表关系详解(从案例中解析)</a></p>
 </blockquote>
