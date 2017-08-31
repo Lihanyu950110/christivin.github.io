@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/09/mybatis整理笔记（十四）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言延迟加载：先从单表查询、需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。">
-<meta property="og:updated_time" content="2017-08-31T07:36:19.778Z">
+<meta property="og:updated_time" content="2017-08-31T07:36:46.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis整理笔记（十四）">
 <meta name="twitter:description" content="前言延迟加载：先从单表查询、需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。">
@@ -372,6 +372,106 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>延迟加载：先从单表查询、需要时再从关联表去关联查询，大大提高数据库性能，因为查询单表要比关联查询多张表速度要快。<br><a id="more"></a></p>
+<p>需求：</p>
+<p>如果查询订单并且关联查询用户信息。如果先查询订单信息即可满足要求，当我们需要查询用户信息时再查询用户信息。把对用户信息的按需去查询就是延迟加载。</p>
+<h2 id="使用association实现延迟加载"><a href="#使用association实现延迟加载" class="headerlink" title="使用association实现延迟加载"></a>使用association实现延迟加载</h2><ul>
+<li>mapper.xml</li>
+</ul>
+<p>需要定义两个mapper的方法对应的statement。</p>
+<p>1.只查询订单信息</p>
+<p><code>SELECT * FROM orders</code></p>
+<p>在查询订单的statement中使用association去延迟加载（执行）下边的satatement(关联查询用户信息)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 查询订单关联查询用户，用户信息需要延迟加载 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findOrdersUserLazyLoading"</span> <span class="attr">resultMap</span>=<span class="string">"OrdersUserLazyLoadingResultMap"</span>&gt;</span></div><div class="line">    SELECT * FROM orders</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2.关联查询用户信息</p>
+<p>通过上边查询到的订单信息中user_id去关联查询用户信息,使用UserMapper.xml中的findUserById</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"com.iot.mybatis.po.User"</span>&gt;</span></div><div class="line">    SELECT * FROM  user  WHERE id=#&#123;value&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上边先去执行findOrdersUserLazyLoading，当需要去查询用户的时候再去执行findUserById，通过resultMap的定义将延迟加载执行配置起来。</p>
+<ul>
+<li>延迟加载resultMap</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 延迟加载的resultMap --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.iot.mybatis.po.Orders"</span> <span class="attr">id</span>=<span class="string">"OrdersUserLazyLoadingResultMap"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--对订单信息进行映射配置  --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"user_id"</span> <span class="attr">property</span>=<span class="string">"userId"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"number"</span> <span class="attr">property</span>=<span class="string">"number"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"createtime"</span> <span class="attr">property</span>=<span class="string">"createtime"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"note"</span> <span class="attr">property</span>=<span class="string">"note"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 实现对用户信息进行延迟加载</span></div><div class="line">    select：指定延迟加载需要执行的statement的id（是根据user_id查询用户信息的statement）</div><div class="line">    要使用userMapper.xml中findUserById完成根据用户id(user_id)用户信息的查询，如果findUserById不在本mapper中需要前边加namespace</div><div class="line">    column：订单信息中关联用户信息查询的列，是user_id</div><div class="line">    关联查询的sql理解为：</div><div class="line">    SELECT orders.*,</div><div class="line">    (SELECT username FROM USER WHERE orders.user_id = user.id)username,</div><div class="line">    (SELECT sex FROM USER WHERE orders.user_id = user.id)sex</div><div class="line">     FROM orders</div><div class="line">     --&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.iot.mybatis.po.User"</span></span></div><div class="line">                 <span class="attr">select</span>=<span class="string">"com.iot.mybatis.mapper.UserMapper.findUserById"</span></div><div class="line">                 <span class="attr">column</span>=<span class="string">"user_id"</span>&gt;</div><div class="line">     <span class="comment">&lt;!-- 实现对用户信息进行延迟加载 --&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>与非延迟加载的主要区别就在<code>association</code>标签属性多了<code>select</code>和<code>column</code></strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"user"</span>  <span class="attr">javaType</span>=<span class="string">"com.iot.mybatis.po.User"</span></span></div><div class="line">             <span class="attr">select</span>=<span class="string">"com.iot.mybatis.mapper.UserMapper.findUserById"</span></div><div class="line">             <span class="attr">column</span>=<span class="string">"user_id"</span>&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>mapper.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//查询订单关联查询用户，用户信息是延迟加载</span></div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Orders&gt; <span class="title">findOrdersUserLazyLoading</span><span class="params">()</span><span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>测试思路</p>
+<ul>
+<li>执行上边mapper方法(<code>findOrdersUserLazyLoading</code>)，内部去调用<code>com.iot.mybatis.mapper.OrdersMapperCustom</code>中的<code>findOrdersUserLazyLoading</code>只查询orders信息（单表）。<ul>
+<li>在程序中去遍历上一步骤查询出的List<orders>，当我们调用Orders中的getUser方法时，开始进行延迟加载。</orders></li>
+<li>延迟加载，去调用UserMapper.xml中findUserbyId这个方法获取用户信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>延迟加载配置</p>
+</li>
+</ul>
+<p>mybatis默认没有开启延迟加载，需要在SqlMapConfig.xml中setting配置。</p>
+<p>在mybatis核心配置文件中配置：lazyLoadingEnabled、aggressiveLazyLoading</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">设置项</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">允许值</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">lazyLoadingEnabled</td>
+<td style="text-align:left">全局性设置懒加载。如果设为‘false’，则所有相关联的都会被初始化加载</td>
+<td style="text-align:left">true/false</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:left">aggressiveLazyLoading</td>
+<td style="text-align:left">当设置为‘true’的时候，懒加载的对象可能被任何懒属性全部加载。否则，每个属性都按需加载。</td>
+<td style="text-align:left">true/false</td>
+<td style="text-align:left">true</td>
+</tr>
+</tbody>
+</table>
+<p>在SqlMapConfig.xml中配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 打开延迟加载 的开关 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"lazyLoadingEnabled"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 将积极加载改为消极加载即按需要加载 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">setting</span> <span class="attr">name</span>=<span class="string">"aggressiveLazyLoading"</span> <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 开启二级缓存 --&gt;</span></div><div class="line">   <span class="comment">&lt;!-- &lt;setting name="cacheEnabled" value="true"/&gt;--&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>测试代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查询订单关联查询用户，用户信息使用延迟加载</span></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindOrdersUserLazyLoading</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	SqlSession sqlSession = sqlSessionFactory.openSession();<span class="comment">// 创建代理对象</span></div><div class="line">	OrdersMapperCustom ordersMapperCustom = sqlSession</div><div class="line">			.getMapper(OrdersMapperCustom.class);</div><div class="line">	<span class="comment">// 查询订单信息（单表）</span></div><div class="line">	List&lt;Orders&gt; list = ordersMapperCustom.findOrdersUserLazyLoading();</div><div class="line"></div><div class="line">	<span class="comment">// 遍历上边的订单列表</span></div><div class="line">	<span class="keyword">for</span> (Orders orders : list) &#123;</div><div class="line">		<span class="comment">// 执行getUser()去查询用户信息，这里实现按需加载</span></div><div class="line">		User user = orders.getUser();</div><div class="line">		System.out.println(user);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="延迟加载思考"><a href="#延迟加载思考" class="headerlink" title="延迟加载思考"></a>延迟加载思考</h2><p>不使用mybatis提供的association及collection中的延迟加载功能，如何实现延迟加载？？</p>
+<p>实现方法如下：</p>
+<p>定义两个mapper方法：</p>
+<ul>
+<li>查询订单列表</li>
+<li>根据用户id查询用户信息</li>
+</ul>
+<p>实现思路：</p>
+<p>先去查询第一个mapper方法，获取订单信息列表；在程序中（service），按需去调用第二个mapper方法去查询用户信息。</p>
+<p>总之，使用延迟加载方法，先去查询简单的sql（最好单表，也可以关联查询），再去按需要加载关联查询的其它信息。</p>
+<h2 id="IDEA的debug小现象"><a href="#IDEA的debug小现象" class="headerlink" title="IDEA的debug小现象"></a>IDEA的debug小现象</h2><p>使用的是intellij IDEA 15.0.2</p>
+<p>先说一下结果吧，IDEA在debug和run条件下，打印结果不同</p>
+<p>我为了验证延迟加载前的user是否为空，在Orders类中加入了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</div><div class="line">    System.out.println(<span class="string">"----test-print-----"</span>+user+<span class="string">"   user==null: "</span>+(user==<span class="keyword">null</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 查询订单关联查询用户，用户信息使用延迟加载</span></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindOrdersUserLazyLoading</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	SqlSession sqlSession = sqlSessionFactory.openSession();<span class="comment">// 创建代理对象</span></div><div class="line">	OrdersMapperCustom ordersMapperCustom = sqlSession</div><div class="line">			.getMapper(OrdersMapperCustom.class);</div><div class="line">	<span class="comment">// 查询订单信息（单表）</span></div><div class="line">	List&lt;Orders&gt; list = ordersMapperCustom.findOrdersUserLazyLoading();</div><div class="line"></div><div class="line">	<span class="comment">// 遍历上边的订单列表</span></div><div class="line">	<span class="keyword">for</span> (Orders orders : list) &#123;</div><div class="line">		<span class="comment">// 执行getUser()去查询用户信息，这里实现按需加载</span></div><div class="line">		<span class="comment">//User user = orders.getUser();</span></div><div class="line">		<span class="comment">//System.out.println(user);</span></div><div class="line">		orders.print();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后分别run和debug</p>
+<ul>
+<li>run输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DEBUG [main] - Opening JDBC Connection</div><div class="line">DEBUG [main] - Created connection 110771485.</div><div class="line">DEBUG [main] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@69a3d1d]</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM orders </div><div class="line">DEBUG [main] - ==&gt; Parameters: </div><div class="line">DEBUG [main] - &lt;==      Total: 3</div><div class="line">----test-print-----null   user==null: true</div><div class="line">----test-print-----null   user==null: true</div><div class="line">----test-print-----null   user==null: true</div></pre></td></tr></table></figure>
+<ul>
+<li>debug输出</li>
+</ul>
+<p>在<code>List&lt;Orders&gt; list = ordersMapperCustom.findOrdersUserLazyLoading();</code>打断点，运行完这句,日志输出为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DEBUG [main] - Opening JDBC Connection</div><div class="line">DEBUG [main] - Created connection 1219273867.</div><div class="line">DEBUG [main] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@48aca48b]</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM orders </div><div class="line">DEBUG [main] - ==&gt; Parameters: </div><div class="line">DEBUG [main] - &lt;==      Total: 3</div></pre></td></tr></table></figure>
+<p>但是当你点开<code>list</code>属性时，控制台又输出了，而且可以看到list里的user是有内容的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM user WHERE id=? </div><div class="line">DEBUG [main] - ==&gt; Parameters: 1(Integer)</div><div class="line">DEBUG [main] - &lt;==      Total: 1</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM user WHERE id=? </div><div class="line">DEBUG [main] - ==&gt; Parameters: 10(Integer)</div><div class="line">DEBUG [main] - &lt;==      Total: 1</div></pre></td></tr></table></figure>
+<p>运行完所有程序，控制台输出为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">DEBUG [main] - Opening JDBC Connection</div><div class="line">DEBUG [main] - Created connection 1219273867.</div><div class="line">DEBUG [main] - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@48aca48b]</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM orders </div><div class="line">DEBUG [main] - ==&gt; Parameters: </div><div class="line">DEBUG [main] - &lt;==      Total: 3</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM user WHERE id=? </div><div class="line">DEBUG [main] - ==&gt; Parameters: 1(Integer)</div><div class="line">DEBUG [main] - &lt;==      Total: 1</div><div class="line">DEBUG [main] - ==&gt;  Preparing: SELECT * FROM user WHERE id=? </div><div class="line">DEBUG [main] - ==&gt; Parameters: 10(Integer)</div><div class="line">DEBUG [main] - &lt;==      Total: 1</div><div class="line">----test-print-----User [id=1, username=王五, sex=2, birthday=null, address=null]   user==null: false</div><div class="line">----test-print-----User [id=1, username=王五, sex=2, birthday=null, address=null]   user==null: false</div><div class="line">----test-print-----User [id=10, username=张三, sex=1, birthday=Thu Jul 10 00:00:00 CST 2014, address=北京市]   user==null: false</div></pre></td></tr></table></figure>
+<p>所以，我觉得应该是在debug时，查看属性的话，IDEA会自动调用get相应的方法，从而触发user的查询。延迟加载的源码实现以后我会阅读，把这个问题弄清楚。</p>
 
       
     </div>
@@ -563,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用association实现延迟加载"><span class="nav-number">2.</span> <span class="nav-text">使用association实现延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟加载思考"><span class="nav-number">3.</span> <span class="nav-text">延迟加载思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA的debug小现象"><span class="nav-number">4.</span> <span class="nav-text">IDEA的debug小现象</span></a></li></ol></div>
             
 
           </div>
