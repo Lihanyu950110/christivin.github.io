@@ -99,10 +99,23 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/11/工作流引擎及其可视化定制工具（一）/index.html">
 <meta property="og:site_name" content="徐盛的博客">
 <meta property="og:description" content="前言　　设备完整性系统一期工程终于告于段落，因此想趁这段时间总结一下此项目中的核心–工作流引擎。当初考虑到甲方业务流程复杂、审批手续多等特点于是讨论方案定下采用工作流引擎，至今想来确实是一个明智的选择。考虑到甲方需求复杂多变，我们团队就自主研发了一款灵活、高可维护性以及扩展性的工作流引擎。下面就来的总结一下。">
-<meta property="og:updated_time" content="2017-09-11T07:10:47.757Z">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%A0%B7%E4%BE%8B.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8EFlowEngine%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/beforeAction.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E8%B6%85%E6%97%B6.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%9D%83%E9%99%90.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%9D%83%E9%99%90%E5%AE%9A%E5%88%B6%E7%95%8C%E9%9D%A2.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E6%96%87%E4%BB%B6%E5%BD%92%E6%A1%A3%E5%B1%9E%E6%80%A7.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%8F%98%E9%87%8F%E7%AE%A1%E7%90%86.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8EDAL%E5%B1%82.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/workflow_Dal.png">
+<meta property="og:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E%E6%A8%A1%E5%9E%8B%E5%B1%82.png">
+<meta property="og:updated_time" content="2017-09-11T08:44:18.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作流引擎及其可视化定制工具（一）">
 <meta name="twitter:description" content="前言　　设备完整性系统一期工程终于告于段落，因此想趁这段时间总结一下此项目中的核心–工作流引擎。当初考虑到甲方业务流程复杂、审批手续多等特点于是讨论方案定下采用工作流引擎，至今想来确实是一个明智的选择。考虑到甲方需求复杂多变，我们团队就自主研发了一款灵活、高可维护性以及扩展性的工作流引擎。下面就来的总结一下。">
+<meta name="twitter:image" content="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%A0%B7%E4%BE%8B.png">
 
 
 
@@ -435,9 +448,12 @@
 <p>参考：<br><a href="http://www.activiti.org/userguide/index.html" target="_blank" rel="external">http://www.activiti.org/userguide/index.html</a></p>
 <h2 id="自主研发工作流引擎介绍"><a href="#自主研发工作流引擎介绍" class="headerlink" title="自主研发工作流引擎介绍"></a>自主研发工作流引擎介绍</h2><p>　　为了提高本项目组开发中、大型企业信息管理系统的效率、降低此类项目的后期维护复杂度，本项目组织开发了一个针对中、大型企业信息管理系统的一个工作流引擎开发平台。</p>
 <p>　　本工作流引擎以有限状态机为基本模型，结合消息泵、事务管理与调度、数据存储等机制实现了对企业日常工作业务的全流程、全要素的管理，并为开发人员提供了一个可视化工作流定制工具，允许开发人员对包括业务逻辑、权限控制、数据归档等功能进行可视化定制。</p>
-<p>　　在此工作流引擎开发平台之上，开发人员可从复杂、多变的业务流程设计工作中解放出来，降低重复性编码量、提高开发效率。该工作流引擎开发平台最终成为石化公司设备完整行管理系统及基于Web的武汉石化企业DRBPM系统的开发平台。</p>
+<p>　　在此工作流引擎开发平台之上，开发人员可从复杂、多变的业务流程设计工作中解放出来，降低重复性编码量、提高开发效率。该工作流引擎开发平台最终成为石化公司设备完整行管理系统及基于Web的武汉石化企业DRBPM系统的开发平台。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%A0%B7%E4%BE%8B.png" alt=""></p>
 <h3 id="工作流引擎的整体设计"><a href="#工作流引擎的整体设计" class="headerlink" title="工作流引擎的整体设计"></a>工作流引擎的整体设计</h3><p>　　工作流引擎分为三层结构，分别是FlowEngine、FlowEngine.DAL、FlowEngine.Modals。<br>其中工作流引擎的核心部分在FlowEngine层中完成，基于改进版的有限状态机模型和消息泵实现了工作流的功能。</p>
-<h3 id="核心层–FlowEngine层"><a href="#核心层–FlowEngine层" class="headerlink" title="核心层–FlowEngine层"></a>核心层–FlowEngine层</h3><p>　　在项目中，结合有限状态机的思想，将其具体化成了 <strong>事件</strong>和 <strong>流</strong>。由于有限状态机中的所有状态都是相等的，但是为了适应业务的需求，便借鉴了Windows消息处理方式，给事件添加了三种消息（action）分别是before、current、after。而 <strong>流</strong>则负责事件迁移的方向和条件的判断（并与变量表相关联）。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E%E7%BB%93%E6%9E%84.png" alt=""></p>
+<h3 id="核心层–FlowEngine层"><a href="#核心层–FlowEngine层" class="headerlink" title="核心层–FlowEngine层"></a>核心层–FlowEngine层</h3><p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8EFlowEngine%E7%9B%AE%E5%BD%95.png" alt=""></p>
+<p>　　在项目中，结合有限状态机的思想，将其具体化成了 <strong>事件</strong>和 <strong>流</strong>。由于有限状态机中的所有状态都是相等的，但是为了适应业务的需求，便借鉴了Windows消息处理方式，给事件添加了三种消息（action）分别是before、current、after。而 <strong>流</strong>则负责事件迁移的方向和条件的判断（并与变量表相关联）。</p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/beforeAction.png" alt=""></p>
 <h4 id="主要接口："><a href="#主要接口：" class="headerlink" title="主要接口："></a>主要接口：</h4><ul>
 <li>分别是对象实体的接口：定义XML解析及生成方法</li>
 <li>Event类对外提供的接口：定义事件的通用属性和方法</li>
@@ -482,6 +498,7 @@
 <li>定时事件</li>
 <li>循环事件</li>
 </ul>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E8%B6%85%E6%97%B6.png" alt=""></p>
 <h4 id="流（Flow）"><a href="#流（Flow）" class="headerlink" title="流（Flow）"></a>流（Flow）</h4><p>流中定义了若干属性和一个计算表达式的方法：</p>
 <ul>
 <li>destination_event（目标事件）</li>
@@ -489,7 +506,31 @@
 <li>source_event（源事件）</li>
 <li>Evaluate :计算流（Flow）表达式的值</li>
 </ul>
-<h3 id="FlowEngine-Modals层"><a href="#FlowEngine-Modals层" class="headerlink" title="FlowEngine.Modals层"></a>FlowEngine.Modals层</h3><p>　　该层主要包含工作流引擎中涉及的类，并且通过code-first方式进行数据库迁移，在数据库中建立关系表，对工作流的信息进行记录及归档，方便以后查阅。其中建立的表有工作流定义表、工作流实体表、工作流已完成的任务表、任务的记录表、任务中的变量表、当前任务表和定时作业表。</p>
+<p>Evaluate ()方法是流（Flow）的核心方法，与之配合的方法有将中缀表达式转化成后缀表达式的方法，重写的加法、减法、小于、大于、小于等于、大于等于、与、或、非、不等于等一些计算表达式的方法</p>
+<h4 id="权限验证"><a href="#权限验证" class="headerlink" title="权限验证"></a>权限验证</h4><p>　　作为工作流中的关键的一环，权限验证方式几经变换，到现在已经完全成熟。以前老版的权限验证方式是给每一个事件中赋予它一串权限字符串，根据权限字符串在库中进行验证当前用户是否具有权限操作该事件。权限字符串中包含的特征属性有：外部变量（如：当前用户）、专业、部门、角色、设备等。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E6%9D%83%E9%99%90.png" alt=""></p>
+<p>对应验证权限的方法有：</p>
+<ul>
+<li>FillParams//将参数值填充到查询语句</li>
+<li>CheckAuth //验证权限，返回真假</li>
+<li>GetParams //返回权限认证串中的参数名称</li>
+</ul>
+<p>　　在基础库中数据不多的情况下，这种权限验证方式可以适应系统需求，但是由于甲方的基础库不断增加，如设备由原来的2000多台一下增至10万余台，用户由100余人增至500余人，专业、部门等也自然相应增加，因此原来的逐条验证权限方式已不满足系统需求。</p>
+<p>　　为了满足系统需求，权限验证方式必须做出改变。经过充分的讨论及验证后，决定将注意力由设备转移到用户上来，具体做法是建立一张权限表，将当前所有事件的权限字段放如其中，用户登录时验证权限，即可一次查出该用户所有可操作的事件，极大地提高了系统的效率。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E6%9D%83%E9%99%90%E5%AE%9A%E5%88%B6%E7%95%8C%E9%9D%A2.png" alt=""></p>
+<h4 id="文件归档"><a href="#文件归档" class="headerlink" title="文件归档"></a>文件归档</h4><p>　　在一条工作流处理完后，用户希望将这条工作流中上传过的文件进行归档方便以后查阅，<br>为了实现这一功能，便在事件定制的时候为上传文件类的变量加上一个变量类型-文件归档，同时在数据库中创建一个针对变量类型为文件归档的变量的视图，通过查询视图可以高效的得到查询结果。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E6%96%87%E4%BB%B6%E5%BD%92%E6%A1%A3%E5%B1%9E%E6%80%A7.png" alt=""></p>
+<p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%8F%98%E9%87%8F%E7%AE%A1%E7%90%86.png" alt=""></p>
+<p>####定时性任务<br>　　可以由用户按需自行定义，定时产生任意条数工作流，实现定时性任务的功能。此功能的实质是在定制完成后加载进内存，配合心跳程序，每分钟查询一次，根据定制时为任务指定的corn表达式，到了时间触发，产生工作流。</p>
+<h3 id="FlowEngine-DAL层"><a href="#FlowEngine-DAL层" class="headerlink" title="FlowEngine.DAL层"></a>FlowEngine.DAL层</h3><pre><code>该层主要为工作流引擎与数据库之间的交互，包含针对定时性任务的一个类和对库中工作流操作的一个类。
+</code></pre><p><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8EDAL%E5%B1%82.png" alt=""></p>
+<p><strong>job</strong></p>
+<p><strong>workflow</strong><br><img src="http://oppqlui3e.bkt.clouddn.com/workflow_Dal.png" alt=""></p>
+<h3 id="FlowEngine-Modals层"><a href="#FlowEngine-Modals层" class="headerlink" title="FlowEngine.Modals层"></a>FlowEngine.Modals层</h3><p>　　该层主要包含工作流引擎中涉及的类，并且通过code-first方式进行数据库迁移，在数据库中建立关系表，对工作流的信息进行记录及归档，方便以后查阅。其中建立的表有工作流定义表、工作流实体表、工作流已完成的任务表、任务的记录表、任务中的变量表、当前任务表和定时作业表。<br><img src="http://oppqlui3e.bkt.clouddn.com/%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%BC%95%E6%93%8E%E6%A8%A1%E5%9E%8B%E5%B1%82.png" alt=""></p>
+<p>##总结</p>
+<p>以上是对工作流引擎的一些简单的介绍，后续会对可视化定制工作流的工具进行总结。本文为原创文章，转载请与我联系，如有错误地方，谢谢指正。</p>
+<hr>
+<blockquote>
+<p>作者<a href="http://christivin.github.io/" target="_blank" rel="external">@christivin</a></p>
+<p>更多文章：<a href="http://christivin.github.io/" target="_blank" rel="external">个人网站</a></p>
+</blockquote>
 
       
     </div>
@@ -677,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流引擎概要"><span class="nav-number">2.</span> <span class="nav-text">工作流引擎概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主流工作流引擎介绍"><span class="nav-number">3.</span> <span class="nav-text">主流工作流引擎介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shark"><span class="nav-number">3.1.</span> <span class="nav-text">Shark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Osworkflow"><span class="nav-number">3.2.</span> <span class="nav-text">Osworkflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jbpm"><span class="nav-number">3.3.</span> <span class="nav-text">Jbpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-ODE"><span class="nav-number">3.4.</span> <span class="nav-text">Apache ODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bonita-Bonita"><span class="nav-number">3.5.</span> <span class="nav-text">Bonita  Bonita</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activiti"><span class="nav-number">3.6.</span> <span class="nav-text">Activiti</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自主研发工作流引擎介绍"><span class="nav-number">4.</span> <span class="nav-text">自主研发工作流引擎介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流引擎的整体设计"><span class="nav-number">4.1.</span> <span class="nav-text">工作流引擎的整体设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心层–FlowEngine层"><span class="nav-number">4.2.</span> <span class="nav-text">核心层–FlowEngine层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要接口："><span class="nav-number">4.2.1.</span> <span class="nav-text">主要接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件（Event）"><span class="nav-number">4.2.2.</span> <span class="nav-text">事件（Event）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流（Flow）"><span class="nav-number">4.2.3.</span> <span class="nav-text">流（Flow）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlowEngine-Modals层"><span class="nav-number">4.3.</span> <span class="nav-text">FlowEngine.Modals层</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作流引擎概要"><span class="nav-number">2.</span> <span class="nav-text">工作流引擎概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主流工作流引擎介绍"><span class="nav-number">3.</span> <span class="nav-text">主流工作流引擎介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shark"><span class="nav-number">3.1.</span> <span class="nav-text">Shark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Osworkflow"><span class="nav-number">3.2.</span> <span class="nav-text">Osworkflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jbpm"><span class="nav-number">3.3.</span> <span class="nav-text">Jbpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-ODE"><span class="nav-number">3.4.</span> <span class="nav-text">Apache ODE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bonita-Bonita"><span class="nav-number">3.5.</span> <span class="nav-text">Bonita  Bonita</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activiti"><span class="nav-number">3.6.</span> <span class="nav-text">Activiti</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自主研发工作流引擎介绍"><span class="nav-number">4.</span> <span class="nav-text">自主研发工作流引擎介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流引擎的整体设计"><span class="nav-number">4.1.</span> <span class="nav-text">工作流引擎的整体设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心层–FlowEngine层"><span class="nav-number">4.2.</span> <span class="nav-text">核心层–FlowEngine层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要接口："><span class="nav-number">4.2.1.</span> <span class="nav-text">主要接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件（Event）"><span class="nav-number">4.2.2.</span> <span class="nav-text">事件（Event）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流（Flow）"><span class="nav-number">4.2.3.</span> <span class="nav-text">流（Flow）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限验证"><span class="nav-number">4.2.4.</span> <span class="nav-text">权限验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件归档"><span class="nav-number">4.2.5.</span> <span class="nav-text">文件归档</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlowEngine-DAL层"><span class="nav-number">4.3.</span> <span class="nav-text">FlowEngine.DAL层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlowEngine-Modals层"><span class="nav-number">4.4.</span> <span class="nav-text">FlowEngine.Modals层</span></a></li></ol></li></ol></div>
             
 
           </div>
