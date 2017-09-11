@@ -1,0 +1,811 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="输出映射," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="徐盛的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="前言本文主要讲解mybatis的输出映射。">
+<meta name="keywords" content="输出映射">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis整理笔记（八）">
+<meta property="og:url" content="http://yoursite.com/2016/11/05/mybatis整理笔记（八）/index.html">
+<meta property="og:site_name" content="徐盛的博客">
+<meta property="og:description" content="前言本文主要讲解mybatis的输出映射。">
+<meta property="og:updated_time" content="2017-08-25T09:37:58.708Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mybatis整理笔记（八）">
+<meta name="twitter:description" content="前言本文主要讲解mybatis的输出映射。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/05/mybatis整理笔记（八）/"/>
+
+
+
+
+
+  <title>mybatis整理笔记（八） | 徐盛的博客</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">徐盛的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">起今知行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/05/mybatis整理笔记（八）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="徐盛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="徐盛的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">mybatis整理笔记（八）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-05T16:12:32+08:00">
+                2016-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">mybatis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要讲解mybatis的输出映射。<br><a id="more"></a></p>
+<p>输出映射有两种方式</p>
+<ul>
+<li><code>resultType</code></li>
+<li><code>resultMap</code></li>
+</ul>
+<h2 id="resultType"><a href="#resultType" class="headerlink" title="resultType"></a>resultType</h2><ul>
+<li>使用<code>resultType</code>进行输出映射，只有查询出来的列名和pojo中的属性名一致，该列才可以映射成功。</li>
+<li>如果查询出来的列名和pojo中的属性名全部不一致，没有创建pojo对象。</li>
+<li>只要查询出来的列名和pojo中的属性有一个一致，就会创建pojo对象。</li>
+</ul>
+<h3 id="输出简单类型"><a href="#输出简单类型" class="headerlink" title="输出简单类型"></a>输出简单类型</h3><ul>
+<li>mapper.xml</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 用户信息综合查询总数</span></div><div class="line">       parameterType：指定输入类型和findUserList一样</div><div class="line">       resultType：输出结果类型</div><div class="line">   --&gt;</div><div class="line">   <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserCount"</span> <span class="attr">parameterType</span>=<span class="string">"com.iot.mybatis.po.UserQueryVo"</span> <span class="attr">resultType</span>=<span class="string">"int"</span>&gt;</span></div><div class="line">       SELECT count(*) FROM user WHERE user.sex=#&#123;userCustom.sex&#125; AND user.username LIKE '%$&#123;userCustom.username&#125;%'</div><div class="line">   <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>mapper.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">//用户信息综合查询总数</span></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindUserCount</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">	SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line"></div><div class="line">	<span class="comment">//创建UserMapper对象，mybatis自动生成mapper代理对象</span></div><div class="line">	UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line"></div><div class="line">	<span class="comment">//创建包装对象，设置查询条件</span></div><div class="line">	UserQueryVo userQueryVo = <span class="keyword">new</span> UserQueryVo();</div><div class="line">	UserCustom userCustom = <span class="keyword">new</span> UserCustom();</div><div class="line">	<span class="comment">//由于这里使用动态sql，如果不设置某个值，条件不会拼接在sql中</span></div><div class="line">	userCustom.setSex(<span class="string">"1"</span>);</div><div class="line">	userCustom.setUsername(<span class="string">"小"</span>);</div><div class="line">	userQueryVo.setUserCustom(userCustom);</div><div class="line">	<span class="comment">//调用userMapper的方法</span></div><div class="line"></div><div class="line">	<span class="keyword">int</span> count = userMapper.findUserCount(userQueryVo);</div><div class="line"></div><div class="line">	System.out.println(count);</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>小结</li>
+</ul>
+<p>查询出来的结果集只有一行且一列，可以使用简单类型进行输出映射。</p>
+<h3 id="输出pojo对象和pojo列表"><a href="#输出pojo对象和pojo列表" class="headerlink" title="输出pojo对象和pojo列表"></a>输出pojo对象和pojo列表</h3><p><strong>不管是输出的pojo单个对象还是一个列表（list中包括pojo），在mapper.xml中<code>resultType</code>指定的类型是一样的。</strong></p>
+<p>在mapper.java指定的方法返回值类型不一样：</p>
+<ul>
+<li>输出单个pojo对象，方法返回值是单个对象类型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//根据id查询用户信息</span></div><div class="line"><span class="function"><span class="keyword">public</span> User <span class="title">findUserById</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>输出pojo对象list，方法返回值是List<pojo></pojo></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//根据用户名列查询用户列表</span></div><div class="line"><span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">findUserByName</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
+<p><strong>生成的动态代理对象中是根据mapper方法的返回值类型确定是调用<code>selectOne</code>(返回单个对象调用)还是<code>selectList</code> （返回集合对象调用 ）.</strong></p>
+<h2 id="resultMap"><a href="#resultMap" class="headerlink" title="resultMap"></a>resultMap</h2><p>mybatis中使用resultMap完成高级输出结果映射。(一对多，多对多)</p>
+<h3 id="resultMap使用方法"><a href="#resultMap使用方法" class="headerlink" title="resultMap使用方法"></a>resultMap使用方法</h3><p>如果查询出来的列名和pojo的属性名不一致，通过定义一个resultMap对列名和pojo属性名之间作一个映射关系。</p>
+<p>1.定义resultMap</p>
+<p>2.使用resultMap作为statement的输出映射类型</p>
+<ul>
+<li>定义reusltMap</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 定义resultMap</span></div><div class="line">	将SELECT id id_,username username_ FROM USER 和User类中的属性作一个映射关系</div><div class="line">	</div><div class="line">	type：resultMap最终映射的java对象类型,可以使用别名</div><div class="line">	id：对resultMap的唯一标识</div><div class="line">	 --&gt;</div><div class="line">	 <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"user"</span> <span class="attr">id</span>=<span class="string">"userResultMap"</span>&gt;</span></div><div class="line">	 	<span class="comment">&lt;!-- id表示查询结果集中唯一标识 </span></div><div class="line">	 	column：查询出来的列名</div><div class="line">	 	property：type指定的pojo类型中的属性名</div><div class="line">	 	最终resultMap对column和property作一个映射关系 （对应关系）</div><div class="line">	 	--&gt;</div><div class="line">	 	<span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"id_"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></div><div class="line">	 	<span class="comment">&lt;!-- </span></div><div class="line">	 	result：对普通名映射定义</div><div class="line">	 	column：查询出来的列名</div><div class="line">	 	property：type指定的pojo类型中的属性名</div><div class="line">	 	最终resultMap对column和property作一个映射关系 （对应关系）</div><div class="line">	 	 --&gt;</div><div class="line">	 	<span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"username_"</span> <span class="attr">property</span>=<span class="string">"username"</span>/&gt;</span></div><div class="line">	 </div><div class="line">	 <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用resultMap作为statement的输出映射类型</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 使用resultMap进行输出映射</span></div><div class="line">        resultMap：指定定义的resultMap的id，如果这个resultMap在其它的mapper文件，前边需要加namespace</div><div class="line">        --&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findUserByIdResultMap"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultMap</span>=<span class="string">"userResultMap"</span>&gt;</span></div><div class="line">        SELECT id id_,username username_ FROM USER WHERE id=#&#123;value&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>mapper.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//根据id查询用户信息，使用resultMap输出</span></div><div class="line"><span class="function"><span class="keyword">public</span> User <span class="title">findUserByIdResultMap</span><span class="params">(<span class="keyword">int</span> id)</span> <span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>测试代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindUserByIdResultMap</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">	SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line"></div><div class="line">	<span class="comment">//创建UserMapper对象，mybatis自动生成mapper代理对象</span></div><div class="line">	UserMapper userMapper = sqlSession.getMapper(UserMapper.class);</div><div class="line"></div><div class="line">	<span class="comment">//调用userMapper的方法</span></div><div class="line"></div><div class="line">	User user = userMapper.findUserByIdResultMap(<span class="number">1</span>);</div><div class="line"></div><div class="line">	System.out.println(user);</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>使用resultType进行输出映射，只有查询出来的列名和pojo中的属性名一致，该列才可以映射成功。</p>
+<p>如果查询出来的列名和pojo的属性名不一致，通过定义一个resultMap对列名和pojo属性名之间作一个映射关系。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/输出映射/" rel="tag"># 输出映射</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/05/mybatis整理笔记（七）/" rel="next" title="mybatis整理笔记（七）">
+                <i class="fa fa-chevron-left"></i> mybatis整理笔记（七）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/06/mybatis整理笔记（九）/" rel="prev" title="mybatis整理笔记（九）">
+                mybatis整理笔记（九） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+	
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="徐盛" />
+          <p class="site-author-name" itemprop="name">徐盛</p>
+           
+              <p class="site-description motion-element" itemprop="description">这是一个描述</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resultType"><span class="nav-number">2.</span> <span class="nav-text">resultType</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出简单类型"><span class="nav-number">2.1.</span> <span class="nav-text">输出简单类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出pojo对象和pojo列表"><span class="nav-number">2.2.</span> <span class="nav-text">输出pojo对象和pojo列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resultMap"><span class="nav-number">3.</span> <span class="nav-text">resultMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resultMap使用方法"><span class="nav-number">3.1.</span> <span class="nav-text">resultMap使用方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐盛</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
