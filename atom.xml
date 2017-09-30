@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-11T09:07:16.643Z</updated>
+  <updated>2017-09-30T09:08:00.042Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,101 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手撕设计模式（零）-概要</title>
+    <link href="http://yoursite.com/2017/09/30/%E6%89%8B%E6%92%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%9B%B6%EF%BC%89-%E6%A6%82%E8%A6%81/"/>
+    <id>http://yoursite.com/2017/09/30/手撕设计模式（零）-概要/</id>
+    <published>2017-09-30T07:47:39.000Z</published>
+    <updated>2017-09-30T09:08:00.042Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>本章主要内容</strong></p>
+<ul>
+<li>设计模式的概要</li>
+<li>设计模式的六大原则</li>
+<li>设计模式的分类</li>
+</ul>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>手撕设计模式！！每一种设计模式尽量用代码实现一遍，将在博客中详细讲解，慢慢更新~ 这是<a href="https://christivin.github.io/" target="_blank" rel="external">我的博客</a>　:)</p>
+  <a id="more"></a>
+<h2 id="设计模式（Design-Patterns）"><a href="#设计模式（Design-Patterns）" class="headerlink" title="设计模式（Design Patterns）"></a>设计模式（Design Patterns）</h2><p>—-可复用面向对象软件的基础</p>
+<p>　　设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。 毫无疑问，设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化，设计模式是软件工程的基石，如同大厦的一块块砖石一样。项目中合理的运用设计模式可以完美的解决很多问题，每种模式在现在中都有相应的原理来与之对应，每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的核心解决方案，这也是它能被广泛应用的原因。学好设计模式，做一个优秀的软件工程师！(转自<a href="http://blog.csdn.net/zhangerqing/article/details/8194653" target="_blank" rel="external">Java之美[从菜鸟到高手演变]之设计模式</a>的一段话)</p>
+<h2 id="设计模式的六大原则"><a href="#设计模式的六大原则" class="headerlink" title="设计模式的六大原则"></a>设计模式的六大原则</h2><h3 id="1-开闭原则（Open-Close-Principle）"><a href="#1-开闭原则（Open-Close-Principle）" class="headerlink" title="1.开闭原则（Open Close Principle）"></a>1.开闭原则（Open Close Principle）</h3><p>　　开闭原则就是说对扩展开放，对修改关闭。在程序需要进行拓展的时候，不能去修改原有的代码，实现一个热插拔的效果。所以一句话概括就是：为了使程序的扩展性好，易于维护和升级。想要达到这样的效果，我们需要使用接口和抽象类，后面的具体设计中我们会提到这点。</p>
+<h3 id="2-里氏代换原则（Liskov-Substitution-Principle）"><a href="#2-里氏代换原则（Liskov-Substitution-Principle）" class="headerlink" title="2.里氏代换原则（Liskov Substitution Principle）"></a>2.里氏代换原则（Liskov Substitution Principle）</h3><p>　　里氏代换原则(Liskov Substitution Principle LSP)面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。 LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开-闭”原则的补充。实现“开-闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。—— From Baidu 百科</p>
+<h3 id="3-依赖倒转原则（Dependence-Inversion-Principle）"><a href="#3-依赖倒转原则（Dependence-Inversion-Principle）" class="headerlink" title="3.依赖倒转原则（Dependence Inversion Principle）"></a>3.依赖倒转原则（Dependence Inversion Principle）</h3><p>　　这个是开闭原则的基础，具体内容：真对接口编程，依赖于抽象而不依赖于具体。</p>
+<h3 id="4-接口隔离原则（Interface-Segregation-Principle）"><a href="#4-接口隔离原则（Interface-Segregation-Principle）" class="headerlink" title="4.接口隔离原则（Interface Segregation Principle）"></a>4.接口隔离原则（Interface Segregation Principle）</h3><p>　　这个原则的意思是：使用多个隔离的接口，比使用单个接口要好。还是一个降低类之间的耦合度的意思，从这儿我们看出，其实设计模式就是一个软件的设计思想，从大型软件架构出发，为了升级和维护方便。所以上文中多次出现：降低依赖，降低耦合。</p>
+<h3 id="5-迪米特法则（最少知道原则）（Demeter-Principle）"><a href="#5-迪米特法则（最少知道原则）（Demeter-Principle）" class="headerlink" title="5.迪米特法则（最少知道原则）（Demeter Principle）"></a>5.迪米特法则（最少知道原则）（Demeter Principle）</h3><p>　　为什么叫最少知道原则，就是说：一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
+<h3 id="6-合成复用原则（Composite-Reuse-Principle）"><a href="#6-合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="6.合成复用原则（Composite Reuse Principle）"></a>6.合成复用原则（Composite Reuse Principle）</h3><p>　　原则是尽量使用合成/聚合的方式，而不是使用继承。</p>
+<h2 id="设计模式的分类"><a href="#设计模式的分类" class="headerlink" title="设计模式的分类"></a>设计模式的分类</h2><p>总体来说设计模式分为三大类：</p>
+<p>创建型模式，共五种：</p>
+<ul>
+<li>工厂方法模式</li>
+<li>抽象工厂模式</li>
+<li>单例模式</li>
+<li>建造者模式</li>
+<li>原型模式</li>
+</ul>
+<p>结构型模式，共七种：</p>
+<ul>
+<li>适配器模式</li>
+<li>装饰器模式</li>
+<li>代理模式</li>
+<li>外观模式</li>
+<li>桥接模式</li>
+<li>组合模式</li>
+<li>享元模式</li>
+</ul>
+<p>行为型模式，共十一种：</p>
+<ul>
+<li>策略模式</li>
+<li>模板方法模式</li>
+<li>观察者模式</li>
+<li>迭代子模式</li>
+<li>责任链模式</li>
+<li>命令模式</li>
+<li>备忘录模式</li>
+<li>状态模式</li>
+<li>访问者模式</li>
+<li>中介者模式</li>
+<li>解释器模式</li>
+</ul>
+<p><strong>特殊的两类：</strong> 并发型模式和线程池模式</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;本章主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;设计模式的概要&lt;/li&gt;
+&lt;li&gt;设计模式的六大原则&lt;/li&gt;
+&lt;li&gt;设计模式的分类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;手撕设计模式！！每一种设计模式尽量用代码实现一遍，将在博客中详细讲解，慢慢更新~ 这是&lt;a href=&quot;https://christivin.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;我的博客&lt;/a&gt;　:)&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://yoursite.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="设计模式概要" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%A6%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手撕设计模式（一）-普通工厂</title>
+    <link href="http://yoursite.com/2017/09/30/%E6%89%8B%E6%92%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89-%E6%99%AE%E9%80%9A%E5%B7%A5%E5%8E%82/"/>
+    <id>http://yoursite.com/2017/09/30/手撕设计模式（一）-普通工厂/</id>
+    <published>2017-09-30T07:46:59.000Z</published>
+    <updated>2017-09-30T07:46:59.366Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>工作流引擎及其可视化定制工具（一）</title>
@@ -1412,174 +1507,6 @@ create unique index 索引名  on 表名 (列表..);
     
     
       <category term="mysql优化" scheme="http://yoursite.com/tags/mysql%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL学习笔记整理（一）</title>
-    <link href="http://yoursite.com/2017/02/13/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/02/13/MySQL学习笔记整理（一）/</id>
-    <published>2017-02-13T03:08:56.000Z</published>
-    <updated>2017-07-13T03:13:13.993Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;数据库是后台开发重中之重的一个环节，了解当前各种类型的数据库，并在了解各种数据库设计原理的基础上，深入学习相关优化策略，加之以实战经验，才是长久的发展之计。之后对先对关系型数据库–mysql为例进行深入学习笔记记录，毕竟开源，而且也是世界顶级的数据库，然后对非关系型数据库NoSql进行学习，以Redis为例，这些都已经接触过了，之后将做一个总结的笔记。</p>
-  <a id="more"></a>
-<h2 id="数据库的种类"><a href="#数据库的种类" class="headerlink" title="数据库的种类"></a>数据库的种类</h2><ol>
-<li>对象数据库 应用领域：地理信息系统、科学与统计数据库、多媒体系统、XML文档仓库。</li>
-<li>对象关系数据库 了解一下</li>
-<li>关系数据库，例如mysql、oracle、sql server、db2等。我们以mysql为例深入了解关系数据库。</li>
-<li>介于关系数据库与非关系数据库之间的MongoDB和完全的非关系数据库NoSql的Redis。Redis是我们了解的重点。</li>
-</ol>
-<h2 id="mysql数据库系统"><a href="#mysql数据库系统" class="headerlink" title="mysql数据库系统"></a>mysql数据库系统</h2><p>&#160; &#160; &#160; &#160;mysql由SQL接口、解析器、查询优化器、查询缓存（缓存和缓冲区）、存储引擎等几个子系统构成。</p>
-<p><img src="http://img1.51cto.com/attachment/201308/111054362.png?_=3641983" alt=""></p>
-<p>&#160; &#160; &#160; &#160;图中还有几个部分解释如下：</p>
-<p>connectors：与其他编程语言中的sql 语句进行交互，如php、java等；</p>
-<p>Management Serveices &amp; Utilities：系统管理和控制工具；</p>
-<p>Connection Pool (连接池)：管理缓冲用户连接，线程处理等需要缓存的需求。下面我们一个一个的来了解。</p>
-<h3 id="SQL接口"><a href="#SQL接口" class="headerlink" title="SQL接口"></a>SQL接口</h3><p>&#160; &#160; &#160; &#160;SQL提供了从用户接收命令并把结果返回给用户的机制。关系数据库大都支持SQL标准，基本语句都类似，比如常规的CURD操作，sql server和mysql就差不多。mysql是一个多线程应用，它为每一个连接创建一个线程，每个线程执行都独立于其他线程。接收到SQL命令，解析各个部分存入一个类结构，查询结果通过有关数据写到网络通信协议上传输给客户端。</p>
-<h3 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h3><p>解析器使用Lex和YACC实现，它能够把一条SQL语句分解为命令字、选项和参数等一系列最基本的语法元素，并将这些存入一个Lex类的结构中，后面查询步骤都会使用这个。规则使用Lex和YACC编写，在使用Bison编译成一个词法解析器。</p>
-<h3 id="查询优化器"><a href="#查询优化器" class="headerlink" title="查询优化器"></a>查询优化器</h3><p>&#160; &#160; &#160; &#160;查询优化策略有很多，也可以设计优化算法，高阶程序员也可以自己写查询优化器代替mysql默认的。sql server使用的查询优化策略是基于开销的，根据一系列等价规则为给定查询生成一系列查询评估计划，然后根据关于执行这个查询所需要的关系和操作性能指标数据中选出开销最小的。mysql是混合使用多种优化技术的数据库系统，围绕着选取-投影-联结策略而设计出来的，从整体上能保证生成好的，但不能保证生成最好的查询语句。属于启发式查询优化机制。</p>
-<p>&#160; &#160; &#160; &#160;具体的 <strong>选取-投影-联结</strong> 策略 ：即先更具有关的限制条件进行选取（select操作）以减少要处理的元组个数，再进行投影以减少被选取元组里的属性字段的个数，最后根据联结条件生成最终的查询结果。</p>
-<ol>
-<li>通过计算where子句里的表达式来横向排除多余的数据。</li>
-<li>只保留在属性清单里面列出来的，以及在最后执行连接子句时还需要用到的属性字段，其他数据全部排除。</li>
-<li>根据联结条件生成最终的查询结果。</li>
-</ol>
-<p>&#160; &#160; &#160; &#160;优化的第一步检查有关的表是否存在以及用户的访问权限。发现错误返回出错信息并把控制器交给线程管理器，也就是负责监听请求的listener，一旦找到了正确的表，就打开并应用适当的并发控制。<br>&#160; &#160; &#160; &#160;所有的维护和初识化任务完成后，优化器将利用Lex结构对命令中where条件进行处理，其结果作为临时表返回后续步骤做一步处理。如果查询命令里面有UNION操作法，优化器将以循环方式执行完所有的select操作之后再进行下一步。<br>&#160; &#160; &#160; &#160;优化器下一步时执行投影操作。这一步中间结果保存在临时表中且只保存指定列。最后检查Lex结构是否含有Join条件；如果有，调用join优化方法。</p>
-<p>&#160; &#160; &#160; &#160;优化内容：对条件表达式进行简化和求值，消除死分支或恒真恒假条件。总之，在执行联结操作之前，优化器会尽量减小查询命令里的条件。</p>
-<h3 id="查询执行"><a href="#查询执行" class="headerlink" title="查询执行"></a>查询执行</h3><p>&#160; &#160; &#160; &#160;查询的具体执行是由一组库方法实现，每种方法复制一种特点操作，例如CRUD。方法都有一个线程对象参数，可以让那些方法直接找到合线程访问相关的内部查询结构，加快执行速度。</p>
-<h3 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h3><p>&#160; &#160; &#160; &#160;查询缓存，包括查询语句解析结果和查询结果本身。把频率最高的数据放在内存中能够快速的访问来加快。速度。mysql把数据封装成某个结构（不同对象缓存，用来封装的结构不同），再把数据保存为一个链表。缓存友表缓存（为了减少打开读取和关闭表，frm文件）、记录缓存（减少数据读写频率）、键缓存（缓存各索引的热度）、权限缓存（授权信息，存为先进后出的散列表）、主机名缓存（用栈）、其他类似联结缓存。缓存有自己的监控机制，利用LRU最近最少使用页面靠换策略。</p>
-<h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><p>&#160; &#160; &#160; &#160;这个是重要的一环，也是mysql最佳功能之一。数据库使用者可以根据需求选择不同的存储引擎，存储引擎是关键的一部，也是数据库管理系统最底层的一个，直接与数据库文件进行交互，也就是对数据库进行IO操作。下面介绍mysql提供的一些存储引擎。</p>
-<ol>
-<li>MyISAM 是默认的存储引擎，它在ISAM上增加了一些新的缓存和索引机制。为了提高访问速度，这类表还普遍使用了数据压缩和索引优化技术。<font color="red">此外还准备了表级的锁定机制。所以适合检索读性能。</font></li>
-<li>InnoDB 几乎总是用在需要支持事务的应用程序。支持ACID，InnoDB所有索引采用B-树结构，放在叶子节点里。改进了并发控制，提供行级的锁定。所以对频繁更新，添加，删除等类型数据库是首选存储引擎。</li>
-<li>BDB提供页面即的锁。支持散列表、B-树。</li>
-<li>内存存储引擎。HEAP表。</li>
-<li>合并存储引擎。安装特定规则分成很多小表去存储一个大表，搜索的时候可以去搜索特定的小表而不是搜索体积庞大的大表。但是缺点是：只能用相同的myisam表，不允许替换操作，与普通表相比，使用索引访问效率要低。</li>
-<li>档案。把大量数据保存为压缩格式，适合存放和检索那些不需要频繁更新的档案性或历史积累数据。比如系统日志。</li>
-<li>联合存储引擎。适合用在分布式环境</li>
-<li>群集／NDB 。 在一个高可用性和高性能的环境中使用多个mysql服务器提供数据库服务。</li>
-<li>其他的包括：CSV、黑洞、定制的。</li>
-</ol>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>&#160; &#160; &#160; &#160;了解了一下数据库的类型，和mysql的组成，对RDBS的设计有了大致的了解，那么后面将对在此基础上对mysql优化进行一个深度的学习和总结，并找demo来实战。下面对SQL 语句执行过程进行说明：</p>
-<p>   &#160; &#160; &#160; &#160;数据库通常不会被直接使用，而是由其他编程语言通过SQL语句调用mysql，由mysql处理并返回执行结果。那么Mysql接受到SQL语句后，又是如何处理的呢？</p>
-<p>   &#160; &#160; &#160; &#160;首先程序的请求会通过mysql的connectors与其进行交互，请求到处后，会暂时存放在连接池（connection pool)中并由处理器（Management Serveices&amp;Utilities）管理。当该请求从等待队列进入到处理队列，管理器会将该请求丢给SQL接口（SQL Interface）。SQL接口接收到请求后，它会将请求进行hash处理并与缓存中的结果进行对比，如果完全匹配则通过缓存直接返回处理结果；否则，需要完整的走一趟流程：</p>
-<ol>
-<li><p>由SQL接口丢给后面的解释器（Parser），上面已经说到，解释器会判断SQL语句正确与否，若正确则将其转化为数据结构。</p>
-</li>
-<li><p>解释器处理完，便来到后面的优化器（Optimizer），它会产生多种执行计划,最终数据库会选择最优化的方案去执行,尽快返会结果。</p>
-</li>
-<li><p>确定最优执行计划后，SQL语句此时便可以交由存储引擎（Engine）处理，存储引擎将会到后端的存储设备中取得相应的数据，并原路返回给程序。</p>
-</li>
-<li><p>这里有几点需要注意：</p>
-</li>
-</ol>
-<p>&#160; &#160; &#160; &#160;(1)如何缓存查询数据？</p>
-<p>&#160; &#160; &#160; &#160;存储引擎处理完数据，并将其返回给程序的同时，它还会将一份数据保留在缓存中，以便更快速的处理下一次相同的请求。具体情况是，mysql会将查询的语句、执行结果等进行hash，并保留在cache中，等待下次查询。</p>
-<p>&#160; &#160; &#160; &#160;(2)buffer与cache的区别？</p>
-<p>&#160; &#160; &#160; &#160;从上面的图可以看到，缓存那里实际上有buffer和cache两个，那它们之间是否有什么不同呢？简单的说就是，buffer是写缓存，cache是读缓存。</p>
-<p>&#160; &#160; &#160; &#160;(3)如何判断缓存中是否已缓存需要的数据</p>
-<p>&#160; &#160; &#160; &#160;这里可能有一个误区，觉得处理SQL语句的时候，为了判断是否已缓存查询结果，会将整个流程走一遍，取得执行结果后再与需要的进行对比，看看是否命中，并以此说，既然不管缓存中有没有缓存到查询内容，都要整个流程走一遍，那么缓存的优势又在哪里？？</p>
-<p>&#160; &#160; &#160; &#160;实际上，并非如此，在第一次查询后，mysql便将查询语句以及查询结果进行hash处理并保留在缓存中，SQL查询到达之后，对其进行同样的hash处理后，将两个hash值进行对照，如果一样，则命中，从缓存中返回查询结果；否则，需要整个流程走一遍。</p>
-<p>链接参考：<a href="http://pmghong.blog.51cto.com/3221425/1281970" target="_blank" rel="external">mysql原理</a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>&#160; &#160; &#160; &#160;文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;数据库是后台开发重中之重的一个环节，了解当前各种类型的数据库，并在了解各种数据库设计原理的基础上，深入学习相关优化策略，加之以实战经验，才是长久的发展之计。之后对先对关系型数据库–mysql为例进行深入学习笔记记录，毕竟开源，而且也是世界顶级的数据库，然后对非关系型数据库NoSql进行学习，以Redis为例，这些都已经接触过了，之后将做一个总结的笔记。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="mysql学习" scheme="http://yoursite.com/categories/mysql%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础之面向对象（二）</title>
-    <link href="http://yoursite.com/2017/02/10/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/02/10/Java基础之面向对象（二）/</id>
-    <published>2017-02-10T07:25:36.000Z</published>
-    <updated>2017-08-16T05:36:00.680Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;本篇继续讲面向对象特性，自动装箱和拆箱，抽象和接口，内部类和lambda表达式，枚举类型等方面。</p>
-  <a id="more"></a>
-<h2 id="自动装箱、拆箱"><a href="#自动装箱、拆箱" class="headerlink" title="自动装箱、拆箱"></a>自动装箱、拆箱</h2><p>&#160; &#160; &#160; &#160;JDK 1.5之前，Java有8个基本数据类型不能当前Object类型，之后就才用自动装箱和拆箱，可以把一个基本数据类型直接赋值给包装类变量，也可以把包装类对象直接复制给一个对应的基本数据类型。</p>
-<h2 id="类成员"><a href="#类成员" class="headerlink" title="类成员"></a>类成员</h2><p>&#160; &#160; &#160; &#160;用static关键字修饰的成员就是类成员，static语义代表的是修饰的对象属于整个类而不属于任何实例。</p>
-<p>&#160; &#160; &#160; &#160;Java中只能包括五种：成员变量、方法、构造器、初始化块、内部类（包括接口、枚举）、以static修饰的成员就是类成员，他能修饰除构造器之外的其他四种。</p>
-<h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><p>&#160; &#160; &#160; &#160;在一些特殊场景下，要求不允许自由创建该类的对象，而只允许为该类创建一个对象，为了避免该类被自由创建，类的构造器使用private修饰，从而把该类的所有构造器隐藏起来。但是还要有一个public方法作为该类的访问点，用于创建该类的对象，且该方法必须使用static修饰，除此之外，该类还不许知道已经缓存过已经创建的对象，否则该类无法知道是否创建过该对象。下面就手写代码实现一个单例类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class Singleton &#123;  </div><div class="line">    private static Singleton instance;  </div><div class="line">    private Singleton ()&#123;&#125;  </div><div class="line">  </div><div class="line">    public static Singleton getInstance() &#123;  </div><div class="line">    if (instance == null) &#123;  </div><div class="line">        instance = new Singleton();  </div><div class="line">    &#125;  </div><div class="line">    return instance;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>&#160; &#160; &#160; &#160;但是这也只是懒汉，单线程情况，还有几种写法参考博客：<a href="https://www.oschina.net/code/snippet_107039_6062" target="_blank" rel="external">单例的5种写法</a>。</p>
-<h2 id="final修饰符"><a href="#final修饰符" class="headerlink" title="final修饰符"></a>final修饰符</h2><p>&#160; &#160; &#160; &#160;final关键字可以修饰类、变量和方法，用于它修饰的类，方法和变量不可变，类似C#中的sealed。修饰变量包括成员变量和局部变量和形参。准确说是一旦赋类初始值就不能被改变。final还可以完成C中宏定义的类似功能。</p>
-<h3 id="final成员变量"><a href="#final成员变量" class="headerlink" title="final成员变量"></a>final成员变量</h3><p>&#160; &#160; &#160; &#160;final修饰的成员变量必须由程序员显式的指定初始值。</p>
-<h3 id="final局部变量"><a href="#final局部变量" class="headerlink" title="final局部变量"></a>final局部变量</h3><p>&#160; &#160; &#160; &#160; 系统不会对局部变量进行初始化，局部变量必须由程序员显式初始化。但是用final修饰局部变量时，既可以在定义时，指定默认初始值，也可以不指定。</p>
-<h3 id="final修饰基本变量和引用变量区别"><a href="#final修饰基本变量和引用变量区别" class="headerlink" title="final修饰基本变量和引用变量区别"></a>final修饰基本变量和引用变量区别</h3><p>&#160; &#160; &#160; &#160;当使用final修饰基本变量时，不能对基本变量类型进行重新赋值，但对引用来说，仅仅是一个引用地址，final只能保证引用类型变量指定的地址不会改变，一直引用一个对象，但这个对象完全可以发生改变。</p>
-<h3 id="final方法"><a href="#final方法" class="headerlink" title="final方法"></a>final方法</h3><p>&#160; &#160; &#160; &#160;不想子类重写的可以用final修饰，比如Object中的getClass（）方法。</p>
-<h3 id="final类"><a href="#final类" class="headerlink" title="final类"></a>final类</h3><p>&#160; &#160; &#160; &#160;final类不能使用子类，比如Math类就是。保证不能被继承。</p>
-<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p>&#160; &#160; &#160; &#160;当编写一个类时候，常常会给类定义一些方法，比如形状类Shape，应该提供一个计算周长的方法，但是Shape类型不同计算周长方式不同，这时我们可以使用抽象方法，只有方法签名，没有方法实现。</p>
-<h3 id="抽象类和抽象方法"><a href="#抽象类和抽象方法" class="headerlink" title="抽象类和抽象方法"></a>抽象类和抽象方法</h3><ol>
-<li>都必须使用abstract修饰符来定义，有抽象方法的类只能被定义为抽象类，抽象方法不能有方法体。</li>
-<li>抽象类不能被实例化，<font color="red">无法使用new来调用构造器实例对象，即使不包含抽象方法。</font></li>
-<li>抽象类可以包含成员变量、方法、构造器、初始化块、内部类5个成分。主要作用是被其子类调用。</li>
-<li>含有抽象方法的类：包括直接定义来一个抽象方法，继承一个抽象父类，但没有完全实现父类包含的抽象方法，或者实现了一个接口但没有完全实现接口包含的抽象方法这三种情况）只能被定义为抽象类。</li>
-<li>不能用来修饰成员变量、局部变量、构造器。</li>
-<li>static和abstract不同时修饰一个方法，即没有所谓的类静态抽象方法。但也不是绝对互斥，它们可以修饰内部类。</li>
-<li>private和abstract不同时修饰方法。</li>
-</ol>
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>&#160; &#160; &#160; &#160;在Java8中对接口进行了改进，允许接口中定义默认方法，默认方法可以提供方法实现。默认方法必须使用default修饰，且不能被static修饰。</p>
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>&#160; &#160; &#160; &#160;接口是从多个相似类中抽象出来的规范，规范了它实现类的基本行为规范。接口使用interface关键字。仿佛默认使用public修饰。</p>
-<p>&#160; &#160; &#160; &#160;Java8中允许接口中定义类方法，必须使用statci修饰，该方法可以使用接口来调用。</p>
-<p>&#160; &#160; &#160; &#160;接口成员默认使用public static final修饰。</p>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
-<li>接口支持多继承；</li>
-<li>接口不能创建实例；</li>
-<li>接口的实现类 implents；实现类可实现多个接口。</li>
-</ol>
-<h2 id="抽象和接口的比较"><a href="#抽象和接口的比较" class="headerlink" title="抽象和接口的比较"></a>抽象和接口的比较</h2><p>&#160; &#160; &#160; &#160;一般接口来控制行为规范，抽象类用来定型。当你关注一个事物的本质的时候，用抽象类；当你关注一个操作的时候，用接口。</p>
-<p>参考这篇博客：<a href="http://www.cnblogs.com/yongjiapei/p/5494894.html" target="_blank" rel="external">抽象和接口的区别</a>。</p>
-<h2 id="面向接口编程"><a href="#面向接口编程" class="headerlink" title="面向接口编程"></a>面向接口编程</h2><h3 id="实现简单工厂模式"><a href="#实现简单工厂模式" class="headerlink" title="实现简单工厂模式"></a>实现简单工厂模式</h3><p><a href="http://www.cnblogs.com/toutou/p/4899388.html" target="_blank" rel="external">详解工厂模式三种类型</a></p>
-<h3 id="实现命令模式"><a href="#实现命令模式" class="headerlink" title="实现命令模式"></a>实现命令模式</h3><p><a href="http://blog.csdn.net/jason0539/article/details/45110355" target="_blank" rel="external">Java命令模式实现</a></p>
-<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h3 id="非静态内部类"><a href="#非静态内部类" class="headerlink" title="非静态内部类"></a>非静态内部类</h3><ol>
-<li>非静态内部类可以访问外部private成员。</li>
-<li>优先在局部变量中寻找。</li>
-<li>外部不能访问非静态内部类的private成员。</li>
-<li>非静态内部类中不能定义静态成员。</li>
-</ol>
-<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><ol>
-<li>静态内部类中可以包含静态、非静态成员都可以。</li>
-<li>静态类不能访问外部成员，只能是访问静态成员。</li>
-<li>静态内部类是外部类的一个静态成员，因此外部类的所有成员可以使用静态内部类来定义，创建对象，但是不能直接访问静态内部类的成员。</li>
-<li>接口中也能定义内部类，接口中只能是静态内部类，默认使用public static。</li>
-</ol>
-<h2 id="内部类的使用"><a href="#内部类的使用" class="headerlink" title="内部类的使用"></a>内部类的使用</h2><ol>
-<li>外部类内部使用内部类：和普通类没有太大区别，唯一区别是：不要在外部类中的静态成员中使用非静态的内部类。</li>
-<li>在外部类以外使用非静态内部类：如果希望被访问，不能使用private。</li>
-<li>外部类以外访问静态内部类，无须实例外部类。</li>
-<li>局部内部类，在方法里，只能在方法内使用。</li>
-</ol>
-<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p>&#160; &#160; &#160; &#160;适合创建那种只需要一次使用的类，类如命令模式中的command对象。匿名内部类必须继承一个父类或实现一个接口，但最多继承一个父类或实现一个接口。不允许为抽象类，不能定义构造器，因为没有类名，但可以定义初始化块来完成构造器要完成的事情。</p>
-<p>&#160; &#160; &#160; &#160;在Java8之前，Java要求局部内部类、匿名内部类访问的局部变量必须使用final修饰，从Java8开始这个限制被取消了，Java8更加智能，自动添加final。</p>
-<p>&#160; &#160; &#160; &#160;参考这篇博客：<a href="http://www.cnblogs.com/nerxious/archive/2013/01/25/2876489.html" target="_blank" rel="external">匿名内部类总结</a></p>
-<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><p>&#160; &#160; &#160; &#160;允许用更简单的代码来创建只有一个抽象方法的接口，即函数式接口。lambda表达式完全可用于简化创建匿名内部类对象。</p>
-<p>&#160; &#160; &#160; &#160;参考这篇博客：<a href="http://www.cnblogs.com/franson-2016/p/5593080.html" target="_blank" rel="external">lambda表达式总结</a></p>
-<h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><p>&#160; &#160; &#160; &#160;早期会用简单的静态变量来表示枚举，但是类型不安全，没有命名空间，意义不明确，后来用类来封装，但是额外要写代码，JDK1.5之后增加了对枚举类的支持。enum。</p>
-<p>&#160; &#160; &#160; &#160;参考这篇博客：<a href="http://www.cnblogs.com/oumyye/p/4232532.html" target="_blank" rel="external">lambda表达式总结</a></p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>　　文中出现的图片，文字描述有些来自互联网，但是出处无法考究，如果侵犯您的相关权益，请联系我，核实后我会马上加上转载说明。谢谢！！！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;本篇继续讲面向对象特性，自动装箱和拆箱，抽象和接口，内部类和lambda表达式，枚举类型等方面。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java基础" scheme="http://yoursite.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="面向对象特性" scheme="http://yoursite.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%B9%E6%80%A7/"/>
     
   </entry>
   
