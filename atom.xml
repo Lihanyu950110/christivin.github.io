@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-30T09:08:00.042Z</updated>
+  <updated>2017-09-30T09:09:36.226Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/30/%E6%89%8B%E6%92%95%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%9B%B6%EF%BC%89-%E6%A6%82%E8%A6%81/"/>
     <id>http://yoursite.com/2017/09/30/手撕设计模式（零）-概要/</id>
     <published>2017-09-30T07:47:39.000Z</published>
-    <updated>2017-09-30T09:08:00.042Z</updated>
+    <updated>2017-09-30T09:09:36.226Z</updated>
     
     <content type="html"><![CDATA[<p><strong>本章主要内容</strong></p>
 <ul>
@@ -40,7 +40,7 @@
 <h3 id="5-迪米特法则（最少知道原则）（Demeter-Principle）"><a href="#5-迪米特法则（最少知道原则）（Demeter-Principle）" class="headerlink" title="5.迪米特法则（最少知道原则）（Demeter Principle）"></a>5.迪米特法则（最少知道原则）（Demeter Principle）</h3><p>　　为什么叫最少知道原则，就是说：一个实体应当尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立。</p>
 <h3 id="6-合成复用原则（Composite-Reuse-Principle）"><a href="#6-合成复用原则（Composite-Reuse-Principle）" class="headerlink" title="6.合成复用原则（Composite Reuse Principle）"></a>6.合成复用原则（Composite Reuse Principle）</h3><p>　　原则是尽量使用合成/聚合的方式，而不是使用继承。</p>
 <h2 id="设计模式的分类"><a href="#设计模式的分类" class="headerlink" title="设计模式的分类"></a>设计模式的分类</h2><p>总体来说设计模式分为三大类：</p>
-<p>创建型模式，共五种：</p>
+<p><strong>创建型模式，共五种：</strong></p>
 <ul>
 <li>工厂方法模式</li>
 <li>抽象工厂模式</li>
@@ -48,7 +48,7 @@
 <li>建造者模式</li>
 <li>原型模式</li>
 </ul>
-<p>结构型模式，共七种：</p>
+<p><strong>结构型模式，共七种：</strong></p>
 <ul>
 <li>适配器模式</li>
 <li>装饰器模式</li>
@@ -58,7 +58,7 @@
 <li>组合模式</li>
 <li>享元模式</li>
 </ul>
-<p>行为型模式，共十一种：</p>
+<p><strong>行为型模式，共十一种：</strong></p>
 <ul>
 <li>策略模式</li>
 <li>模板方法模式</li>
